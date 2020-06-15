@@ -22,8 +22,8 @@ package org.sonarsource.plugins.jjoules.measures;
 import org.sonar.api.ce.measure.Measure;
 import org.sonar.api.ce.measure.MeasureComputer;
 
-import static org.sonarsource.plugins.example.measures.ExampleMetrics.FILENAME_SIZE;
-import static org.sonarsource.plugins.example.measures.ExampleMetrics.FILENAME_SIZE_RATING;
+import static org.sonarsource.plugins.jjoules.measures.ExampleMetrics.FILENAME_SIZE;
+import static org.sonarsource.plugins.jjoules.measures.ExampleMetrics.FILENAME_SIZE_RATING;
 
 /**
  * Rating is computed from value of metric {@link ExampleMetrics#FILENAME_SIZE}.

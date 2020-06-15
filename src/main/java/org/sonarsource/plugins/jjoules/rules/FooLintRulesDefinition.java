@@ -23,11 +23,11 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.server.rule.RulesDefinitionXmlLoader;
-import org.sonarsource.plugins.example.languages.FooLanguage;
+import org.sonarsource.plugins.jjoules.languages.FooLanguage;
 
 public final class FooLintRulesDefinition implements RulesDefinition {
 
-  private static final String PATH_TO_RULES_XML = "/example/foolint-rules.xml";
+  private static final String PATH_TO_RULES_XML = "/jjoules/foolint-rules.xml";
 
   protected static final String KEY = "foolint";
   protected static final String NAME = "FooLint";

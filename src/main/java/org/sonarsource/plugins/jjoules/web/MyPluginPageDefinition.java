@@ -21,32 +21,36 @@ package org.sonarsource.plugins.jjoules.web;
 
 import org.sonar.api.web.page.Context;
 import org.sonar.api.web.page.Page;
+import org.sonar.api.web.page.Page.Scope;
 import org.sonar.api.web.page.PageDefinition;
 
-import static org.sonar.api.web.page.Page.Qualifier.SUB_VIEW;
-import static org.sonar.api.web.page.Page.Qualifier.VIEW;
-import static org.sonar.api.web.page.Page.Scope.COMPONENT;
 
 public class MyPluginPageDefinition implements PageDefinition {
 
   @Override
   public void define(Context context) {
     context
-      .addPage(Page.builder("example/global_page")
-        .setName("Global Page using Vanilla JS")
-        .build())
-      .addPage(Page.builder("example/project_page")
-        .setName("Project Page using Backbone JS")
-        .setScope(COMPONENT)
-        .build())
-      .addPage(Page.builder("example/portfolio_page")
-        .setName("Portfolio Page using React JS")
-        .setScope(COMPONENT)
-        .setComponentQualifiers(VIEW, SUB_VIEW)
-        .build())
-      .addPage(Page.builder("example/admin_page")
-        .setName("Admin Page using React JS")
-        .setAdmin(true)
-        .build());
+    	.addPage(Page.builder("jjoules/jjoules_page")
+    			.setName("Jjoules stat")
+    			.setScope(Scope.COMPONENT).build());
+    	
+	  
+//	  context
+//      .addPage(Page.builder("example/global_page")
+//        .setName("Global Page using Vanilla JS")
+//        .build())
+//      .addPage(Page.builder("example/project_page")
+//        .setName("Project Page using Backbone JS")
+//        .setScope(COMPONENT)
+//        .build())
+//      .addPage(Page.builder("example/portfolio_page")
+//        .setName("Portfolio Page using React JS")
+//        .setScope(COMPONENT)
+//        .setComponentQualifiers(VIEW, SUB_VIEW)
+//        .build())
+//      .addPage(Page.builder("example/admin_page")
+//        .setName("Admin Page using React JS")
+//        .setAdmin(true)
+//        .build());
   }
 }

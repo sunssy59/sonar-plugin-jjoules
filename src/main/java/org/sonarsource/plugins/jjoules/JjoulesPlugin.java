@@ -7,22 +7,22 @@ import static java.util.Arrays.asList;
 
 import org.sonar.api.Plugin;
 import org.sonar.api.config.PropertyDefinition;
-import org.sonarsource.plugins.example.hooks.DisplayQualityGateStatus;
-import org.sonarsource.plugins.example.hooks.PostJobInScanner;
-import org.sonarsource.plugins.example.languages.FooLanguage;
-import org.sonarsource.plugins.example.languages.FooQualityProfile;
-import org.sonarsource.plugins.example.measures.ComputeSizeAverage;
-import org.sonarsource.plugins.example.measures.ComputeSizeRating;
-import org.sonarsource.plugins.example.measures.ExampleMetrics;
-import org.sonarsource.plugins.example.measures.SetSizeOnFilesSensor;
-import org.sonarsource.plugins.example.rules.CreateIssuesOnJavaFilesSensor;
-import org.sonarsource.plugins.example.rules.FooLintIssuesLoaderSensor;
-import org.sonarsource.plugins.example.rules.FooLintRulesDefinition;
-import org.sonarsource.plugins.example.rules.JavaRulesDefinition;
-import org.sonarsource.plugins.example.settings.FooLanguageProperties;
-import org.sonarsource.plugins.example.settings.HelloWorldProperties;
-import org.sonarsource.plugins.example.settings.SayHelloFromScanner;
-import org.sonarsource.plugins.example.web.MyPluginPageDefinition;
+import org.sonarsource.plugins.jjoules.hooks.DisplayQualityGateStatus;
+import org.sonarsource.plugins.jjoules.hooks.PostJobInScanner;
+import org.sonarsource.plugins.jjoules.languages.FooLanguage;
+import org.sonarsource.plugins.jjoules.languages.FooQualityProfile;
+import org.sonarsource.plugins.jjoules.measures.ComputeSizeAverage;
+import org.sonarsource.plugins.jjoules.measures.ComputeSizeRating;
+import org.sonarsource.plugins.jjoules.measures.ExampleMetrics;
+import org.sonarsource.plugins.jjoules.measures.SetSizeOnFilesSensor;
+import org.sonarsource.plugins.jjoules.rules.CreateIssuesOnJavaFilesSensor;
+import org.sonarsource.plugins.jjoules.rules.FooLintIssuesLoaderSensor;
+import org.sonarsource.plugins.jjoules.rules.FooLintRulesDefinition;
+import org.sonarsource.plugins.jjoules.rules.JavaRulesDefinition;
+import org.sonarsource.plugins.jjoules.settings.FooLanguageProperties;
+import org.sonarsource.plugins.jjoules.settings.HelloWorldProperties;
+import org.sonarsource.plugins.jjoules.settings.SayHelloFromScanner;
+import org.sonarsource.plugins.jjoules.web.MyPluginPageDefinition;
 
 /**
  * @author sanoussy

@@ -35,7 +35,7 @@ import org.sonar.api.config.Configuration;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
-import org.sonarsource.plugins.example.languages.FooLanguage;
+import org.sonarsource.plugins.jjoules.languages.FooLanguage;
 
 /**
  * The goal of this Sensor is to load the results of an analysis performed by a fictive external tool named: FooLint

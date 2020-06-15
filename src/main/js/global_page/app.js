@@ -20,17 +20,17 @@ let el, stylesTag;
 
 function init() {
   el.innerHTML = `
-<div class="page page-limited example-global_page">
-  <button class="button button-red" id="example-global_page--button">Do not click me</button>
+<div class="page page-limited jjoules-global_page">
+  <button class="button button-red" id="jjoules-global_page--button">Test acces jjoules plugin</button>
 </div>
 `;
   document
-    .getElementById("example-global_page--button")
+    .getElementById("jjoules-global_page--button")
     .addEventListener("click", handleButtonClick);
 }
 
 function handleButtonClick() {
-  alert("Told you so");
+  alert("access succes");
 }
 
 export function start(element) {
@@ -41,7 +41,7 @@ export function start(element) {
 export function stop() {
   // Remove any event listeners we still have.
   document
-    .getElementById("example-global_page--button")
+    .getElementById("jjoules-global_page--button")
     .removeEventListener("click", handleButtonClick);
 
   // The node will get removed completely by SonarQube anyway, but we can still

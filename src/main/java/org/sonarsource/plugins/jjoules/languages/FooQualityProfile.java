@@ -21,7 +21,7 @@ package org.sonarsource.plugins.jjoules.languages;
 
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 
-import static org.sonarsource.plugins.example.rules.FooLintRulesDefinition.REPO_KEY;
+import static org.sonarsource.plugins.jjoules.rules.FooLintRulesDefinition.REPO_KEY;
 
 /**
  * Default, BuiltIn Quality Profile for the projects having files of the language "foo"

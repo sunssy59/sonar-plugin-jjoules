@@ -98,6 +98,7 @@ export function findVersionsAndMeasures(project) {
           data[numberOfVersions] = result;
           numberOfVersions++;
         }
+        console.log(data);
         return data;
       });
     }

@@ -25,7 +25,7 @@
     },
 
     tpl: _.template(`
-<div class="page page-limited example-project_page">
+<div class="page page-limited jjoules-project_page">
   <% if (branchLike !== undefined) { %>
     <div><strong>
       <% if (branchLike.name !== undefined) { %>
@@ -35,17 +35,17 @@
       <% } %>
     </strong></div>
   <% } %>
-  <button class="button button-red" id="example-project_page--button"><%= label %></button>
+  <button class="button button-red" id="jjoules-project_page--button"><%= label %></button>
 </div>`),
 
-    el: '#example-project_page',
+    el: '#jjoules-project_page',
 
     events: {
       'click': 'handleClick'
     },
 
     handleClick: function() {
-      alert("Gotcha");
+      alert("Access to peoject ");
     },
 
     render: function() {
