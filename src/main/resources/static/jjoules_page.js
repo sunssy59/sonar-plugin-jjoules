@@ -1,15 +1,26 @@
 window.registerExtension('jjoules/jjoules_page',function(options){
 	projectName = options.component.key.substring(options.component.key.indexOf(':')+1);
 
-	//options.el.textContent = "";
+	options.el.textContent = "";
+	loadAllCss();
+	loadD3JS();
+	loadAllJSScript();
+	
 	console.log(projectName);
-	//establishDesign();
 	console.log(options);
-	let div = document.createElement("div");
-	document.setAttribute("class","test");
-	div.innerHTML = '<div class="card-body"><h5 class="card-title">Energie Moyenne</h5><p class="card-text takeEnergy">test :0 Joules</p></div>';
+	divToInsert = options.el;
+	divToInsert.setAttribute('class','bootstrap-iso');
+	establishDesign();
 
-	options.el.appendChild(div);
+
+
+
+
+	// let div = document.createElement("div");
+	// document.setAttribute("class","test");
+	// div.innerHTML = '<div class="card-body"><h5 class="card-title">Energie Moyenne</h5><p class="card-text takeEnergy">test :0 Joules</p></div>';
+
+	// options.el.appendChild(div);
 // 	option.el.innerHTML = `
 // 	<div class="margin-top col-6 text-center"><h3 class="testName thicker text-center">test</h3>
 // 	<button type="button" class="btn btn-secondary float-right margin-right15" onclick="changeVisibility(this)">
