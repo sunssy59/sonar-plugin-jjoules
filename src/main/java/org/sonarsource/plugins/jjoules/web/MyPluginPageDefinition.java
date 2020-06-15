@@ -45,7 +45,7 @@ public class MyPluginPageDefinition implements PageDefinition {
      .addPage(Page.builder("jjoules/jjoules_page")
        .setName("Test page jjoules access")
        .setScope(Scope.COMPONENT)
-       .build())
+       .build());
     //  .addPage(Page.builder("jjoules/portfolio_page")
     //    .setName("Portfolio Page using React JS")
     //    .setScope(Scope.COMPONENT)
