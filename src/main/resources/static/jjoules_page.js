@@ -3,7 +3,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 
 	options.el.textContent = "";
 	//console.log("j'entre bien!!");
-	loadAllHTML();
+	//loadAllHTML();
 	loadAllCss();
 	loadD3JS();
 	loadAllJSScript();
