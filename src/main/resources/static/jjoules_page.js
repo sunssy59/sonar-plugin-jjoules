@@ -1,11 +1,41 @@
 window.registerExtension('jjoules/jjoules_page',function(options){
 	projectName = options.component.key.substring(options.component.key.indexOf(':')+1);
 
-	//options.el.textContent = "";
+	options.el.textContent = "";
 	console.log(projectName);
 	//establishDesign();
 	console.log(options);
-
+	option.el.innerHTML = `
+	<div class="margin-top col-6 text-center"><h3 class="testName thicker text-center">test</h3>
+	<button type="button" class="btn btn-secondary float-right margin-right15" onclick="changeVisibility(this)">
+		<span class="oi oi-menu"></span>
+	</button>
+	<div class="hide margin-top" role="hidden" >
+		<div class="row">
+			<div class="col">
+				<div class="card text-center card-width">
+					<div class="card-body">
+						<h5 class="card-title">Energie Moyenne</h5>
+                        <p class="card-text takeEnergy">test :0 Joules</p>
+					</div>
+				</div>
+				<div class="card text-center card-width">
+				    <div class="card-body">
+	                    <h5 class="card-title">Durée moyenne</h5>
+	                    <p class="card-text">durationTest:10 ms</p>
+	                </div>
+	            </div>
+			</div>
+			<div class="col-5">
+                <div class="card text-center card-width">
+                    <div class="card-body">
+                        <div class="canvas_boxplot"></div>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>`
 
 
 
