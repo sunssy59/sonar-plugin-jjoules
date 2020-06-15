@@ -1,0 +1,35 @@
+header
+<div class="header_div">
+	<div class="container">
+		<div class="row">
+			<a href="${url_project}" target="_blank"> <h1>${nameProject}</h1></a>
+		</div>
+	</div>
+	<hr>
+	<div class="row margin-top-bot">
+        <div class="col-sm text-center">
+            <a href="${url_build}" target="_blank">Build <br><h2 class="text-success">N° ${buildNumber}</h2></a>
+        </div>
+        <div class="col-sm text-center">
+            Executed on branche </br><h2 class="text-success">${branchName}</h2>
+        </div>
+        <div class="col-sm text-center">
+            Commit</br><h2 class="text-success">N° ${commitName}</h2>
+        </div>
+    </div>
+        <div class="row margin-top-bot">
+            <div class="col-sm text-center">
+                Execution time <br><h2 class="text-success">${executionDuration} ms</h2>
+            </div>
+            <div class="col-sm text-center">
+                Number class</br><h2 class="text-success">${numberOfClass}</h2>
+            </div>
+            <div class="col-sm text-center">
+                Total average energy </br>
+                <span class="arrow float-right positionArrowHeader"></span>
+                <h2 class="text-success">${energyAllBuild} Joules</h2>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

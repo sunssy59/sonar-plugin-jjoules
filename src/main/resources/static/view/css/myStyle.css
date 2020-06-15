@@ -1,0 +1,83 @@
+.cardContent {
+    width: 18rem;
+    display: inline-grid;
+    verticalAlign: middle;
+    margin: 10px 10px 10px 10px;
+    background-color: #3b8ebf57;
+}
+
+.clear-both {
+    clear: both;
+}
+
+.card-width {
+    width: 15rem;
+}
+
+.margin-left {
+    margin-left: 20px;
+}
+
+.padding-left {
+    padding-left: 40px;
+}
+
+.testName {
+    display: inline;
+    vertical-align: middle;
+    margin: 10px;
+    font-size: 21px;
+}
+
+.margin-top {
+    margin-top: 15px;
+}
+
+.margin-right15 {
+    margin-right: 15px !important;
+}
+
+.margin-top-bot {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.menu-fixed {
+    position: fixed;
+}
+
+.center-vertical {
+    margin-top: 35vh;
+    transform: translateY(-50%);
+}
+
+.right-position {
+    position: absolute;
+    right: 30px;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.test_div:first-child {
+    border-right: black 1px solid;
+}
+
+.positionArrowHeader {
+    right: 20%;
+}
+
+.input-group input {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.card {
+    margin: auto;
+}
+
+button.btn {
+    height: 37px;
+!important;
+}

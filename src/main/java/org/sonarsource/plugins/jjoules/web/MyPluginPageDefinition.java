@@ -29,21 +29,13 @@ public class MyPluginPageDefinition implements PageDefinition {
 
   @Override
   public void define(Context context) {
-    // context
-    // 	.addPage(Page.builder("jjoules/jjoules_page")
-    // 			.setName("Jjoules stat")
-    // 			.setScope(Scope.COMPONENT).build());
-    // 	.addPage(Page.builder("jjoules/project_page")
-    //       .setName("Project Page ")
-    //       .setScope(scope.COMPONENT)
-    //       .build())
 	  
 	  context
      .addPage(Page.builder("jjoules/global_page")
        .setName("Global Page using Vanilla JS")
        .build())
      .addPage(Page.builder("jjoules/jjoules_page")
-       .setName("Test page jjoules access")
+       .setName("jjoules stats")
        .setScope(Scope.COMPONENT)
        .build());
     //  .addPage(Page.builder("jjoules/portfolio_page")
