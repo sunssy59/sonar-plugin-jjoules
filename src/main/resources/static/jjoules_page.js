@@ -23,7 +23,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
  //        options.el.textContent = '';
  //    };
  		console.log(arg);
-
+});
 });
 
 //data for test 
