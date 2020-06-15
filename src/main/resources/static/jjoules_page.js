@@ -24,15 +24,15 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 
 //data for test 
 var jjoulesData = {
-	scm_url = "",
-	app_name = "",
-	build_name = "",
-	branch = "",
-	commit_name = "",
-	duration = 0,
-	energy = 0,
-	classes = [],
-	build_url = "",
+	scm_url: "test1",
+	app_name: "app_name",
+	build_name: "build_name",
+	branch: "branch",
+	commit_name: "commit_name",
+	duration: 0,
+	energy: 0,
+	classes: [],
+	build_url: "build_url"
 }
 const LIST_COMMIT_NAME = "build_name";
 var divToInsert;
