@@ -2,7 +2,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	projectName = options.component.key.substring(options.component.key.indexOf(':')+1);
 
 	options.el.textContent = "";
-	//console.log("j'entre bien!!");
+	console.log("j'entre bien!!");
 	//loadAllHTML();
 	loadAllCss();
 	loadD3JS();
@@ -18,7 +18,10 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 		establishDesign();
 
 		mapHeader(jjoulesData);
-	})
+	});
+	return function () {
+        options.el.textContent = '';
+    };
 
 });
 
