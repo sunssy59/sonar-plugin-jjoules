@@ -4,4 +4,4 @@ window.registerExtension('jjoules/jjoules_page',funxtion(options){
 	options.el.textContent = "";
 	Console.log("j'entre bien!!");
 
-})
+});
