@@ -3,7 +3,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 
 	//options.el.textContent = "";
 	console.log(projectName);
-	establishDesign();
+	//establishDesign();
 	console.log(options);
 
 
