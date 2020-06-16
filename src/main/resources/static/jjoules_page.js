@@ -83,7 +83,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 });
 
 //data for test 
-var jjoulesData = {
+var branchData = {
 	scm_url: "test1",
 	app_name: "app_name",
 	build_name: "build_name",
@@ -93,6 +93,37 @@ var jjoulesData = {
 	energy: 0,
 	classes: [],
 	build_url: "build_url"
+}
+var jjoulesData = [{
+	className: "classOne",
+	methods:[
+		{testName:"testOne",
+		energy:20,
+		duration 30},
+		{testName:"testTwo",
+		energy:50,
+		duration 130},
+		{testName:"testTree",
+		energy:50,
+		duration 130}
+	]},
+	{
+	className: "classTwo",
+	methods:[
+		{testName:"testOne",
+		energy:10,
+		duration 40},
+		{testName:"testTwo",
+		energy:90,
+		duration 160},
+		{testName:"testTree",
+		energy:80,
+		duration 230}
+	]}
+];
+
+var printResult(data){
+	
 }
 const LIST_COMMIT_NAME = "build_name";
 var divToInsert;
