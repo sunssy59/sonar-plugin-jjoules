@@ -9,7 +9,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	console.log(projectName);
 	console.log(options);
 	divToInsert = options.el;
-	divToInsert.setAttribute('class','col-3 margin-left-3');
+	divToInsert.setAttribute('class','col-3 bootstrap-iso margin-left');
 	//establishDesign();
 	printResult(jjoulesData);
 
