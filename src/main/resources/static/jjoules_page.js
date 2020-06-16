@@ -62,7 +62,8 @@ var displayResult = function(data){
 var printResult = function(data){
 	var globalDiv = document.createElement('div');
     globalDiv.setAttribute('class', 'row' );
-    id_classes =0;
+    divForChart = document.createElement("div");
+    divForChart.setAttribute('class', 'margin-top');
 	data.forEach(function(classe){
 		var divClass = document.createElement("div");
 		divClass.setAttribute('class', 'test_div padding-left');
@@ -80,22 +81,25 @@ var printResult = function(data){
 		button.setAttribute("type","button");
         button.innerHTML = "<p> graph <em> v</em></p>"
 		button.addEventListener("click",function(ev){
-			console.log("test!!");
+			document.getElementsByTagName('canvas').forEach(function(el){
+                el.hidden = true;
+            });
+            document.getElementById(`canvas-${classe.className}`).hidden = false;
+            console.log(classe.className);
 		});
 		divClass.appendChild(button);
 		console.log(button);
 		globalDiv.appendChild(divClass);
+
+        var canvas = document.createElement("canvas");
+        canvas.setAttribute("class","canvas");
+        canvas.id = `canvas-${classe.className}`;
+        canvas.hidden = true;
+        createGraph(canvas, "bubble", fillDataForTestSuiteGraph(data));
+        divForChart.appendChild(canvas);
 	});
 
 	divToInsert.appendChild(globalDiv);
-
-	divForChart = document.createElement("div");
-    divForChart.setAttribute('class', 'margin-top');
-
-	var canvas2 = document.createElement("canvas");
-    createGraph(canvas2, "bubble", fillDataForTestSuiteGraph(data));
-    divForChart.appendChild(canvas2);
-
     divToInsert.appendChild(divForChart);
 }
 
@@ -155,42 +159,6 @@ var loadAllCss = function () {
         document.head.appendChild(link);
     });
 };
-
-/**
- * Add the principal div to the  HTML
- * the divForInsertingMenu
- * the divForInsertingTest
- * the divForChart
- */
-var establishDesign = function(){
-    var globalDiv = document.createElement('div');
-    globalDiv.setAttribute('class', 'row');
-
-    divForInsertingMenu = document.createElement("div");
-    divForInsertingMenu.setAttribute('class', 'menu-fixed col-3 margin-left');
-
-    var rightDiv = document.createElement("div");
-    rightDiv.setAttribute('class', 'col-9');
-
-    divForInsertingTest = document.createElement("div");
-    divForInsertingTest.setAttribute('class', 'margin-top padding-left');
-
-    divForChart = document.createElement("div");
-    divForChart.setAttribute('class', 'margin-top');
-
-    rightDiv.appendChild(divForInsertingTest);
-    rightDiv.appendChild(divForChart);
-
-    var divUseless = document.createElement("div");
-    divUseless.setAttribute('class', 'col-3');
-
-    globalDiv.appendChild(divUseless);
-    globalDiv.appendChild(divForInsertingMenu);
-    globalDiv.appendChild(rightDiv);
-
-    divToInsert.appendChild(globalDiv);
-};
-
 
 //FOR TESTS
 
