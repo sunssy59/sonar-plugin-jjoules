@@ -65,16 +65,22 @@ var printResult = function(data){
     id_classes =0;
 	data.forEach(function(classe){
 		var divClass = document.createElement("div");
-		divClass.setAttribute('class', 'test_div');
+		divClass.setAttribute('class', 'test_div padding-left');
 		divClass.innerHTML = `<h5 id="${classe.className}"> Class : ${classe.className} </h5>`;
 		classe.methods.forEach(function(method){
 			divMethod = document.createElement("div");
-			//divMethod.setAttribute('class','col-2');
+			divMethod.setAttribute('class','method_test');
 			divMethod.innerHTML = `<h6> Method : ${method.testName}</h6>
 									<ul> <li> energy : ${method.energy}</li>
 									<li> duration : ${method.duration}</li></ul>`;
 			divClass.appendChild(divMethod);
 		});
+		let button = document.createElement("button");
+		button.setAttribute("class", "btn btn-secondary float-right");
+		button.on("click",function(ev){
+			console.log("test!!");
+		});
+		divClass.appendChild(button);
 		globalDiv.appendChild(divClass);
 	});
 
