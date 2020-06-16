@@ -5,20 +5,19 @@
  * @return {*} the map html file
  */
 var mapFile = function (htmlFile, hashMap) {
-    var html = htmlFile;
-    var index = html.indexOf("${");
-    var lastIndex = 0;
-    while (index > -1) {
-        var nextIndex = html.indexOf("}", index);
-        var variableName = html.substring(index + 2, nextIndex);
+	var html = htmlFile;
+	var index = html.indexOf("${");
+	var lastIndex = 0;
+	while(index > -1){
+		var nextIndex = html.indexOf("}",index);
+		var variableName = html.substring(index + 2, nextIndex);
 
-        html = html.replace("${" + variableName + "}", hashMap[variableName]);
+		html = html.replace("${" + variableName + "}",hashMap[variableName]);
 
-        lastIndex = index;
-        index = html.indexOf("${", lastIndex + 1);
-    }
-
-    return html;
+		lastIndex = index;
+		index = html.indexOf("${", lastIndex+1);
+	}
+	return html;
 };
 
 /**
@@ -31,7 +30,7 @@ var mapFile = function (htmlFile, hashMap) {
 var mapDetailTest = function(test, buildName, divInsert){
     var hashMap = {};
     hashMap['testName'] = test.name;
-    hashMap['numberOfIterations'] = test.iterations.length;
+    //hashMap['numberOfIterations'] = test.iterations.length;
     hashMap['energyTest'] = Number.parseFloat(test.energy).toPrecision(4);
     hashMap['durationTest'] = test.duration;
 
@@ -50,17 +49,17 @@ var mapDetailTest = function(test, buildName, divInsert){
  * @param powerapiData the powerapiData to print in html
  * @return {Element} the span arrow to put arrow inside
  */
-var mapHeader = function(powerapiData){
+var mapHeader = function(jjoulesData){
     var hashMap = {};
-    hashMap['url_project'] = powerapiData.scm_url;
-    hashMap['nameProject'] = powerapiData.app_name;
-    hashMap['buildNumber'] = powerapiData.build_name;
-    hashMap['branchName'] = powerapiData.branch;
-    hashMap['commitName'] = powerapiData.commit_name;
-    hashMap['executionDuration'] = powerapiData.duration;
-    hashMap['energyAllBuild'] = Number.parseFloat(powerapiData.energy).toPrecision(4);
-    hashMap['numberOfClass'] = powerapiData.classes.length;
-    hashMap['url_build'] = powerapiData.build_url;
+    hashMap['url_project'] = jjoulesData.scm_url;
+    hashMap['nameProject'] = jjoulesData.app_name;
+    hashMap['buildNumber'] = jjoulesData.build_name;
+    hashMap['branchName'] = jjoulesData.branch;
+    hashMap['commitName'] = jjoulesData.commit_name;
+    hashMap['executionDuration'] = jjoulesData.duration;
+    hashMap['energyAllBuild'] = Number.parseFloat(jjoulesData.energy).toPrecision(4);
+    hashMap['numberOfClass'] = jjoulesData.classes.length;
+    hashMap['url_build'] = jjoulesData.build_url;
 
     var toHtml = document.createElement('div');
     toHtml.innerHTML = mapFile(HTML_FILE["header"], hashMap);
@@ -69,27 +68,6 @@ var mapHeader = function(powerapiData){
     return toHtml.getElementsByClassName('arrow')[0];
 };
 
-/**
- * map the select list html
- * @param list the list to put inside
- * @param nameList
- * @param labelName
- * @param onChange string function to execute when we change the list
- * @param selectedValue actual value to print in first
- */
-var mapSelectList = function(list, nameList, labelName, onChange, selectedValue){
-    var hashMap = {};
-    hashMap['nameList'] = nameList;
-    hashMap['labelName'] = labelName;
-    hashMap['onChange'] = onChange;
-    hashMap['optionList'] = generateOptionList(list, selectedValue);
-
-
-    var toHtml = document.createElement('div');
-    toHtml.setAttribute('class', 'center-vertical');
-    toHtml.innerHTML = mapFile(HTML_FILE["selectList"], hashMap);
-    divForInsertingMenu.appendChild(toHtml);
-};
 
 /**
  * map detail class HTML

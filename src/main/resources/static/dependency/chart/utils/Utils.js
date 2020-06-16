@@ -29,28 +29,18 @@ var createDataForBubbleGraph = function (labels, data) {
  * @return {{}} data to create chartJS chart
  */
 var fillDataForTestSuiteGraph = function (classes) {
-    var labels = [];
+    labels = [];
     var data = [];
-    classes.forEach(function (classe) {
+
+    classes.forEach(function(classe){
         var bubble = [];
-
-        var nbIterations = classe.methods[0].iterations.length;
-        for(var i=1; i<=nbIterations; i++) {
-            var obj = {energy: 0, duration: 0};
-            classe.methods.forEach(function (method) {
-                var o = method.iterations.find(function (it) {
-                    return it.n === i;
-                });
-                obj.energy += o.energy;
-                obj.duration += o.time_end - o.time_begin;
-            });
+        labels.push(classe.className);
+        classe.methods.forEach(function(method){
+            var obj = {testName:method.testName,energy:method.energy,duration:method.duration};
             bubble.push({x:obj.duration, y:obj.energy, r: 10});
-        }
-
-        labels.push(classe.name);
+        });
         data.push(bubble);
     });
-
     return createDataForBubbleGraph(labels, data);
 };
 /**
