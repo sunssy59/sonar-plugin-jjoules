@@ -30,26 +30,31 @@ public class MyPluginPageDefinition implements PageDefinition {
   @Override
   public void define(Context context) {
 	  
-	  context
-     .addPage(Page.builder("jjoules/global_page")
-       .setName("Global Page using Vanilla JS")
-       .build())
-     .addPage(Page.builder("jjoules/jjoules_page")
-       .setName("jjoules stats")
-       .setScope(Scope.COMPONENT)
-       .build())
-     .addPage(Page.builder("jjoules/project_page")
-        .setName("Project Page using Backbone JS")
-        .setScope(Scope.COMPONENT)
-        .build())
-     .addPage(Page.builder("jjoules/portfolio_page")
-       .setName("Portfolio Page using React JS")
-       .setScope(Scope.COMPONENT)
-       //.setComponentQualifiers(VIEW, SUB_VIEW)
-       .build())
-     .addPage(Page.builder("jjoules/admin_page")
-       .setName("Admin Page using React JS")
-       .setAdmin(true)
-       .build());
+	  // context
+   //   .addPage(Page.builder("jjoules/global_page")
+   //     .setName("Global Page using Vanilla JS")
+   //     .build())
+   //   .addPage(Page.builder("jjoules/jjoules_page")
+   //     .setName("jjoules stats")
+   //     .setScope(Scope.COMPONENT)
+   //     .build())
+   //   .addPage(Page.builder("jjoules/project_page")
+   //      .setName("Project Page using Backbone JS")
+   //      .setScope(Scope.COMPONENT)
+   //      .build())
+   //   .addPage(Page.builder("jjoules/portfolio_page")
+   //     .setName("Portfolio Page using React JS")
+   //     .setScope(Scope.COMPONENT)
+   //     //.setComponentQualifiers(VIEW, SUB_VIEW)
+   //     .build())
+   //   .addPage(Page.builder("jjoules/admin_page")
+   //     .setName("Admin Page using React JS")
+   //     .setAdmin(true)
+   //     .build());
+
+    context
+      .addPage(Page.builder("jjoules/jjoules_page")
+        .setName("Jjoules stat")
+        .setScope(Scope.COMPONENT).build());
   }
 }
