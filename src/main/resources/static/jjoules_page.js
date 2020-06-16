@@ -123,7 +123,7 @@ var jjoulesData = [{
 	]}
 ];
 
-var printResult(data){
+var printResult = function(data){
 	var globalDiv = document.createElement('div');
     globalDiv.setAttribute('class', 'row');
 	data.forEach(classe){
