@@ -62,6 +62,8 @@
 
 .test_div:first-child {
     border-right: black 1px solid;
+    margin-left: 2px;
+    padding-right: 2px;
 }
 
 .positionArrowHeader {

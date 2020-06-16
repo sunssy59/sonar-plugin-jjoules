@@ -66,7 +66,7 @@ var printResult = function(data){
     divForChart.setAttribute('class', 'margin-top');
 	data.forEach(function(classe){
 		var divClass = document.createElement("div");
-		divClass.setAttribute('class', 'test_div padding-left');
+		divClass.setAttribute('class', 'test_div');
 		divClass.innerHTML = `<h5 id="${classe.className}"> Class : ${classe.className} </h5>`;
 		classe.methods.forEach(function(method){
 			divMethod = document.createElement("div");
@@ -184,7 +184,6 @@ var createDataForBubbleGraph = function (labels, data) {
     }
     return dataReturn;
 };
-
 /**
  * Create data for specific chart
  * @param classes: all the data to put inside chart
@@ -214,30 +213,31 @@ var fillDataForTestSuiteGraph = function (classes) {
 var createGraph = function (ctx, type, data) {
     new Chart(ctx, {
     type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
+    data:data,
+    // data: {
+    //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    //     datasets: [{
+    //         label: '# of Votes',
+    //         data: [12, 19, 3, 5, 2, 3],
+    //         backgroundColor: [
+    //             'rgba(255, 99, 132, 0.2)',
+    //             'rgba(54, 162, 235, 0.2)',
+    //             'rgba(255, 206, 86, 0.2)',
+    //             'rgba(75, 192, 192, 0.2)',
+    //             'rgba(153, 102, 255, 0.2)',
+    //             'rgba(255, 159, 64, 0.2)'
+    //         ],
+    //         borderColor: [
+    //             'rgba(255, 99, 132, 1)',
+    //             'rgba(54, 162, 235, 1)',
+    //             'rgba(255, 206, 86, 1)',
+    //             'rgba(75, 192, 192, 1)',
+    //             'rgba(153, 102, 255, 1)',
+    //             'rgba(255, 159, 64, 1)'
+    //         ],
+    //         borderWidth: 1
+    //     }]
+    // },
     options: {
         scales: {
             yAxes: [{
