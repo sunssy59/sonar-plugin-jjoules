@@ -9,7 +9,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	console.log(projectName);
 	console.log(options);
 	divToInsert = options.el;
-	divToInsert.setAttribute('class','col-3 bootstrap-iso margin-left margin-right15');
+	divToInsert.setAttribute('class','col-3 bootstrap-iso margin-left padding-left');
 	//establishDesign();
 	printResult(jjoulesData);
 
@@ -61,25 +61,20 @@ var displayResult = function(data){
 
 var printResult = function(data){
 	var globalDiv = document.createElement('div');
-    //globalDiv.setAttribute('class', 'row' );
-    //var id_classes =0;
+    globalDiv.setAttribute('class', 'row' );
+    id_classes =0;
 	data.forEach(function(classe){
 		var divClass = document.createElement("div");
-		//divClass.setAttribute('class', 'col-3');
-		divClass.innerHTML = `<h5> Class : ${classe.className} </h5>`;
-		divAllMethods = document.createElement("div");
-		//divAllMethods.setAttribute("id",`class-${id_classes}`);
-		//divAllMethods.setAttribute('class', 'collapse');
+		divClass.setAttribute('class', 'test_div');
+		divClass.innerHTML = `<h5 id="${classe.className}"> Class : ${classe.className} </h5>`;
 		classe.methods.forEach(function(method){
 			divMethod = document.createElement("div");
 			//divMethod.setAttribute('class','col-2');
 			divMethod.innerHTML = `<h6> Method : ${method.testName}</h6>
 									<ul> <li> energy : ${method.energy}</li>
 									<li> duration : ${method.duration}</li></ul>`;
-			divAllMethods.appendChild(divMethod);
+			divClass.appendChild(divMethod);
 		});
-
-		divClass.appendChild(divAllMethods);
 		globalDiv.appendChild(divClass);
 	});
 
