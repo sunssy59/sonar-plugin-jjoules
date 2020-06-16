@@ -95,7 +95,7 @@ var printResult = function(data){
         canvas.setAttribute("class","canvas");
         canvas.id = `canvas-${classe.className}`;
         canvas.hidden = true;
-        createGraph(canvas, "bubble", fillDataForTestSuiteGraph(data));
+        createGraph(canvas, "bubble", fillDataForTestSuiteGraph(classe));
         divForChart.appendChild(canvas);
     });
 	divToInsert.appendChild(globalDiv);
