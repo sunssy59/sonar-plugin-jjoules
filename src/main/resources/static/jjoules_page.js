@@ -126,20 +126,20 @@ var jjoulesData = [{
 var printResult = function(data){
 	var globalDiv = document.createElement('div');
     globalDiv.setAttribute('class', 'row');
-	data.forEach(classe){
+	data.forEach(function(classe){
 		var divClass = document.createElement("div");
 		divClass.setAttribute('class', 'col-9');
 		divClass.innerHTML = `<h5> Class : ${classe.className} </h5>`;
-		classe.methods.forEach(method){
+		classe.methods.forEach(function(method){
 			divMethod = document.createElement("div");
 			divMethod.setAttribute('class','col-5');
 			divMethod.innerHTML = `<h6> Method : ${method.testName}</h6>
 									<ul> <li> energy : ${method.energy}</li>
 									<li> duration : ${method.duration}</li></ul>`;
 			divClass.appendChild(divMethod);
-		};
+		});
 		globalDiv.appendChild(divClass);
-	}
+	});
 	divToInsert.appendChild(globalDiv);
 }
 const LIST_COMMIT_NAME = "build_name";
