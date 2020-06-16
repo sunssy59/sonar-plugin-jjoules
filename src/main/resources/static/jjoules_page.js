@@ -6,8 +6,8 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	loadD3JS();
 	loadAllJSScript();
 
-	console.log(projectName);
-	console.log(options);
+	// console.log(projectName);
+	// console.log(options);
 	divToInsert = options.el;
 	divToInsert.setAttribute('class','col-3 bootstrap-iso margin-left padding-left');
 	//establishDesign();
@@ -84,11 +84,10 @@ var printResult = function(data){
     		for(let el of document.getElementsByTagName('canvas')){
                 el.hidden = true;
                 document.getElementById(`canvas-${classe.className}`).hidden = false;
-                console.log(classe.className);
+                // console.log(classe.className);
     		}
         });
 		divClass.appendChild(button);
-		console.log(button);
 		globalDiv.appendChild(divClass);
 
         var canvas = document.createElement("canvas");
@@ -253,7 +252,8 @@ var createGraph = function (ctx, type, data) {
         }
     }
 });
-    console.log(c);
+    //console.log(c);
+    console.log(data);
 };
 
 /*!
