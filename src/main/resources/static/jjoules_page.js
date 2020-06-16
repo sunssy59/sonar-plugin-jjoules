@@ -130,7 +130,7 @@ var printResult = function(data){
 	data.forEach(function(classe){
 		var divClass = document.createElement("div");
 		divClass.setAttribute('class', 'col-3');
-		divClass.innerHTML = `<h5 data-toggle="collapse" data-target = `#class-${id_classes}`> Class : ${classe.className} </h5>`;
+		divClass.innerHTML = `<h5 data-toggle="collapse" data-target = "#class-${id_classes}"> Class : ${classe.className} </h5>`;
 		divAllMethods = document.createElement("div");
 		divAllMethods.setAttribute("id",`class-${id_classes}`);
 		divAllMethods.setAttribute('class', 'collapse');
