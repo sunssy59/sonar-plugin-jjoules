@@ -252,7 +252,7 @@ var createGraph = function (ctx, type, allMethods,allEnergies,className) {
     }
 });
     //console.log(c);
-    console.log(data);
+    //console.log(data);
 };
 
 /*!
