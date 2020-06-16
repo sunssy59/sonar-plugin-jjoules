@@ -36,7 +36,7 @@ var fillDataForTestSuiteGraph = function (classes) {
         var bubble = [];
         labels.push(classe.className);
         classe.methods.forEach(function(method){
-            var obj = {testName:method.testName,method.energy:energy,duration:method.duration};
+            var obj = {testName:method.testName,energy:method.energy,duration:method.duration};
             bubble.push({x:obj.duration, y:obj.energy, r: 10});
         });
         data.push(bubble);
