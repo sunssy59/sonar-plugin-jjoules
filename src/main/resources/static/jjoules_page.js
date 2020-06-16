@@ -100,9 +100,8 @@ var printResult = function(data){
 
 	divToInsert.appendChild(globalDiv);
     divToInsert.appendChild(divForChart);
+    });
 }
-
-
 const LIST_COMMIT_NAME = "build_name";
 var divToInsert;
 var divForInsertingTest;
