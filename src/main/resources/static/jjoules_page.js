@@ -235,7 +235,7 @@ var fillDataForTestSuiteGraph = function (classe) {
  */
 var createGraph = function (ctx, type, allMethods,allEnergies,className) {
     var c = new Chart(ctx, {
-    type: 'horizontalBar',
+    type: 'bar',
     data: {
         labels: allMethods,
         datasets: [{
@@ -252,6 +252,10 @@ var createGraph = function (ctx, type, allMethods,allEnergies,className) {
                 'rgba(255, 206, 86, 1)'
             ],
             borderWidth: 1,
+            barPercentage: 0.2,
+            //barThickness: 6,
+            //maxBarThickness: 8,
+            //minBarLength: 2
         }]
     },
     options: {
