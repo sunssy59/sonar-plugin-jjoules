@@ -174,18 +174,18 @@ var randomColor = function (i) {
  * @param data: table with many data
  * @return {{}} data to create chartJS chart
  */
-var createDataForBubbleGraph = function (labels,methodsLabels, data) {
+var createDataForBubbleGraph = function (label,methodsLabels, data) {
     var dataReturn = {};
-    var dataReturn.labels = methodsLabels;
     var dataReturn.datasets = [];
     var objData = {};
     var colors = [randomColor(0.2),randomColor(0.2),randomColor(0.2)];
     objData.data = data;
-    objData.label = labels
+    objData.label = label
     objData.backgroundColor = colors; 
     objData.borderColor = [randomColor(1),randomColor(1),randomColor(1)];
     objData.borderWidth: 1;
-    dataReturn.push(objData);
+    dataReturn.datasets.push(objData);
+    var dataReturn.labels = methodsLabels;
     // for (var i = 0; i < methodsLabels.length; i++) {
     //     dataReturn.datasets.push({label: labels[i], data: data[i], backgroundColor: randomColor()});
     // }
