@@ -10,6 +10,8 @@ module.exports = {
   // Define the entry points here. They MUST have the same name as the page_id
   // defined in src/main/java/org/sonarsource/plugins/example/web/MyPluginPageDefinition.java
   entry: {
+    'measures_history': ['./src/main/js/app-measures_history.js'],
+    'sanity_check': ['./src/main/js/app-sanity_check.js'],
     // Using Vanilla JS:
     //global_page: ["./src/main/js/global_page/index.js"],
 
@@ -34,6 +36,8 @@ module.exports = {
     // collisions at runtime.
     react: "React",
     "react-dom": "ReactDOM",
+    'react-redux': 'ReactRedux',
+    'react-router': 'ReactRouter',
     // Register the Sonar* globals as packages, to simplify importing.
     // See src/main/js/common/api.js for more information on what is exposed 
     // in SonarRequest.
