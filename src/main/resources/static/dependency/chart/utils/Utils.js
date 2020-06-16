@@ -28,47 +28,21 @@ var createDataForBubbleGraph = function (labels, data) {
  * @param classes: all the data to put inside chart
  * @return {{}} data to create chartJS chart
  */
-// var fillDataForTestSuiteGraph = function (classes) {
-//     labels = [];
-//     var data = [];
+var fillDataForTestSuiteGraph = function (classes) {
+    labels = [];
+    var data = [];
 
-//     classes.forEach(function(classe){
-//         var dataClass = {className:classe.name,methods:{}};
-//         classe.methods.forEach(method){
-//             var obj = {testName:method.testName,method.energy:energy,duration:method.duration};
-//         }
-
-        
-
-
-
-
-
-//     })
-
-
-//     classes.forEach(function (classe) {
-//         var bubble = [];
-
-//         var nbIterations = classe.methods[0].iterations.length;
-//         for(var i=1; i<=nbIterations; i++) {
-//             var obj = {energy: 0, duration: 0};
-//             classe.methods.forEach(function (method) {
-//                 var o = method.iterations.find(function (it) {
-//                     return it.n === i;
-//                 });
-//                 obj.energy += o.energy;
-//                 obj.duration += o.time_end - o.time_begin;
-//             });
-//             bubble.push({x:obj.duration, y:obj.energy, r: 10});
-//         }
-
-//         labels.push(classe.name);
-//         data.push(bubble);
-//     });
-
-//     return createDataForBubbleGraph(labels, data);
-// };
+    classes.forEach(function(classe){
+        var bubble = [];
+        labels.push(classe.className);
+        classe.methods.forEach(function(method){
+            var obj = {testName:method.testName,method.energy:energy,duration:method.duration};
+            bubble.push({x:obj.duration, y:obj.energy, r: 10});
+        });
+        data.push(bubble);
+    });
+    return createDataForBubbleGraph(labels, data);
+};
 /**
  * Create graph and display it into canvas
  * @param canvas : display the graph into it

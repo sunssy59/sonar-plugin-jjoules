@@ -134,7 +134,6 @@ var printResult = function(data){
 		divAllMethods = document.createElement("div");
 		//divAllMethods.setAttribute("id",`class-${id_classes}`);
 		//divAllMethods.setAttribute('class', 'collapse');
-		id_classes ++;
 		classe.methods.forEach(function(method){
 			divMethod = document.createElement("div");
 			divMethod.setAttribute('class','col-2');
@@ -149,7 +148,17 @@ var printResult = function(data){
 	});
 
 	divToInsert.appendChild(globalDiv);
+
+	divForChart = document.createElement("div");
+    divForChart.setAttribute('class', 'margin-top');
+
+	var canvas2 = document.createElement("canvas");
+    createGraph(canvas2, "bubble", fillDataForTestSuiteGraph(data));
+    divForChart.appendChild(canvas2);
+
+    divToInsert.appendChild(divForChart);
 }
+
 const LIST_COMMIT_NAME = "build_name";
 var divToInsert;
 var divForInsertingTest;
