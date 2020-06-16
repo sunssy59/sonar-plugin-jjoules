@@ -163,6 +163,7 @@ var projectName;
 
 /* Constant des autres fichiers */
 const URL_LOADED_JS_FILE = [
+	"/static/jjoules/dependency/bootstrap/js/bootstrap.js",
     "/static/jjoules/dependency/chart/Chart.bundle.min.js",
     "/static/jjoules/dependency/chart/utils/Utils.js",
     "/static/jjoules/view/GlobalView.js",
@@ -192,8 +193,10 @@ var loadD3JS = function () {
 
 /* Constant des autres fichiers */
 const URL_LOADED_CSS_FILE = [
-    "/static/jjoules/dependency/bootstrap-iso/bootstrap4less.css",
-    "https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css",
+    // "/static/jjoules/dependency/bootstrap-iso/bootstrap4less.css",
+    //"https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.css",
+    "/static/jjoules/dependency/bootstrap/css/bootstrap.css",
+    //"/static/jjoules/dependency/bootstrap/bootstrap.min.css",
     "/static/jjoules/view/css/myStyle.css",
     "/static/jjoules/view/css/boxPlot.css"];
 
