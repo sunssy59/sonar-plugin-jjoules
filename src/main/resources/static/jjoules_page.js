@@ -165,9 +165,7 @@ var loadAllCss = function () {
  * @return String rgba color
  */
 var randomColor = function (i) {
-    return "rgba(" + Math.floor(Math.random() * Math.floor(256)) + "," +
-        "" + Math.floor(Math.random() * Math.floor(256)) + ", " +
-        "" + Math.floor(Math.random() * Math.floor(256)) + ", "+i+")";
+    return `rgba(${Math.floor(Math.random() * Math.floor(256))},${Math.floor(Math.random() * Math.floor(256))},${Math.floor(Math.random() * Math.floor(256))},${i})`;
 };
 
 /**
