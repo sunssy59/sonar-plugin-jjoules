@@ -125,14 +125,12 @@ var jjoulesData = [{
 
 var printResult = function(data){
 	var globalDiv = document.createElement('div');
-    globalDiv.setAttribute('class', 'row');
+    globalDiv.setAttribute('class', 'row col-3' );
     var id_classes =0;
 	data.forEach(function(classe){
 		var divClass = document.createElement("div");
-		divClass.setAttribute("data-toggle" ,"collapse");
-		divClass.setAttribute("data-target" ,`#class-${id_classes}`);
 		divClass.setAttribute('class', 'col-3');
-		divClass.innerHTML = `<h5 data-toggle="collapse" data-target = ""> Class : ${classe.className} </h5>`;
+		divClass.innerHTML = `<h5 data-toggle="collapse" data-target = `#class-${id_classes}`> Class : ${classe.className} </h5>`;
 		divAllMethods = document.createElement("div");
 		divAllMethods.setAttribute("id",`class-${id_classes}`);
 		divAllMethods.setAttribute('class', 'collapse');
