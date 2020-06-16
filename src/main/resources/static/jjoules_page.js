@@ -65,10 +65,14 @@ var printResult = function(data){
     divForChart = document.createElement("div");
     divForChart.setAttribute('class', 'margin-top');
 	data.forEach(function(classe){
+        var allMethods = [];
+        var allEnergies = [];
 		var divClass = document.createElement("div");
 		divClass.setAttribute('class', 'test_div');
 		divClass.innerHTML = `<h5 id="${classe.className}"> Class : ${classe.className} </h5>`;
 		classe.methods.forEach(function(method){
+            allMethods.push(method.testName);
+            allEnergies.push(method.energy);
 			divMethod = document.createElement("div");
 			divMethod.setAttribute('class','method_test');
 			divMethod.innerHTML = `<h6> Method : ${method.testName}</h6>
@@ -94,7 +98,7 @@ var printResult = function(data){
         canvas.setAttribute("class","canvas");
         canvas.id = `canvas-${classe.className}`;
         canvas.hidden = true;
-        createGraph(canvas, "bubble", fillDataForTestSuiteGraph(classe));
+        createGraph(canvas, 'bar', allMethods,allEnergies,classe.className);
         divForChart.appendChild(canvas);
     });
 	divToInsert.appendChild(globalDiv);
@@ -216,34 +220,27 @@ var fillDataForTestSuiteGraph = function (classe) {
  * @param type : Line, Bar, Radar, Bubble, Area, Mixed..
  * @param data : data (saw the chartJS documentation or use "createDataForBubbleGraph" to put true data
  */
-var createGraph = function (ctx, type, data) {
+var createGraph = function (ctx, type, allMethods,allEnergies,className) {
     var c = new Chart(ctx, {
     type: 'bar',
-    data:data,
-    // data: {
-    //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    //     datasets: [{
-    //         label: '# of Votes',
-    //         data: [12, 19, 3, 5, 2, 3],
-    //         backgroundColor: [
-    //             'rgba(255, 99, 132, 0.2)',
-    //             'rgba(54, 162, 235, 0.2)',
-    //             'rgba(255, 206, 86, 0.2)',
-    //             'rgba(75, 192, 192, 0.2)',
-    //             'rgba(153, 102, 255, 0.2)',
-    //             'rgba(255, 159, 64, 0.2)'
-    //         ],
-    //         borderColor: [
-    //             'rgba(255, 99, 132, 1)',
-    //             'rgba(54, 162, 235, 1)',
-    //             'rgba(255, 206, 86, 1)',
-    //             'rgba(75, 192, 192, 1)',
-    //             'rgba(153, 102, 255, 1)',
-    //             'rgba(255, 159, 64, 1)'
-    //         ],
-    //         borderWidth: 1
-    //     }]
-    // },
+    data: {
+        labels: allMethods,
+        datasets: [{
+            label: className,
+            data: allEnergies,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
     options: {
         scales: {
             yAxes: [{
