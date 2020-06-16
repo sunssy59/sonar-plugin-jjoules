@@ -9,7 +9,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	// console.log(projectName);
 	// console.log(options);
 	divToInsert = options.el;
-	divToInsert.setAttribute('class','col-3 bootstrap-iso margin-left padding-left');
+	divToInsert.setAttribute('class','col-3 bootstrap-iso margin-left');
 	//establishDesign();
 	printResult(jjoulesData);
 
@@ -52,7 +52,20 @@ var jjoulesData = [{
 		{testName:"testTree",
 		energy:12,
 		duration: 13}
-	]}
+	]},
+    {
+    className: "classTree",
+    methods:[
+        {testName:"testOne",
+        energy:11,
+        duration: 30},
+        {testName:"testTwo",
+        energy:17,
+        duration: 20},
+        {testName:"testTree",
+        energy:14,
+        duration: 23}
+    ]}
 ];
 
 var displayResult = function(data){
@@ -61,7 +74,7 @@ var displayResult = function(data){
 
 var printResult = function(data){
 	var globalDiv = document.createElement('div');
-    globalDiv.setAttribute('class', 'row' );
+    globalDiv.setAttribute('class', 'col' );
     divForChart = document.createElement("div");
     divForChart.setAttribute('class', 'margin-top');
 	data.forEach(function(classe){
