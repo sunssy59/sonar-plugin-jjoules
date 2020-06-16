@@ -37,7 +37,7 @@ public class MyPluginPageDefinition implements PageDefinition {
      .addPage(Page.builder("jjoules/jjoules_page")
        .setName("jjoules stats")
        .setScope(Scope.COMPONENT)
-       .build());
+       .build())
      .addPage(Page.builder("jjoules/project_page")
         .setName("Project Page using Backbone JS")
         .setScope(COMPONENT)
