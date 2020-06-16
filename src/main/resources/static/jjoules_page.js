@@ -81,12 +81,11 @@ var printResult = function(data){
 		button.setAttribute("type","button");
         button.innerHTML = "<p> graph <em> v</em></p>"
 		button.addEventListener("click",function(ev){
-			document.getElementsByTagName('canvas').forEach(function(el){
-                el.hidden = true;
-            });
+		for(let el of document.getElementsByTagName('canvas')){
+            el.hidden = true;
             document.getElementById(`canvas-${classe.className}`).hidden = false;
             console.log(classe.className);
-		});
+		}
 		divClass.appendChild(button);
 		console.log(button);
 		globalDiv.appendChild(divClass);
