@@ -216,7 +216,7 @@ var fillDataForTestSuiteGraph = function (classe) {
  * @param data : data (saw the chartJS documentation or use "createDataForBubbleGraph" to put true data
  */
 var createGraph = function (ctx, type, data) {
-    new Chart(ctx, {
+    var c = new Chart(ctx, {
     type: 'bar',
     data:data,
     // data: {
@@ -253,6 +253,7 @@ var createGraph = function (ctx, type, data) {
         }
     }
 });
+    console.log(c);
 };
 
 /*!
