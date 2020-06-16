@@ -9,7 +9,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	// console.log(projectName);
 	// console.log(options);
 	divToInsert = options.el;
-	divToInsert.setAttribute('class','col-3 bootstrap-iso margin-left');
+	divToInsert.setAttribute('class','col-3 bootstrap-iso margin-left padding-left');
 	//establishDesign();
 	printResult(jjoulesData);
 
@@ -90,7 +90,7 @@ var printResult = function(data){
         var allMethods = [];
         var allEnergies = [];
 		var divClass = document.createElement("div");
-		divClass.setAttribute('class', 'test_div');
+		//divClass.setAttribute('class', 'test_div');
 		divClass.innerHTML = `<h5 id="${classe.className}"> Class : ${classe.className} </h5>`;
 		classe.methods.forEach(function(method){
             allMethods.push(method.testName);
