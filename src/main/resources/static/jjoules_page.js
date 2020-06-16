@@ -126,20 +126,30 @@ var jjoulesData = [{
 var printResult = function(data){
 	var globalDiv = document.createElement('div');
     globalDiv.setAttribute('class', 'row');
+    var id_classes =0;
 	data.forEach(function(classe){
 		var divClass = document.createElement("div");
+		divClass.setAttribute("data-toggle" ,"collapse");
+		divClass.setAttribute("data-target" ,`#class-${id_classes}`);
 		divClass.setAttribute('class', 'col-3');
-		divClass.innerHTML = `<h5> Class : ${classe.className} </h5>`;
+		divClass.innerHTML = `<h5 data-toggle="collapse" data-target = ""> Class : ${classe.className} </h5>`;
+		divAllMethods = document.createElement("div");
+		divAllMethods.setAttribute("id",`class-${id_classes}`);
+		divAllMethods.setAttribute('class', 'collapse');
+		id_classes ++;
 		classe.methods.forEach(function(method){
 			divMethod = document.createElement("div");
-			divMethod.setAttribute('class','col-2');
+			divMethod.setAttribute('class','col-2 collapse');
 			divMethod.innerHTML = `<h6> Method : ${method.testName}</h6>
 									<ul> <li> energy : ${method.energy}</li>
 									<li> duration : ${method.duration}</li></ul>`;
-			divClass.appendChild(divMethod);
+			divAllMethods.appendChild(divMethod);
 		});
+
+		divClass.appendChild(divAllMethods);
 		globalDiv.appendChild(divClass);
 	});
+
 	divToInsert.appendChild(globalDiv);
 }
 const LIST_COMMIT_NAME = "build_name";
