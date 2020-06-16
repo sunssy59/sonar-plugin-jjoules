@@ -176,7 +176,7 @@ var randomColor = function (i) {
  */
 var createDataForBubbleGraph = function (label,methodsLabels, data) {
     var dataReturn = {};
-    var dataReturn.datasets = [];
+    dataReturn.datasets = [];
     var objData = {};
     var colors = [randomColor(0.2),randomColor(0.2),randomColor(0.2)];
     objData.data = data;
@@ -185,7 +185,7 @@ var createDataForBubbleGraph = function (label,methodsLabels, data) {
     objData.borderColor = [randomColor(1),randomColor(1),randomColor(1)];
     objData.borderWidth: 1;
     dataReturn.datasets.push(objData);
-    var dataReturn.labels = methodsLabels;
+    dataReturn.labels = methodsLabels;
     // for (var i = 0; i < methodsLabels.length; i++) {
     //     dataReturn.datasets.push({label: labels[i], data: data[i], backgroundColor: randomColor()});
     // }
