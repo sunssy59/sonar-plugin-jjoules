@@ -9,7 +9,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	console.log(projectName);
 	console.log(options);
 	divToInsert = options.el;
-	divToInsert.setAttribute('class','bootstrap-iso');
+	divToInsert.setAttribute('class','col-6 bootstrap-iso');
 	//establishDesign();
 	printResult(jjoulesData);
 
@@ -128,11 +128,11 @@ var printResult = function(data){
     globalDiv.setAttribute('class', 'row');
 	data.forEach(function(classe){
 		var divClass = document.createElement("div");
-		divClass.setAttribute('class', 'col-9');
+		divClass.setAttribute('class', 'col-3');
 		divClass.innerHTML = `<h5> Class : ${classe.className} </h5>`;
 		classe.methods.forEach(function(method){
 			divMethod = document.createElement("div");
-			divMethod.setAttribute('class','col-5');
+			divMethod.setAttribute('class','col-2');
 			divMethod.innerHTML = `<h6> Method : ${method.testName}</h6>
 									<ul> <li> energy : ${method.energy}</li>
 									<li> duration : ${method.duration}</li></ul>`;
