@@ -10,7 +10,8 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	console.log(options);
 	divToInsert = options.el;
 	divToInsert.setAttribute('class','bootstrap-iso');
-	establishDesign();
+	//establishDesign();
+	printResult(jjoulesData);
 
 
 
@@ -123,7 +124,23 @@ var jjoulesData = [{
 ];
 
 var printResult(data){
-	
+	var globalDiv = document.createElement('div');
+    globalDiv.setAttribute('class', 'row');
+	data.forEach(classe){
+		var divClass = document.createElement("div");
+		divClass.setAttribute('class', 'col-9');
+		divClass.innerHTML = `<h5> Class : ${classe.className} </h5>`;
+		classe.methods.forEach(method){
+			divMethod = document.createElement("div");
+			divMethod.setAttribute('class','col-5');
+			divMethod.innerHTML = `<h6> Method : ${method.testName}</h6>
+									<ul> <li> energy : ${method.energy}</li>
+									<li> duration : ${method.duration}</li></ul>`;
+			divClass.appendChild(divMethod);
+		};
+		globalDiv.appendChild(divClass);
+	}
+	divToInsert.appendChild(globalDiv);
 }
 const LIST_COMMIT_NAME = "build_name";
 var divToInsert;
