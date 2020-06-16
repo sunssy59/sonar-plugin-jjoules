@@ -174,6 +174,7 @@ var projectName;
 /* Constant des autres fichiers */
 const URL_LOADED_JS_FILE = [
     "/static/jjoules/dependency/chart/utils/Utils.js",
+    "/static/jjoules/dependency/chart/Chart.bundle.min.js",
     "/static/jjoules/view/GlobalView.js",
     //"/static/jjoules/js/CallBdd.js",
     "/static/jjoules/view/MapperHTML.js",
