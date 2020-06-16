@@ -9,7 +9,7 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	// console.log(projectName);
 	// console.log(options);
 	divToInsert = options.el;
-	divToInsert.setAttribute('class','col-3 bootstrap-iso margin-left');
+	divToInsert.setAttribute('class', 'bootstrap-iso margin-left');
 	//establishDesign();
 	printResult(jjoulesData);
 
@@ -75,9 +75,9 @@ var displayResult = function(data){
 var printResult = function(data){
 	var globalDiv = document.createElement('div');
     globalDiv.setAttribute('class', 'col' );
-    divForChart = document.createElement("div");
-    divForChart.setAttribute('class', 'margin-top');
 	data.forEach(function(classe){
+        divForChart = document.createElement("div");
+        divForChart.setAttribute('class', 'margin-top');
         var allMethods = [];
         var allEnergies = [];
 		var divClass = document.createElement("div");
@@ -105,14 +105,17 @@ var printResult = function(data){
     		}
         });
 		divClass.appendChild(button);
-		globalDiv.appendChild(divClass);
+		
 
         var canvas = document.createElement("canvas");
         canvas.setAttribute("class","canvas");
         canvas.id = `canvas-${classe.className}`;
-        canvas.hidden = true;
+        //canvas.hidden = true;
         createGraph(canvas, 'bar', allMethods,allEnergies,classe.className);
         divForChart.appendChild(canvas);
+        divClass.appendChild(divForChart);
+        globalDiv.appendChild(divClass);
+        
     });
 	divToInsert.appendChild(globalDiv);
     divToInsert.appendChild(divForChart);
