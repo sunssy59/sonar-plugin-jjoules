@@ -183,7 +183,7 @@ var createDataForBubbleGraph = function (label,methodsLabels, data) {
     objData.label = label
     objData.backgroundColor = colors; 
     objData.borderColor = [randomColor(1),randomColor(1),randomColor(1)];
-    objData.borderWidth= 1;
+    objData.borderWidth = 1;
     dataReturn.datasets.push(objData);
     dataReturn.labels = methodsLabels;
     // for (var i = 0; i < methodsLabels.length; i++) {
