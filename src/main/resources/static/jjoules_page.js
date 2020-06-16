@@ -167,7 +167,7 @@ var loadAllCss = function () {
 var randomColor = function (i) {
     return "rgba(" + Math.floor(Math.random() * Math.floor(256)) + "," +
         "" + Math.floor(Math.random() * Math.floor(256)) + ", " +
-        "" + Math.floor(Math.random() * Math.floor(256)) + ", "+i")";
+        "" + Math.floor(Math.random() * Math.floor(256)) + ", "+i+")";
 };
 
 /**
