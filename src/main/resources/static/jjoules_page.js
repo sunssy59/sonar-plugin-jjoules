@@ -45,13 +45,13 @@ var jjoulesData = [{
 	methods:[
 		{testName:"testOne",
 		energy:10,
-		duration: 40},
+		duration: 20},
 		{testName:"testTwo",
-		energy:90,
-		duration: 160},
+		energy:19,
+		duration: 10},
 		{testName:"testTree",
-		energy:80,
-		duration: 230}
+		energy:12,
+		duration: 13}
 	]}
 ];
 
@@ -175,12 +175,12 @@ var randomColor = function (i) {
  */
 var createDataForBubbleGraph = function (label,methodsLabels, data) {
     var dataReturn = {};
-    dataReturn.datasets = [];
     dataReturn.labels = methodsLabels;
+    dataReturn.datasets = [];
     var objData = {};
     var colors = [randomColor(0.2),randomColor(0.2),randomColor(0.2)];
+    objData.label = label;
     objData.data = data;
-    objData.label = label
     objData.backgroundColor = colors; 
     objData.borderColor = [randomColor(1),randomColor(1),randomColor(1)];
     objData.borderWidth = 1;
