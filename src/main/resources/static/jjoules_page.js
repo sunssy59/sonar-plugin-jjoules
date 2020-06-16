@@ -204,7 +204,7 @@ var fillDataForTestSuiteGraph = function (classe) {
     classe.methods.forEach(function(method){
         methodsLabels.push(method.testName);
         //var obj = {testName:method.testName,energy:method.energy,duration:method.duration};
-        bubble.push({x:method.duration, y:obj.energy, r: 2});
+        bubble.push({x:method.duration, y:method.energy, r: 2});
     });
     data.push(bubble);
     return createDataForBubbleGraph(classe.className,methodsLabels, data);
