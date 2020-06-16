@@ -77,10 +77,12 @@ var printResult = function(data){
 		});
 		let button = document.createElement("button");
 		button.setAttribute("class", "btn btn-secondary float-right");
+		button.setAttribute("type","button");
 		button.on("click",function(ev){
 			console.log("test!!");
 		});
 		divClass.appendChild(button);
+		console.log(button);
 		globalDiv.appendChild(divClass);
 	});
 
