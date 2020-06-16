@@ -164,10 +164,10 @@ var loadAllCss = function () {
  * Create random RGBA string color
  * @return String rgba color
  */
-var randomColor = function () {
+var randomColor = function (i) {
     return "rgba(" + Math.floor(Math.random() * Math.floor(256)) + "," +
         "" + Math.floor(Math.random() * Math.floor(256)) + ", " +
-        "" + Math.floor(Math.random() * Math.floor(256)) + ", 1)";
+        "" + Math.floor(Math.random() * Math.floor(256)) + ", "+i")";
 };
 
 /**
@@ -176,33 +176,39 @@ var randomColor = function () {
  * @param data: table with many data
  * @return {{}} data to create chartJS chart
  */
-var createDataForBubbleGraph = function (labels, data) {
+var createDataForBubbleGraph = function (labels,methodsLabels, data) {
     var dataReturn = {};
-    dataReturn.datasets = [];
-    for (var i = 0; i < labels.length; i++) {
-        dataReturn.datasets.push({label: labels[i], data: data[i], backgroundColor: randomColor()});
-    }
+    var dataReturn.labels = methodsLabels;
+    var dataReturn.datasets = [];
+    var objData = {};
+    var colors = [randomColor(0.2),randomColor(0.2),randomColor(0.2)];
+    objData.data = data;
+    objData.label = labels
+    objData.backgroundColor = colors; 
+    objData.borderColor = [randomColor(1),randomColor(1),randomColor(1)];
+    objData.borderWidth: 1;
+    dataReturn.push(objData);
+    // for (var i = 0; i < methodsLabels.length; i++) {
+    //     dataReturn.datasets.push({label: labels[i], data: data[i], backgroundColor: randomColor()});
+    // }
     return dataReturn;
 };
+
 /**
  * Create data for specific chart
  * @param classes: all the data to put inside chart
  * @return {{}} data to create chartJS chart
  */
-var fillDataForTestSuiteGraph = function (classes) {
-    labels = [];
+var fillDataForTestSuiteGraph = function (classe) {
     var data = [];
-
-    classes.forEach(function(classe){
-        var bubble = [];
-        labels.push(classe.className);
-        classe.methods.forEach(function(method){
-            var obj = {testName:method.testName,energy:method.energy,duration:method.duration};
-            bubble.push({x:obj.duration, y:obj.energy, r: 10});
-        });
-        data.push(bubble);
+    var methodsLabels = [];
+    classe.methods.forEach(function(method){
+        methodsLabels.push(method.testName);
+        //var obj = {testName:method.testName,energy:method.energy,duration:method.duration};
+        bubble.push({x:method.duration, y:obj.energy, r: 2});
     });
-    return createDataForBubbleGraph(labels, data);
+    data.push(bubble);
+    return createDataForBubbleGraph(classe.className,methodsLabels, data);
 };
 /**
  * Create graph and display it into canvas
