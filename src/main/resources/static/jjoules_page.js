@@ -13,74 +13,6 @@ window.registerExtension('jjoules/jjoules_page',function(options){
 	//establishDesign();
 	printResult(jjoulesData);
 
-
-
-
-
-	// let div = document.createElement("div");
-	// document.setAttribute("class","test");
-	// div.innerHTML = '<div class="card-body"><h5 class="card-title">Energie Moyenne</h5><p class="card-text takeEnergy">test :0 Joules</p></div>';
-
-	// options.el.appendChild(div);
-// 	option.el.innerHTML = `
-// 	<div class="margin-top col-6 text-center"><h3 class="testName thicker text-center">test</h3>
-// 	<button type="button" class="btn btn-secondary float-right margin-right15" onclick="changeVisibility(this)">
-// 		<span class="oi oi-menu"></span>
-// 	</button>
-// 	<div class="hide margin-top" role="hidden" >
-// 		<div class="row">
-// 			<div class="col">
-// 				<div class="card text-center card-width">
-// 					<div class="card-body">
-// 						<h5 class="card-title">Energie Moyenne</h5>
-//                         <p class="card-text takeEnergy">test :0 Joules</p>
-// 					</div>
-// 				</div>
-// 				<div class="card text-center card-width">
-// 				    <div class="card-body">
-// 	                    <h5 class="card-title">Durée moyenne</h5>
-// 	                    <p class="card-text">durationTest:10 ms</p>
-// 	                </div>
-// 	            </div>
-// 			</div>
-// 			<div class="col-5">
-//                 <div class="card text-center card-width">
-//                     <div class="card-body">
-//                         <div class="canvas_boxplot"></div>
-//                     </div>
-//                 </div>
-//             </div>
-// 		</div>
-// 	</div>
-// </div>`
-
-
-
-
-
-
-
-// 	//loadAllHTML();
-// 	// loadAllCss();
-// 	// loadD3JS();
-// 	// loadAllJSScript();
-
-// 	window.SonarRequest.getJSON('api/issues/search',{
-// 		resolved:false,
-// 		componentKeys: options.component.key
-// 	}).then(function(arg){
-// 	// 	divToInsert = options.el;
-// 	// 	divToInsert.setAttribute('class','bootstrap-iso');
-
-// 	// 	establishDesign();
-
-// 	// 	mapHeader(jjoulesData);
-// 	// });
-// 	// return function () {
-//  //        options.el.textContent = '';
-//  //    };
-//  		console.log(arg);
-// });
 });
 
 //data for test 
@@ -123,20 +55,24 @@ var jjoulesData = [{
 	]}
 ];
 
+var displayResult = function(data){
+
+}
+
 var printResult = function(data){
 	var globalDiv = document.createElement('div');
-    globalDiv.setAttribute('class', 'row' );
+    //globalDiv.setAttribute('class', 'row' );
     //var id_classes =0;
 	data.forEach(function(classe){
 		var divClass = document.createElement("div");
-		divClass.setAttribute('class', 'col-3');
+		//divClass.setAttribute('class', 'col-3');
 		divClass.innerHTML = `<h5> Class : ${classe.className} </h5>`;
 		divAllMethods = document.createElement("div");
 		//divAllMethods.setAttribute("id",`class-${id_classes}`);
 		//divAllMethods.setAttribute('class', 'collapse');
 		classe.methods.forEach(function(method){
 			divMethod = document.createElement("div");
-			divMethod.setAttribute('class','col-2');
+			//divMethod.setAttribute('class','col-2');
 			divMethod.innerHTML = `<h6> Method : ${method.testName}</h6>
 									<ul> <li> energy : ${method.energy}</li>
 									<li> duration : ${method.duration}</li></ul>`;
