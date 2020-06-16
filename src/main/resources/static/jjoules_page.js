@@ -183,7 +183,6 @@ const URL_LOADED_JS_FILE = [
 var loadAllJSScript = function () {
     URL_LOADED_JS_FILE.forEach(function (URL) {
         var script = document.createElement("script");
-        script.src = URL;
         document.head.appendChild(script);
     });
 };
