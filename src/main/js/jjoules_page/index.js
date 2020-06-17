@@ -5,10 +5,7 @@ import AllTests from "./components/DisplayHistroyJjoules";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
 	return <AllTests data={data} />;
-	//loadAllCss();
 });
-// allClassesNames: props.data.claasesNames,
-// data: props.data.methods,
 
 var data = {
 	classesNames: ["classOne","classTwo"],
