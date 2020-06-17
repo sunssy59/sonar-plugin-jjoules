@@ -55,6 +55,9 @@ class ClassTest extends React.Component{
 export default class AllTests extends React.Component {
 	constructor(props){
 		super(props);
+		console.log(props);
+		console.log(props.data);
+		console.log(props.classesNames);
 		this.state = {
 			allClassesNames: props.data.claasesNames,
 			data: props.data.methods,
@@ -75,6 +78,7 @@ export default class AllTests extends React.Component {
 
 		return (
 			<div className="allClasses">
+
 				{this.state.data.map((methods,idx) => 
 					renderClassTest(methods,this.state.allClassesNames[idx])
 				)}
