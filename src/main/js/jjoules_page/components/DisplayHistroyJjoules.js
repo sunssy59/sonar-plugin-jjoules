@@ -7,7 +7,7 @@ function Method(props) {
 	return (
 		<div className="result">
 			<h6 className="method" 
-			>{props.testName}</h6>
+			>Test: {props.testName}</h6>
 			<p> {props.energy} </p>
 			<p> {props.duration} </p>
 		</div>
