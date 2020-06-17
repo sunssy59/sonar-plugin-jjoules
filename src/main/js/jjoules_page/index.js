@@ -1,10 +1,11 @@
 import React from "react";
-//import "../style.css";
+import "../style.css";
+import "../../resource/bootstrap-4.5.0-dist/css/bootstrap.css";
 import AllTests from "./components/DisplayHistroyJjoules";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
 	return <AllTests data={data} />;
-	loadAllCss();
+	//loadAllCss();
 });
 // allClassesNames: props.data.claasesNames,
 // data: props.data.methods,
@@ -23,11 +24,4 @@ var data = {
 	]
 };
 
-var loadAllCss = function () {
-        var link = document.createElement("link");
-        link.setAttribute('href', "../style.css");
-        link.setAttribute('type', 'text/css');
-        link.setAttribute('rel', 'stylesheet');
-        document.head.appendChild(link);
-};
 
