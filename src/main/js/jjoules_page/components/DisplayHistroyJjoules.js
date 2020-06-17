@@ -87,7 +87,7 @@ export default class AllTests extends React.Component {
 
 		return (
 			<div className="allClasses col page page-limited">
-				{console.log(Canvas)}
+				{Canvas}
 				{this.state.data.map((methods,idx) => 
 					//console.log(methods)
 					// console.log(idx)
