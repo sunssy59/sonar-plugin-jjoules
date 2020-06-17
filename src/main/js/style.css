@@ -1,43 +1,43 @@
 .custom-abc {
-  background-color: pink;
+ background-color:pink
 }
-
 .sanity-check {
-  width: 400px
+ width:400px
 }
-.allClasses{
-	margin-left:15px;
-	align-content: center;
-}
-.method{
-	color:pink;
-	border: solid 1px rgba(255, 99, 132, 0.2);
+.allClasses {
+ margin-left:15px;
+ align-content:center;
+ padding:10px;
+  
 }
 .result{
-	background-color: gray;
+  padding: 5px;
+  border-radius:3px;
+}
+.method {
+ color:green;
+ border:1px solid rgba(255,99,132,0.2);
+ padding: 2px;
+}
+.result {
+ background-color:rgba(54, 162, 235,0.5);
 }
 .row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+ display:flex;
+ flex-wrap:wrap;
+ margin-right:-15px;
+ margin-left:-15px
 }
-
 .list-inline-item {
-  display: inline-block;
+ display:inline-block
 }
-
 .list-inline-item:not(:last-child) {
-  margin-right: 0.5rem;
+ margin-right:.5rem
 }
-
 .col {
-  -ms-flex-preferred-size: 0;
-  flex-basis: 0;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  min-width: 0;
-  max-width: 100%;
+ flex-basis:0;
+ -ms-flex-positive:1;
+ flex-grow:1;
+ min-width:0;
+ max-width:100%
 }
