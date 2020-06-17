@@ -4,7 +4,7 @@ import { DeferredSpinner } from "sonar-components";
 
 function Method(props) {
 	return (
-		<div className="result list-inline-item">
+		<div className="result">
 			<h6 className="method">Test: {props.testName}</h6>
 			<p>Energy: {props.energy} </p>
 			<p>Duration: {props.duration} </p>
@@ -80,7 +80,7 @@ export default class AllTests extends React.Component {
 	render() {
 
 		return (
-			<div className="allClasses col">
+			<div className="allClasses">
 
 				{this.state.data.map((methods,idx) => 
 					// console.log(methods)
