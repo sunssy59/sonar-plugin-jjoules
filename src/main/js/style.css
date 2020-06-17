@@ -5,3 +5,10 @@
 .sanity-check {
   width: 400px
 }
+.method{
+	color:red;
+	border: solid 1px green;
+}
+.result{
+	background-color: gray;
+}

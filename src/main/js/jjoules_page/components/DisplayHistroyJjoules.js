@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 // exposes React components exposed by SonarQube.
 import { DeferredSpinner } from "sonar-components";
 
@@ -14,7 +13,8 @@ function Method(props) {
 	);
 }
 
-class ClassTest extends React.Component{
+class ClassTest extends
+React.Component{
 
 	constructor(props) {
 		super(props);
@@ -87,11 +87,11 @@ export default class AllTests extends React.Component {
 					// console.log(idx)
 					//renderClassTest(methods,this.state.allClassesNames[idx])
 					<div className="classe">
-					<ClassTest 
-						methods={methods}
-						className={this.state.allClassesNames[idx]}
-					/>
-			</div>
+						<ClassTest 
+							methods={methods}
+							className={this.state.allClassesNames[idx]}
+						/>
+					</div>
 				)}
 			</div>
 		)
