@@ -105,7 +105,7 @@ var printResult = function(data){
 		let button = document.createElement("button");
 		button.setAttribute("class", "btn btn-secondary float-right");
 		button.setAttribute("type","button");
-        button.innerHTML = "<p> graph <em> v</em></p>"
+        button.innerHTML = "<p> graph <span> V </span></p>"
 		button.addEventListener("click",function(ev){
     		for(let el of document.getElementsByTagName('canvas')){
                 el.hidden = true;

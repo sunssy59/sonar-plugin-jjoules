@@ -21,6 +21,11 @@ module.exports = {
     // Using React:
     //portfolio_page: ["./src/main/js/portfolio_page/index.js"],
     //admin_page: ["./src/main/js/admin_page/index.js"]
+
+    // Jjoules page using React:
+    jjoules_page: ["./src/main/js/jjoules_page/index.js"],
+
+
   },
   output: {
     // The entry point files MUST be shipped inside the final JAR's static/
