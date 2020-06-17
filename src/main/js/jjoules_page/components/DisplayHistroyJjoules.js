@@ -60,6 +60,11 @@ function Canvas(props){
     canvas.setAttribute("class","canvas");
     canvas.id = `canvas-${props.className}`;
 	return ({canvas});
+	return ({
+		<canvas className="canvas" id={"class-"+props.className}>
+			Test:canvas
+		</canvas>
+	})
 }
 
 export default class AllTests extends React.Component {
@@ -87,7 +92,6 @@ export default class AllTests extends React.Component {
 
 		return (
 			<div className="allClasses col page page-limited">
-				{Canvas}
 				{this.state.data.map((methods,idx) => 
 					//console.log(methods)
 					// console.log(idx)
@@ -99,7 +103,7 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
-				
+				<Canvas/>
 
 			</div>
 		)
