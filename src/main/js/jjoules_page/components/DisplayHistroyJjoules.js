@@ -93,7 +93,7 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
-				<Canvas className="test"/>
+				
 
 			</div>
 		)
