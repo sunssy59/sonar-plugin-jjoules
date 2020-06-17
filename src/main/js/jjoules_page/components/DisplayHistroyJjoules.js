@@ -55,6 +55,12 @@ React.Component{
 	}
 
 }
+function Canvas(props){
+	var canvas = document.createElement("canvas");
+    canvas.setAttribute("class","canvas");
+    canvas.id = `canvas-${props.className}`;
+	return ({canvas});
+}
 
 export default class AllTests extends React.Component {
 	constructor(props){
@@ -81,7 +87,7 @@ export default class AllTests extends React.Component {
 
 		return (
 			<div className="allClasses col page page-limited">
-				{console.log("test")}
+				{console.log(Canvas)}
 				{this.state.data.map((methods,idx) => 
 					//console.log(methods)
 					// console.log(idx)
@@ -93,6 +99,8 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
+
+				<Canvas />
 				
 
 			</div>
@@ -100,12 +108,7 @@ export default class AllTests extends React.Component {
 	}
 }
 
-function Canvas(props){
-	var canvas = document.createElement("canvas");
-    canvas.setAttribute("class","canvas");
-    canvas.id = `canvas-${props.className}`;
-	return ({canvas});
-}
+
 // var canvas = document.createElement("canvas");
 //         canvas.setAttribute("class","canvas");
 //         canvas.id = `canvas-${classe.className}`;
