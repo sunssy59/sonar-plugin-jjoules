@@ -1,5 +1,5 @@
 import React from "react";
-import "../style.css";
+//import "../style.css";
 import AllTests from "./components/DisplayHistroyJjoules";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
@@ -20,4 +20,13 @@ var data = {
 		  {testName:"test2Tree",energy:30,duration:23}
 		]
 	]
-}
+};
+
+var loadAllCss = function () {
+        var link = document.createElement("link");
+        link.setAttribute('href', "../style.css");
+        link.setAttribute('type', 'text/css');
+        link.setAttribute('rel', 'stylesheet');
+        document.head.appendChild(link);
+};
+
