@@ -8,7 +8,7 @@ window.registerExtension("jjoules/jjoules_page",options =>{
 });
 
 var data = {
-	classesNames: ["classOne","classTwo","testTree"],
+	classesNames: ["classOne","classTwo","classTree"],
 	data: [
 		[{testName:"test1One",energy:10,duration:13},
 		  {testName:"test1Two",energy:15,duration:10},
@@ -25,7 +25,8 @@ var data = {
 		  {testName:"test3Two",energy:18,duration:8},
 		  {testName:"test3Tree",energy:30,duration:23},
 		  {testName:"test3Tree",energy:20,duration:23},
-		  {testName:"test33Tree",energy:20,duration:23}
+		  {testName:"test33Tree",energy:20,duration:23},
+		  {testName:"test3Tree",energy:30,duration:23}
 		]
 	]
 };
