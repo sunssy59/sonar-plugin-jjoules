@@ -80,7 +80,7 @@ export default class AllTests extends React.Component {
 	render() {
 
 		return (
-			<div className="allClasses col">
+			<div className="allClasses col page page-limited">
 
 				{this.state.data.map((methods,idx) => 
 					// console.log(methods)
