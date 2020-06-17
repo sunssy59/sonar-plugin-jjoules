@@ -57,10 +57,9 @@ export default class AllTests extends React.Component {
 		super(props);
 		console.log(props);
 		console.log(props.data);
-		console.log(props.classesNames);
 		this.state = {
 			allClassesNames: props.data.claasesNames,
-			data: props.data.methods,
+			data: props.data.data,
 		}
 	}
 
