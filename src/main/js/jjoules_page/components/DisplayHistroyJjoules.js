@@ -159,4 +159,5 @@ var createGraph = function (ctx, type, allMethods,allEnergies,className) {
             }]
         }
     }
-});
+ }
+}
