@@ -8,8 +8,8 @@ function Method(props) {
 		<div className="result">
 			<h6 className="method" 
 			>Test: {props.testName}</h6>
-			<p> {props.energy} </p>
-			<p> {props.duration} </p>
+			<p>Energy:  {props.energy} </p>
+			<p>Duration: {props.duration} </p>
 		</div>
 
 	);
