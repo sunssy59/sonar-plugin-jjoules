@@ -56,15 +56,15 @@ React.Component{
 
 }
 function Canvas(props){
-	var canvas = document.createElement("canvas");
-    canvas.setAttribute("class","canvas");
-    canvas.id = `canvas-${props.className}`;
-	return ({canvas});
-	return ({
+	// var canvas = document.createElement("canvas");
+ //    canvas.setAttribute("class","canvas");
+ //    canvas.id = `canvas-${props.className}`;
+	// return ({canvas});
+	return (
 		<canvas className="canvas" id={"class-"+props.className}>
 			Test:canvas
 		</canvas>
-	})
+	)
 }
 
 export default class AllTests extends React.Component {
@@ -103,7 +103,7 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
-				<Canvas/>
+				<Canvas className="test"/>
 
 			</div>
 		)
