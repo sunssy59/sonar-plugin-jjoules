@@ -73,7 +73,7 @@ hr {
   overflow: visible;
 }
 */
-h1, h2, h3, h4, h5, h6 {
+/*h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
@@ -156,7 +156,7 @@ a {
   color: #007bff;
   text-decoration: none;
   background-color: transparent;
-}
+}*/
 
 a:hover {
   color: #0056b3;
@@ -188,7 +188,7 @@ pre {
   -ms-overflow-style: scrollbar;
 }
 
-figure {
+/*figure {
   margin: 0 0 1rem;
 }
 
@@ -221,7 +221,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
-}
+}*/
 
 button {
   border-radius: 0;
@@ -249,7 +249,7 @@ input {
 }
 
 button,
-select {
+/*select {
   text-transform: none;
 }
 
@@ -382,7 +382,7 @@ h5, .h5 {
 
 h6, .h6 {
   font-size: 1rem;
-}
+}*/
 
 .lead {
   font-size: 1.25rem;
@@ -10207,6 +10207,7 @@ a.text-dark:hover, a.text-dark:focus {
   a:not(.btn) {
     text-decoration: underline;
   }
+  /*
   abbr[title]::after {
     content: " (" attr(title) ")";
   }
@@ -10240,7 +10241,7 @@ a.text-dark:hover, a.text-dark:focus {
   }
   body {
     min-width: 992px !important;
-  }
+  }*/
   .container {
     min-width: 992px !important;
   }
