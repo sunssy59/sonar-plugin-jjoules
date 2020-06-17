@@ -43,8 +43,9 @@ class ClassTest extends React.Component{
 				<h4 className="classTestName">
 					{this.state.className}
 				</h4>
-				{this.state.methods.map((method,idx) =>
+				{this.state.methods.map(function(method,idx) {
 					this.renderMethod(idx)
+				}
 				)}
 			</div>
 		);
