@@ -55,10 +55,10 @@ class ClassTest extends React.Component{
 export default class AllTests extends React.Component {
 	constructor(props){
 		super(props);
-		console.log(this.props.data.classesName);
+		console.log(this.props.data.classesNames);
 		console.log(this.props.data.data);
 		this.state = {
-			allClassesNames: props.data.clasesNames,
+			allClassesNames: props.data.classesNames,
 			data: props.data.data,
 		}
 	}
