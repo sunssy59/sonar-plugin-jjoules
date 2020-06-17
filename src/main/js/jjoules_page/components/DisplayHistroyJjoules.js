@@ -79,7 +79,13 @@ export default class AllTests extends React.Component {
 			<div className="allClasses">
 
 				{this.state.data.map((methods,idx) => 
-					renderClassTest(methods,this.state.allClassesNames[idx])
+					//renderClassTest(methods,this.state.allClassesNames[idx])
+					<div className="classe">
+					<ClassTest 
+						methods={methods}
+						className={this.state.allClassesNames[idx]}
+					/>
+			</div>
 				)}
 			</div>
 		)
