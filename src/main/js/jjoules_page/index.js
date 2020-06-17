@@ -12,7 +12,7 @@ var data = {
 	data: [
 		[{testName:"test1One",energy:10,duration:13},
 		  {testName:"test1Two",energy:15,duration:10},
-		  {testName:"test1Tree",energy:20,duration:23}
+		  {testName:"test1Tree",energy:20,duration:23},
 		  {testName:"test1Tree",energy:30,duration:23},
 		  {testName:"test1Tree",energy:20,duration:23}
 		],
