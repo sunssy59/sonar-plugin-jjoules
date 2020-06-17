@@ -1,4 +1,5 @@
 import React from "react";
+import "../style.css";
 import AllTests from "./components/DisplayHistroyJjoules";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
