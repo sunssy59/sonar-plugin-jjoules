@@ -1,6 +1,6 @@
 import React from "react";
 import "../style.css";
-import "../../resource/bootstrap-4.5.0-dist/css/bootstrap.css";
+import "../lib/css/bootstrap.css";
 import AllTests from "./components/DisplayHistroyJjoules";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
