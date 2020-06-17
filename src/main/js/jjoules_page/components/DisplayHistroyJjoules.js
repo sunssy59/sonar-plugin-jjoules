@@ -59,8 +59,8 @@ React.Component{
 export default class AllTests extends React.Component {
 	constructor(props){
 		super(props);
-		console.log(this.props.data.classesNames);
-		console.log(this.props.data.data);
+		// console.log(this.props.data.classesNames);
+		// console.log(this.props.data.data);
 		this.state = {
 			allClassesNames: props.data.classesNames,
 			data: props.data.data,
@@ -81,9 +81,9 @@ export default class AllTests extends React.Component {
 
 		return (
 			<div className="allClasses col page page-limited">
-
+				{console.log("test")}
 				{this.state.data.map((methods,idx) => 
-					// console.log(methods)
+					//console.log(methods)
 					// console.log(idx)
 					//renderClassTest(methods,this.state.allClassesNames[idx])
 					<div className="classe">
