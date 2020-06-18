@@ -89,7 +89,7 @@ React.Component{
 				<h3 className="classTestName overview-panel-title">
 					{this.state.className} =>
 					<button className="button" 
-					//id="but-"+{this.state.className}
+					id={"but-"+this.state.className}
 					onClick={() => this.props.onClick(this.state.className)}
 					> graph</button>
 				</h3>
@@ -144,6 +144,14 @@ export default class AllTests extends React.Component {
 		for(let el of document.getElementsByClassName("canvas"))
 			el.hidden = true;
 		document.getElementById(id).hidden = false;
+
+		for(let el of document.querySelectorAll(".classTestName>button")){
+			el.removeAttribute("className");
+			el.setAttribute("className","button");
+		}
+		var but = document.getElementById("but-"+className);
+		but.removeAttribute("className");
+		but.setAttribute("className","button button-active");
 	}
 	render() {
 
