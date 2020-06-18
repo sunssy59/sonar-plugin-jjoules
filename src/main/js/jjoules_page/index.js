@@ -13,7 +13,7 @@ window.registerExtension("jjoules/jjoules_page",options =>{
     options.el.appendChild(canvas);
     console.log(options.el);
     
-	//ReactDOM.render(canvas,options.el);
+	ReactDOM.render(canvas,options.el);
 
 	return <AllTests data={data} />;
 
