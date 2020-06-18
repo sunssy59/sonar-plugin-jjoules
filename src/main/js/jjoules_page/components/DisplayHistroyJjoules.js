@@ -146,12 +146,12 @@ export default class AllTests extends React.Component {
 		document.getElementById(id).hidden = false;
 
 		for(let el of document.querySelectorAll(".classTestName>button")){
-			el.removeAttribute("className");
-			el.setAttribute("className","button");
+			el.removeAttribute("class");
+			el.setAttribute("class","button");
 		}
 		var but = document.getElementById("but-"+className);
-		but.removeAttribute("className");
-		but.setAttribute("className","button button-active");
+		but.removeAttribute("class");
+		but.setAttribute("class","button button-active");
 	}
 	render() {
 
