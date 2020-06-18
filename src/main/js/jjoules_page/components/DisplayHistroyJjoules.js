@@ -3,43 +3,6 @@ import React from "react";
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
 
-var data = {
-        labels: ["classOne","classTwo","classTree","classFour","classFive","classSix"],
-        datasets: [{
-            label: "test",
-            data: [17,20,9,45,12,23],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(25, 92, 132, 0.2)',
-                'rgba(254, 152, 235, 0.2)',
-                'rgba(225, 226, 86, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(25, 92, 132, 1)',
-                'rgba(254, 152, 235, 1)',
-                'rgba(225, 226, 86, 1)'
-            ],
-            borderWidth: 1,
-            barPercentage: 0.2,
-            //barThickness: 6,
-            //maxBarThickness: 8,
-            //minBarLength: 2
-        }]
-     }
-/**
- * Create random RGBA string color
- * @return String rgba color
- */
-var randomColor1 = function () {
-    return "rgba(" + Math.floor(Math.random() * Math.floor(256)) + "," +
-        "" + Math.floor(Math.random() * Math.floor(256)) + ", " +
-        "" + Math.floor(Math.random() * Math.floor(256)) + ", 1)";
-};
 /**
  * Create random RGBA string color
  * @return String rgba color
@@ -57,18 +20,13 @@ function createDataGraph(label,methods){
 	var energies = methods.map((method) =>
 		method.energy
 	);
-	console.log(labels);
-	console.log(energies);
 	var colors = labels.map(randomColor)
-	console.log(colors);
 	var borderColor = colors.map((color) => 
 		color+" 1)"
 	);
-	console.log(borderColor);
 	var backgroundColor = colors.map((color) => 
 		color+" 0.2)"
 	);
-	console.log(backgroundColor);
 	return {
 		labels: labels,
 		datasets: [{
@@ -122,17 +80,6 @@ React.Component{
 		}
 	}
 
-	renderMethod(i) {
-		const method = this.state.methods[i];
-		return (
-			<Method 
-				testName={method.testName}
-				energy={method.energy}
-				duration={method.duration}
-			/>
-		);
-	}
-
 	render() {
 
 		return (
@@ -145,7 +92,6 @@ React.Component{
 					> graph</button>
 				</h3>
 				{this.state.methods.map((method,idx) =>
-					//renderMethod(idx)
 					<Method 
 						testName={method.testName}
 						energy={method.energy}
@@ -158,10 +104,6 @@ React.Component{
 
 }
 function Canvas(props){
-	// var canvas = document.createElement("canvas");
- //    canvas.setAttribute("class","canvas");
- //    canvas.id = `canvas-${props.className}`;
-	// return ({canvas});
 	return (
 		<canvas className="canvas" id={"class-"+props.className}>
 			Test:canvas
@@ -172,8 +114,6 @@ function Canvas(props){
 export default class AllTests extends React.Component {
 	constructor(props){
 		super(props);
-		// console.log(this.props.data.classesNames);
-		// console.log(this.props.data.data);
 		this.state = {
 			allClassesNames: props.data.classesNames,
 			data: props.data.data,
@@ -181,16 +121,6 @@ export default class AllTests extends React.Component {
 		}
 	}
 
-	renderClassTest(methods,className) {
-		return (
-			<div className="classe">
-				<ClassTest 
-					methods={methods}
-					className={className}
-				/>
-			</div>
-		);
-	}
 	handleClick(className){
 		var id = "canvas-" + className;
 		for(let el of document.getElementsByClassName("canvas"))
@@ -210,9 +140,6 @@ export default class AllTests extends React.Component {
 		return (
 			<div className="allClasses col page page-limited">
 				{this.state.data.map((methods,idx) => 
-					//console.log(methods)
-					// console.log(idx)
-					//renderClassTest(methods,this.state.allClassesNames[idx])
 					<div className="classe">
 						<ClassTest 
 							methods={methods}
@@ -235,60 +162,3 @@ export default class AllTests extends React.Component {
 
 
 }
-
-
-// var canvas = document.createElement("canvas");
-//         canvas.setAttribute("class","canvas");
-//         canvas.id = `canvas-${classe.className}`;
-//         canvas.hidden = true;
-//         createGraph(canvas, 'bar', allMethods,allEnergies,classe.className);
-//         divForChart.appendChild(canvas);
-
-// /**
-//  * Create graph and display it into canvas
-//  * @param canvas : display the graph into it
-//  * @param type : Line, Bar, Radar, Bubble, Area, Mixed..
-//  * @param data : data (saw the chartJS documentation or use "createDataForBubbleGraph" to put true data
-//  */
-// function createGraph = function (ctx, type, allMethods,allEnergies,className) {
-//     new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: allMethods,
-//         datasets: [{
-//             label: className,
-//             data: allEnergies,
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(25, 92, 132, 0.2)',
-//                 'rgba(254, 152, 235, 0.2)',
-//                 'rgba(225, 226, 86, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(25, 92, 132, 1)',
-//                 'rgba(254, 152, 235, 1)',
-//                 'rgba(225, 226, 86, 1)'
-//             ],
-//             borderWidth: 1,
-//             barPercentage: 0.2,
-//             //barThickness: 6,
-//             //maxBarThickness: 8,
-//             //minBarLength: 2
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-//  }
-// }

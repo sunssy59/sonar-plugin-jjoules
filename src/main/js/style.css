@@ -16,12 +16,12 @@
 .method {
  color:green;
  border:1px solid rgba(255,99,132,.2);
- padding:2px
+ padding:2px;
 }
 .result {
- margin-top: 5px;
-  margin-bottom: 5px;
- background-color:rgba(54,162,235,.5);
+ margin-top:5px;
+ margin-bottom:5px;
+ background-color:rgba(54,162,235,.5)
 }
 .row {
  display:flex;
@@ -52,7 +52,10 @@
  z-index:2;
  padding:10px 20px
 }
-.canvas h4.overview-panel-title{
-  margin-left:100px;
-  margin-top:20px;
+.canvas h4.overview-panel-title {
+ margin-left:100px;
+ margin-top:20px
+}
+h3.classTestName>button{
+  margin-left: 5px;
 }
