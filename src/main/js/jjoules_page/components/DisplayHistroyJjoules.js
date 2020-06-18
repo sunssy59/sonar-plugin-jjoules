@@ -124,7 +124,6 @@ export default class AllTests extends React.Component {
 		this.state = {
 			allClassesNames: props.data.classesNames,
 			data: props.data.data,
-			canvas: props.canvas,
 		}
 	}
 

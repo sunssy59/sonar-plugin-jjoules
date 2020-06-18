@@ -7,19 +7,19 @@ import ReactDOM from 'react-dom';
 import AllTests from "./components/DisplayHistroyJjoules";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
-	var canvas = document.createElement("canvas");
-	var div = document.createElement("div");
-    canvas.setAttribute("class","canvas");
-    canvas.id = `canvas-test`;
-    //createGraph(canvas);
-    div.appendChild(canvas);
-    console.log(div);
+	// var canvas = document.createElement("canvas");
+	// var div = document.createElement("div");
+ //    canvas.setAttribute("class","canvas");
+ //    canvas.id = `canvas-test`;
+ //    //createGraph(canvas);
+ //    div.appendChild(canvas);
+ //    console.log(div);
  //    options.el.appendChild(canvas);
  //    console.log(options.el);
     
 	// ReactDOM.render(canvas,options.el);
 
-	return <AllTests data={data}  canvas={div}/>;
+	return <AllTests data={data} />;
 
 });
 
