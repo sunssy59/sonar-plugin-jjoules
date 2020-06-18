@@ -34,22 +34,22 @@ var data = {
         }]
      }
      //,
-    // options: {
-    //     scales: {
-    //         yAxes: [{
-    //             ticks: {
-    //                 beginAtZero: true
-    //             }
-    //         }]
-    //     },layout: {
-    //         padding: {
-    //             left: 50,
-    //             right: 0,
-    //             top: 0,
-    //             bottom: 0
-    //         }
-    //     }
-    // }
+ var options = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },layout: {
+            padding: {
+                left: 50,
+                right: 0,
+                top: 0,
+                bottom: 0
+            }
+        }
+    }
 
 function Method(props) {
 	return (
@@ -152,7 +152,7 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
-				<Doughnut data={data} />
+				<Doughnut data={data} options={options} />
 			</div>
 		)
 	}
