@@ -52,21 +52,21 @@ function randomColor(){
 }
 function createDataGraph(label,methods){
 	var labels = methods.map((method) =>
-		method.testName;
+		method.testName
 	);
 	var energies = methods.map((method) =>
-		method.energy;
+		method.energy
 	);
 	console.log(labels);
 	console.log(energies);
 	var colors = labels.map(randomColor)
 	console.log(colors);
 	var borderColor = colors.map((color) => 
-		color+" 1)";
+		color+" 1)"
 	);
 	console.log(borderColor);
 	var backgroundColor = colors.map((color) => 
-		color+" 0.2)";
+		color+" 0.2)"
 	);
 	console.log(backgroundColor);
 	return {
