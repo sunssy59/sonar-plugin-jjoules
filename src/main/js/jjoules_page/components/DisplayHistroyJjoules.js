@@ -35,6 +35,15 @@ var data = {
  * Create random RGBA string color
  * @return String rgba color
  */
+var randomColor1 = function () {
+    return "rgba(" + Math.floor(Math.random() * Math.floor(256)) + "," +
+        "" + Math.floor(Math.random() * Math.floor(256)) + ", " +
+        "" + Math.floor(Math.random() * Math.floor(256)) + ", 1)";
+};
+/**
+ * Create random RGBA string color
+ * @return String rgba color
+ */
 function randomColor(){
 	return "rgba(" + Math.floor(Math.random() * Math.floor(256)) + "," +
         "" + Math.floor(Math.random() * Math.floor(256)) + ", " +
@@ -42,15 +51,22 @@ function randomColor(){
 
 }
 function createDataGraph(label,labels,data){
+	var test = randomColor();
+	var test1 = randomColor1();
+	console.log(test);
+	console.log(test1);
 	var colors = labels.map(() => {
 		randomColor();
 	});
+	console.log(colors);
 	var borderColor = colors.map((color) => {
 		color+" 1)";
 	});
+	console.log(borderColors);
 	var backgroundColor = colors.map((color) => {
 		color+" 0.2)";
 	});
+	console.log(backgroundColor);
 	return {
 		labels: labels,
 		datasets: [{
