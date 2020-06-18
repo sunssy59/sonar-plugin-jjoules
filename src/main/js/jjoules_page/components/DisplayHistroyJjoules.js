@@ -4,27 +4,25 @@ import { DeferredSpinner } from "sonar-components";
 import { Doughnut, Bar,Bubble } from 'react-chartjs-2';
 
 var data = {
-        labels: ["classOne","classTwo","classTree"],
+        labels: ["classOne","classTwo","classTree","classFour","classFive","classSix"],
         datasets: [{
             label: "test",
-            data: [[17,20],[9,45],[12,23],[10,30]],
+            data: [17,20,9,45,12,23],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
-                // ,
-                // 'rgba(25, 92, 132, 0.2)',
-                // 'rgba(254, 152, 235, 0.2)',
-                // 'rgba(225, 226, 86, 0.2)'
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(25, 92, 132, 0.2)',
+                'rgba(254, 152, 235, 0.2)',
+                'rgba(225, 226, 86, 0.2)'
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
-                // ,
-                // 'rgba(25, 92, 132, 1)',
-                // 'rgba(254, 152, 235, 1)',
-                // 'rgba(225, 226, 86, 1)'
+                'rgba(255, 206, 86, 1)',
+                'rgba(25, 92, 132, 1)',
+                'rgba(254, 152, 235, 1)',
+                'rgba(225, 226, 86, 1)'
             ],
             borderWidth: 1,
             barPercentage: 0.2,
@@ -43,8 +41,8 @@ var data = {
             }]
         },layout: {
             padding: {
-                left: 50,
-                right: 50,
+                left: 100,
+                right: 100,
                 top: 0,
                 bottom: 0
             }
