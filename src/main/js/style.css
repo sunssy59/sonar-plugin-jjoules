@@ -7,20 +7,21 @@
 .allClasses {
  margin-left:15px;
  align-content:center;
- padding:10px;
-  
+ padding:10px
 }
-.result{
-  padding: 5px;
-  border-radius:3px;
+.result {
+ padding:5px;
+ border-radius:3px
 }
 .method {
  color:green;
- border:1px solid rgba(255,99,132,0.2);
- padding: 2px;
+ border:1px solid rgba(255,99,132,.2);
+ padding:2px
 }
 .result {
- background-color:rgba(54, 162, 235,0.5);
+ margin-top: 5px;
+  margin-bottom: 5px;
+ background-color:rgba(54,162,235,.5);
 }
 .row {
  display:flex;
@@ -41,14 +42,13 @@
  min-width:0;
  max-width:100%
 }
-
-.page-container:last-child{
-  max-width:1280px;
-  margin-left:auto;
-  margin-right:auto;
-  padding-top:20px;
-  padding-bottom:20px;
-  position:relative;
-  z-index:2;
-  padding:10px 20px
+.page-container:last-child {
+ max-width:1280px;
+ margin-left:auto;
+ margin-right:auto;
+ padding-top:20px;
+ padding-bottom:20px;
+ position:relative;
+ z-index:2;
+ padding:10px 20px
 }
