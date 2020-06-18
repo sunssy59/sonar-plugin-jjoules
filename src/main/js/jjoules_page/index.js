@@ -1,6 +1,5 @@
 import React from "react";
 import "../style.css";
-import ReactDOM from 'react-dom';
 
 import AllTests from "./components/DisplayHistroyJjoules";
 

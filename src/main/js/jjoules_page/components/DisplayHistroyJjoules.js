@@ -31,7 +31,7 @@ React.Component{
 		return (
 			<div className="classTest">
 				<h3 className="classTestName overview-panel-title">
-					{this.state.className} =>
+					{this.state.className}
 					<button className="button" 
 					id={"but-"+this.state.className}
 					onClick={() => this.props.onClick(this.state.className)}
