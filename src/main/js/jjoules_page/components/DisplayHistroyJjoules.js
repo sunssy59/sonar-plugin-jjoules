@@ -104,8 +104,7 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
-				<div id="containt-canvas">
-					{this.state.canvas}
+				<div id="containt-canvas" dangerouslySetInnerHTML={{__html: this.state.canvas.innerHTML}}>
 				</div>
 			</div>
 		)
