@@ -50,19 +50,25 @@ function randomColor(){
         "" + Math.floor(Math.random() * Math.floor(256)) + ",";
 
 }
-function createDataGraph(label,labels,data){
+function createDataGraph(label,methods,data){
 	var test = randomColor();
 	var test1 = randomColor1();
+	var labels = methods.map((method) =>{
+		method.testName;
+	});
+	var energies = methods.map((method) =>{
+		method.energy;
+	});
 	console.log(test);
 	console.log(test1);
-	var colors = labels.map(() => {
-		randomColor();
-	});
+	console.log(labels);
+	console.log(energies);
+	var colors = labels.map(randomColor)
 	console.log(colors);
 	var borderColor = colors.map((color) => {
 		color+" 1)";
 	});
-	console.log(borderColors);
+	console.log(borderColor);
 	var backgroundColor = colors.map((color) => {
 		color+" 0.2)";
 	});
@@ -224,7 +230,7 @@ export default class AllTests extends React.Component {
 						<h4 className="overview-panel-title">
 							{"Graph for "+ className +" test"}
 						</h4>
-						<Bar data={createDataGraph(className,this.state.allClassesNames,data)} options={options}/>
+						<Bar data={createDataGraph(className,this.state.data[idx],data)} options={options}/>
 					</div>
 				)}
 			</div>
