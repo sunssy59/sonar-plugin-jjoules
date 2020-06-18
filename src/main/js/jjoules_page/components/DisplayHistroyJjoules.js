@@ -154,7 +154,7 @@ export default class AllTests extends React.Component {
 						<ClassTest 
 							methods={methods}
 							className={() => this.state.allClassesNames[idx]}
-							onClick={(className) => this.handleClick(className)}
+							onClick={(className) => this.handleClick(this.state.allClassesNames[idx])}
 						/>
 					</div>
 				)}
