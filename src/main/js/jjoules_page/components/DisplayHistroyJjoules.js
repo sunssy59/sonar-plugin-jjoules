@@ -52,7 +52,7 @@ var data = {
 function Method(props) {
 	return (
 		<div className="result list-inline-item">
-			<h6 className="method">Test: {props.testName}</h6>
+			<h6 className="method overview-panel-title" >Test: {props.testName}</h6>
 			<p>Energy: {props.energy} </p>
 			<p>Duration: {props.duration} </p>
 		</div>
@@ -86,13 +86,13 @@ React.Component{
 
 		return (
 			<div className="classTest">
-				<h4 className="classTestName">
+				<h3 className="classTestName overview-panel-title">
 					{this.state.className} =>
 					<button className="button" 
 					//id="but-"+{this.state.className}
 					onClick={() => this.props.onClick(this.state.className)}
 					> graph</button>
-				</h4>
+				</h3>
 				{this.state.methods.map((method,idx) =>
 					//renderMethod(idx)
 					<Method 
@@ -141,11 +141,9 @@ export default class AllTests extends React.Component {
 	}
 	handleClick(className){
 		var id = "canvas-" + className;
-		console.log(className + id);
 		for(let el of document.getElementsByClassName("canvas"))
 			el.hidden = true;
 		document.getElementById(id).hidden = false;
-		console.log(className);
 	}
 	render() {
 
@@ -165,6 +163,9 @@ export default class AllTests extends React.Component {
 				)}
 				{this.state.allClassesNames.map((className,idx) =>
 					<div class="canvas" id={"canvas-" + className} hidden={true}>
+						<h4 className"overview-panel-title">
+							{"Graph for "+ className +" test"}
+						</h4>
 						<Bar data={data} options={options}/>
 					</div>
 				)}
