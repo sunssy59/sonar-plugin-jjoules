@@ -5,13 +5,13 @@ import ReactDOM from 'react-dom';
 import AllTests from "./components/DisplayHistroyJjoules";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
-	var canvas = document.createElement("canvas");
-    canvas.setAttribute("class","canvas");
-    canvas.id = `canvas-test`;
-    createGraph(canvas);
-    console.log(canvas);
-    //options.el.appendChild(canvas);
-    console.log(options.el);
+	// var canvas = document.createElement("canvas");
+ //    canvas.setAttribute("class","canvas");
+ //    canvas.id = `canvas-test`;
+ //    createGraph(canvas);
+ //    console.log(canvas);
+ //    //options.el.appendChild(canvas);
+ //    console.log(options.el);
 	//ReactDOM.render(canvas,options.el);
 
 	return <AllTests data={data} />;
