@@ -2,7 +2,7 @@ import React from "react";
 // exposes React components exposed by SonarQube.
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
-import * from "../utils/utils";
+import { randomColor, createDataGraph, options } from "../utils/utils";
 
 function Method(props) {
 	return (
