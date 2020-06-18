@@ -7,7 +7,7 @@ var data = {
         labels: ["classOne","classTwo","classTree"],
         datasets: [{
             label: "test",
-            data: [1,3,10],
+            data: [[17,20],[9,45],[12,23],[10,30]],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -50,33 +50,6 @@ var data = {
             }
         }
     }
-
-const datab = {
-  labels: ['January'],
-  datasets: [
-    {
-      label: 'My First dataset',
-      fill: false,
-      lineTension: 0.1,
-      backgroundColor: 'rgba(75,192,192,0.4)',
-      borderColor: 'rgba(75,192,192,1)',
-      borderCapStyle: 'butt',
-      borderDash: [],
-      borderDashOffset: 0.0,
-      borderJoinStyle: 'miter',
-      pointBorderColor: 'rgba(75,192,192,1)',
-      pointBackgroundColor: '#fff',
-      pointBorderWidth: 1,
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-      pointHoverBorderColor: 'rgba(220,220,220,1)',
-      pointHoverBorderWidth: 2,
-      pointRadius: 1,
-      pointHitRadius: 10,
-      data: [{x:13,y:22,r:5},{x:30,y:20,r:5},{x:15,y:30,r:5}]
-    }
-  ]
-};
 
 function Method(props) {
 	return (
@@ -180,7 +153,6 @@ export default class AllTests extends React.Component {
 					</div>
 				)}
 				<Bar data={data} options={options}/>
-				<Bubble data={datab} options={options}/>
 			</div>
 		)
 	}
