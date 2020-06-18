@@ -31,8 +31,41 @@ var data = {
             //minBarLength: 2
         }]
      }
+/**
+ * Create random RGBA string color
+ * @return String rgba color
+ */
+function randomColor(){
+	return "rgba(" + Math.floor(Math.random() * Math.floor(256)) + "," +
+        "" + Math.floor(Math.random() * Math.floor(256)) + ", " +
+        "" + Math.floor(Math.random() * Math.floor(256)) + ",";
+
+}
+function createDataGraph(label,labels,data){
+	var colors = labels.map(() => {
+		randomColor();
+	});
+	var borderColor = colors.map((color) => {
+		color+" 1)";
+	});
+	var backgroundColor = colors.map((color) => {
+		color+" 0.2)";
+	});
+	return {
+		labels: labels,
+		datasets: [{
+			label:label,
+			data: data,
+			borderColor: borderColor,
+			backgroundColor: backgroundColor,
+			borderWidth: 1,
+            barPercentage: 0.2,
+		}]
+
+	}
+}
      //,
- var options = {
+var options = {
         scales: {
             yAxes: [{
                 ticks: {
@@ -126,6 +159,7 @@ export default class AllTests extends React.Component {
 		this.state = {
 			allClassesNames: props.data.classesNames,
 			data: props.data.data,
+			graphData: props.graphData,
 		}
 	}
 
@@ -174,7 +208,7 @@ export default class AllTests extends React.Component {
 						<h4 className="overview-panel-title">
 							{"Graph for "+ className +" test"}
 						</h4>
-						<Bar data={data} options={options}/>
+						<Bar data={createDataGraph(className,this.state.allClassesNames,data)} options={options}/>
 					</div>
 				)}
 			</div>
