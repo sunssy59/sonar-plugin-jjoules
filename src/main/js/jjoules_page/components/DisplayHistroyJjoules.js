@@ -1,7 +1,7 @@
 import React from "react";
 // exposes React components exposed by SonarQube.
 import { DeferredSpinner } from "sonar-components";
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut, Bar } from 'react-chartjs-2';
 
 var data = {
         labels: ["classOne","classTwo","classTree"],
@@ -152,7 +152,7 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
-				<Doughnut data={data} options={options} />
+				<Bar data={data} options={options} />
 			</div>
 		)
 	}
