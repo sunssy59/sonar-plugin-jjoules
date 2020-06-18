@@ -105,7 +105,7 @@ export default class AllTests extends React.Component {
 					</div>
 				)}
 				<div id="containt-canvas">
-					{this.state.canvas.innerHTML}
+					{this.state.canvas}
 				</div>
 			</div>
 		)
