@@ -90,7 +90,8 @@ React.Component{
 					{this.state.className} => 
 					<button className="button" 
 							//id="but-"+{this.state.className}
-							onClick={props.onClick(this.state.className)}> graph</button>
+							//onClick={props.onClick(this.state.className)}
+					> graph</button>
 				</h4>
 				{this.state.methods.map((method,idx) =>
 					//renderMethod(idx)
@@ -153,7 +154,7 @@ export default class AllTests extends React.Component {
 						<ClassTest 
 							methods={methods}
 							className={this.state.allClassesNames[idx]}
-							onClick={(className) => this.handleClick(className)}
+							//onClick={(className) => this.handleClick(className)}
 						/>
 					</div>
 				)}
