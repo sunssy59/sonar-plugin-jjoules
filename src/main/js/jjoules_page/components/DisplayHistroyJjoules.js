@@ -1,7 +1,7 @@
 import React from "react";
 // exposes React components exposed by SonarQube.
 import { DeferredSpinner } from "sonar-components";
-import { Doughnut, Bar,Bubble } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 var data = {
         labels: ["classOne","classTwo","classTree","classFour","classFive","classSix"],
@@ -87,7 +87,10 @@ React.Component{
 		return (
 			<div className="classTest">
 				<h4 className="classTestName">
-					{this.state.className}
+					{this.state.className} => 
+					<button className="button" 
+							id="but-"+{this.state.className}
+							onClick={props.onClick(this.state.className)}> graph</button>
 				</h4>
 				{this.state.methods.map((method,idx) =>
 					//renderMethod(idx)
@@ -135,6 +138,9 @@ export default class AllTests extends React.Component {
 			</div>
 		);
 	}
+	handleClick(className){
+		console.log(className);
+	}
 	render() {
 
 		return (
@@ -147,6 +153,7 @@ export default class AllTests extends React.Component {
 						<ClassTest 
 							methods={methods}
 							className={this.state.allClassesNames[idx]}
+							onClick={(className) => this.handleClick(className)}
 						/>
 					</div>
 				)}
@@ -154,6 +161,8 @@ export default class AllTests extends React.Component {
 			</div>
 		)
 	}
+
+
 }
 
 
