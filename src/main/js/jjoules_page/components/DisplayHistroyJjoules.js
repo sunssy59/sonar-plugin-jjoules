@@ -140,6 +140,11 @@ export default class AllTests extends React.Component {
 		);
 	}
 	handleClick(className){
+		var id = "canvas-" + className;
+		console.log(className + id);
+		for(let el of document.getElementsByClassName("canvas"))
+			el.hidden = true;
+		document.getElementById(id).hidden = false;
 		console.log(className);
 	}
 	render() {
@@ -159,7 +164,7 @@ export default class AllTests extends React.Component {
 					</div>
 				)}
 				{this.state.allClassesNames.map((className,idx) =>
-					<div id="canvas- + {className}">
+					<div class="canvas" id={"canvas-" + className} hidden={true}>
 						<Bar data={data} options={options}/>
 					</div>
 				)}
