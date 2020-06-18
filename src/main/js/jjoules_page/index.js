@@ -11,7 +11,7 @@ window.registerExtension("jjoules/jjoules_page",options =>{
 	var div = document.createElement("div");
     canvas.setAttribute("class","canvas");
     canvas.id = `canvas-test`;
-    createGraph(canvas);
+    //createGraph(canvas);
     div.appendChild(canvas);
     console.log(div);
  //    options.el.appendChild(canvas);
