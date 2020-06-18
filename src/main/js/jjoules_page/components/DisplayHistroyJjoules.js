@@ -152,7 +152,10 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
-				<Bar data={data} options={options} />
+				<Bar data={data} 
+					 width={100}
+					 height={50}
+					 options={{ maintainAspectRatio: false }/>
 			</div>
 		)
 	}
