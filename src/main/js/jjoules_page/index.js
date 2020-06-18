@@ -10,7 +10,7 @@ window.registerExtension("jjoules/jjoules_page",options =>{
     canvas.id = `canvas-test`;
     createGraph(canvas);
     console.log(canvas);
-    options.el.appendChild(canvas);
+    //options.el.appendChild(canvas);
     console.log(options.el);
 	//ReactDOM.render(canvas,options.el);
 
