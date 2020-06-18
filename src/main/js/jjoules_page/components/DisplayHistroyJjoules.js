@@ -73,7 +73,7 @@ const datab = {
       pointHoverBorderWidth: 2,
       pointRadius: 1,
       pointHitRadius: 10,
-      data: [{x:10,y:20,r:5}]
+      data: [{x:13,y:22,r:5},{x:30,y:20,r:5},{x:15,y:30,r:5}]
     }
   ]
 };
@@ -180,7 +180,7 @@ export default class AllTests extends React.Component {
 					</div>
 				)}
 				<Bar data={data} options={options}/>
-				<Bubble data={data}/>
+				<Bubble data={data} options={options}/>
 			</div>
 		)
 	}
