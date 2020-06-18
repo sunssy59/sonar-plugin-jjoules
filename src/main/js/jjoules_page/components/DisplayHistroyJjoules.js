@@ -180,7 +180,7 @@ export default class AllTests extends React.Component {
 					</div>
 				)}
 				<Bar data={data} options={options}/>
-				<Bubble data={data} options={options}/>
+				<Bubble data={datab} options={options}/>
 			</div>
 		)
 	}
