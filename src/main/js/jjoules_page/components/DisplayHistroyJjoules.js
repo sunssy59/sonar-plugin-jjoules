@@ -87,10 +87,10 @@ React.Component{
 		return (
 			<div className="classTest">
 				<h4 className="classTestName">
-					{this.state.className} => 
+					{this.state.className} =>
 					<button className="button" 
-							//id="but-"+{this.state.className}
-							onClick={() => this.props.onClick(this.state.className)}
+					//id="but-"+{this.state.className}
+					onClick={() => this.props.onClick(this.state.className)}
 					> graph</button>
 				</h4>
 				{this.state.methods.map((method,idx) =>
@@ -153,12 +153,16 @@ export default class AllTests extends React.Component {
 					<div className="classe">
 						<ClassTest 
 							methods={methods}
-							className={() => this.state.allClassesNames[idx]}
+							className={this.state.allClassesNames[idx]}
 							onClick={(className) => this.handleClick(this.state.allClassesNames[idx])}
 						/>
 					</div>
 				)}
-				<Bar data={data} options={options}/>
+				{this.state.allClassesNames.map((className,idx) =>
+					<div id="canvas- + {className}">
+						<Bar data={data} options={options}/>
+					</div>
+				)}
 			</div>
 		)
 	}
