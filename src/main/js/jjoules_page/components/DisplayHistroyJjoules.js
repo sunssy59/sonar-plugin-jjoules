@@ -4,6 +4,7 @@ import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
 import { randomColor, createDataGraph, options } from "../utils/utils";
 
+
 function Method(props) {
 	return (
 		<div className="result list-inline-item">
@@ -48,13 +49,6 @@ React.Component{
 		);
 	}
 
-}
-function Canvas(props){
-	return (
-		<canvas className="canvas" id={"class-"+props.className}>
-			Test:canvas
-		</canvas>
-	)
 }
 
 export default class AllTests extends React.Component {
