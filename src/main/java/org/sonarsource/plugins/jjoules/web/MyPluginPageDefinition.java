@@ -55,10 +55,10 @@ public class MyPluginPageDefinition implements PageDefinition {
     context
       .addPage(Page.builder("jjoules/jjoules_page")
         .setName("Jjoules stat")
-        .setScope(Scope.COMPONENT).build());
+        .setScope(Scope.COMPONENT).build())
       .addPage(Page.builder("jjoules/test_page")
        .setName("jjoules test")
        .setScope(Scope.COMPONENT)
-       .build())
+       .build());
   }
 }
