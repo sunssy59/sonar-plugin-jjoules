@@ -44,7 +44,7 @@ var data = {
         },layout: {
             padding: {
                 left: 50,
-                right: 0,
+                right: 50,
                 top: 0,
                 bottom: 0
             }
@@ -152,10 +152,7 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
-				<Bar data={data} 
-					 width={100}
-					 height={50}
-					 options={{ maintainAspectRatio: false }}/>
+				<Bar data={data} options={options}/>
 			</div>
 		)
 	}
