@@ -55,13 +55,13 @@ function createDataGraph(label,methods){
 			label: "Energy",
 			backgroundColor: energyBackgroudColor,
 			borderColor: energyBorderColor,
-			hoverBorderColor: "black",
+			hoverBorderColor: "#000000",
 			data: energies
 		},{
 			label: "Duration",
 			backgroundColor: durationBackgroudColor,
 			borderColor:durationBorderColor,
-			hoverBorderColor: "black",
+			hoverBorderColor: "#000000",
 			data: durations
 		}] 
 	}
