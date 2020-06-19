@@ -15,24 +15,50 @@ function createDataGraph(label,methods){
 	var energies = methods.map((method) =>
 		method.energy
 	);
-	var colors = labels.map(randomColor)
-	var borderColor = colors.map((color) => 
-		color+" 1)"
+	var durations = methods.map((method) =>
+		method.duration
 	);
-	var backgroundColor = colors.map((color) => 
-		color+" 0.2)"
-	);
+
+	var energyBackgroudColor = randomColor() + " 0.2)";
+	var energyBorderColor = randomColor() + " 1)";
+
+	var durationBackgroudColor = randomColor() + " 0.2)";
+	var durationBorderColor = randomColor() + " 1)";
+
+	// var colors = labels.map(randomColor)
+	// var borderColor = colors.map((color) => 
+	// 	color+" 1)"
+	// );
+	// var backgroundColor = colors.map((color) => 
+	// 	color+" 0.2)"
+	// );
+	// return {
+	// 	labels: labels,
+	// 	datasets: [{
+	// 		label:label,
+	// 		data: energies,
+	// 		borderColor: borderColor,
+	// 		backgroundColor: backgroundColor,
+	// 		borderWidth: 1,
+ //            barPercentage: 0.2,
+	// 	}]
+
+	// }
+
 	return {
 		labels: labels,
-		datasets: [{
-			label:label,
-			data: energies,
-			borderColor: borderColor,
-			backgroundColor: backgroundColor,
-			borderWidth: 1,
-            barPercentage: 0.2,
-		}]
-
+		datasets: [
+		{
+			label: "Energy",
+			backgroundColor: energyBackgroudColor,
+			borderColor: energyBorderColor,
+			data: energies
+		},{
+			label: "Duration",
+			backgroundColor: durationBackgroudColor,
+			borderColor:durationBorderColor,
+			data: durations
+		}] 
 	}
 }
      //,
@@ -50,7 +76,10 @@ var options = {
                 top: 0,
                 bottom: 0
             }
-        }
+        },title: {
+	        display: true,
+	        text: 'Energy and duration'
+      	}
 }
 
 export { randomColor, createDataGraph, options };
