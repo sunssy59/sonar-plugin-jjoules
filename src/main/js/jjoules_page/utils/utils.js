@@ -61,6 +61,7 @@ function createDataGraph(label,methods){
 			label: "Duration",
 			backgroundColor: durationBackgroudColor,
 			borderColor:durationBorderColor,
+			hoverBorderColor: "black",
 			data: durations
 		}] 
 	}
