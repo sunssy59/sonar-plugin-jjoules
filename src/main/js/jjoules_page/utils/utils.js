@@ -1,4 +1,3 @@
-var currentClassName = "";
 
 /**
  * Create random RGBA string color
@@ -67,7 +66,8 @@ function createDataGraph(label,methods){
 	}
 }
      //,
-var options = {
+function options(className){
+	return {
         scales: {
             yAxes: [{
                 ticks: {
@@ -86,8 +86,31 @@ var options = {
             }
         },title: {
 	        display: true,
-	        text: 'Graph for class : '+currentClassName+' energy & duration'
+	        text: 'Graph for class : '+className+' energy & duration'
       	}
+	};	
 }
+// var options = {
+//         scales: {
+//             yAxes: [{
+//                 ticks: {
+//                     beginAtZero: true
+//                 },scaleLabel: {
+// 		            display: true,
+// 		            labelString: "Energy (Joules) & Duration (ms)"
+// 		        }
+//             }]
+//         },layout: {
+//             padding: {
+//                 left: 100,
+//                 right: 100,
+//                 top: 0,
+//                 bottom: 0
+//             }
+//         },title: {
+// 	        display: true,
+// 	        text: 'Graph for class : '+currentClassName+' energy & duration'
+//       	}
+// }
 
-export { randomColor, createDataGraph, options, currentClassName };
+export { randomColor, createDataGraph, options };

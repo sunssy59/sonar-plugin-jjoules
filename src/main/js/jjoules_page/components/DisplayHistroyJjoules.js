@@ -2,7 +2,7 @@ import React from "react";
 // exposes React components exposed by SonarQube.
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
-import { randomColor, createDataGraph, options, currentClassName } from "../utils/utils";
+import { randomColor, createDataGraph, options } from "../utils/utils";
 
 
 function Method(props) {
@@ -94,7 +94,10 @@ export default class AllTests extends React.Component {
 						{/*<h4 className="overview-panel-title">
 							{"Graph for "+ className +" test"}
 						</h4>*/}
-						<Bar data={createDataGraph(className,this.state.data[idx])} options={options}/>
+						<Bar 
+							data={createDataGraph(className,this.state.data[idx])} 
+							options={options(className)}
+						/>
 					</div>
 				)}
 			</div>
