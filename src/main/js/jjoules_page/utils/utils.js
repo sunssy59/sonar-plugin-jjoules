@@ -1,4 +1,4 @@
-const currentClassName = "";
+var currentClassName = "";
 
 /**
  * Create random RGBA string color
