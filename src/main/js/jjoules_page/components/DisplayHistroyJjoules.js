@@ -2,7 +2,7 @@ import React from "react";
 // exposes React components exposed by SonarQube.
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
-import { randomColor, createDataGraph, options } from "../utils/utils";
+import { randomColor, createDataGraph, options, currentClassName } from "../utils/utils";
 
 
 function Method(props) {
@@ -62,6 +62,7 @@ export default class AllTests extends React.Component {
 	}
 
 	handleClick(className){
+		currentClassName = className;
 		var id = "canvas-" + className;
 		for(let el of document.getElementsByClassName("canvas"))
 			el.hidden = true;

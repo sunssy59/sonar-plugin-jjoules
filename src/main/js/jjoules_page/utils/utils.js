@@ -90,4 +90,4 @@ var options = {
       	}
 }
 
-export { randomColor, createDataGraph, options };
+export { randomColor, createDataGraph, options, currentClassName };
