@@ -4,7 +4,7 @@ import "../style.css";
 import AllTests from "./components/DisplayHistroyJjoules";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
-
+	console.log(options);
 	return <AllTests data={transformData(data1)} />;
 
 });
