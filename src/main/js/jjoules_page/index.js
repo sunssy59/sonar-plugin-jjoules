@@ -34,7 +34,7 @@ var data = {
 };
 
 function transformData(data){
-	returnData = {}
+	var returnData = {};
 	returnData.classesNames = data.map((clazz) => clazz.className);
 	returnData.data = data.map((clazz) => clazz.methods);
 	return returnData;
