@@ -55,6 +55,7 @@ function createDataGraph(label,methods){
 			label: "Energy",
 			backgroundColor: energyBackgroudColor,
 			borderColor: energyBorderColor,
+			hoverBorderColor: "black",
 			data: energies
 		},{
 			label: "Duration",
