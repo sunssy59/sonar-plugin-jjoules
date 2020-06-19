@@ -1,3 +1,5 @@
+const currentClassName = "";
+
 /**
  * Create random RGBA string color
  * @return String rgba color
@@ -9,6 +11,7 @@ function randomColor(){
 
 }
 function createDataGraph(label,methods){
+	currentClassName = label;
 	var labels = methods.map((method) =>
 		method.testName
 	);
@@ -78,7 +81,7 @@ var options = {
             }
         },title: {
 	        display: true,
-	        text: 'Energy and duration'
+	        text: 'Graph for class : '+currentClassName+' energy & duration'
       	}
 }
 

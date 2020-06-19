@@ -90,9 +90,9 @@ export default class AllTests extends React.Component {
 				)}
 				{this.state.allClassesNames.map((className,idx) =>
 					<div class="canvas" id={"canvas-" + className} hidden={true}>
-						<h4 className="overview-panel-title">
+						{/*<h4 className="overview-panel-title">
 							{"Graph for "+ className +" test"}
-						</h4>
+						</h4>*/}
 						<Bar data={createDataGraph(className,this.state.data[idx])} options={options}/>
 					</div>
 				)}
