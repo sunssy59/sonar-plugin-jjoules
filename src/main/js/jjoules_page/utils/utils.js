@@ -10,7 +10,6 @@ function randomColor(){
 
 }
 function createDataGraph(label,methods){
-	currentClassName = label;
 	var labels = methods.map((method) =>
 		method.testName
 	);

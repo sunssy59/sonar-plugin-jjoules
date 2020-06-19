@@ -36,7 +36,7 @@ React.Component{
 					<button className="button" 
 					id={"but-"+this.state.className}
 					onClick={() => this.props.onClick(this.state.className)}
-					> graph</button>
+					> graph <strong>&darr;</strong></button>
 				</h3>
 				{this.state.methods.map((method,idx) =>
 					<Method 
@@ -62,7 +62,6 @@ export default class AllTests extends React.Component {
 	}
 
 	handleClick(className){
-		currentClassName = className;
 		var id = "canvas-" + className;
 		for(let el of document.getElementsByClassName("canvas"))
 			el.hidden = true;
