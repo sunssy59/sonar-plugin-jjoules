@@ -70,7 +70,10 @@ var options = {
             yAxes: [{
                 ticks: {
                     beginAtZero: true
-                }
+                },scaleLabel: {
+		            display: true,
+		            labelString: "Energy (Joules) & Duration (ms)"
+		        }
             }]
         },layout: {
             padding: {
