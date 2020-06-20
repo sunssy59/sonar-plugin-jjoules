@@ -64,3 +64,6 @@ h3.classTestName>button {
   margin-top: 20px;
   border-radius: 20px;
 }
+button>strong{
+  font-size: x-large;
+}
