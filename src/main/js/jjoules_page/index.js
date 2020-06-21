@@ -26,8 +26,8 @@ var data = {
 		],
 		[{testName:"test2One",energy:12,duration:23},
 		  {testName:"test2Two",energy:18,duration:8},
-		  {testName:"test2Four",energy:30,duration:23},
-		  {testName:"test2Five",energy:20,duration:23}
+		  {testName:"test2Tree",energy:30,duration:23},
+		  {testName:"test2Four",energy:20,duration:23}
 		],
 		[{testName:"test3One",energy:12,duration:23},
 		  {testName:"test3Two",energy:18,duration:8},

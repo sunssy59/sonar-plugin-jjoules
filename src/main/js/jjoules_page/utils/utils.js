@@ -20,11 +20,15 @@ function createDataGraph(label,methods){
 		method.duration
 	);
 
-	var energyBackgroudColor = randomColor() + " 0.2)";
-	var energyBorderColor = randomColor() + " 1)";
+	var energyColor = randomColor();
+	var energyBackgroudColor = energyColor + " 0.2)";
+	var hoverBackgroudColorEN = energyColor + " 0.5";
+	var energyBorderColor = energyColor + " 1)";
 
-	var durationBackgroudColor = randomColor() + " 0.2)";
-	var durationBorderColor = randomColor() + " 1)";
+	var durationColor = randomColor();
+	var durationBackgroudColor = durationColor + " 0.2)";
+	var hoverBackgroudColorDU = durationColor + " 0.5)";
+	var durationBorderColor = durationColor + " 1)";
 
 	// var colors = labels.map(randomColor)
 	// var borderColor = colors.map((color) => 
@@ -52,19 +56,23 @@ function createDataGraph(label,methods){
 		{
 			label: "Energy",
 			backgroundColor: energyBackgroudColor,
+			hoverBackgroundColor: hoverBackgroundColorEN,
 			borderColor: energyBorderColor,
-			hoverBorderColor: "#000000",
+			borderWidth: 1,
+			//hoverBorderColor: "#000000",
 			data: energies
 		},{
 			label: "Duration",
 			backgroundColor: durationBackgroudColor,
+			hoverBackgroundColor: hoverBackgroundColorDU,
 			borderColor:durationBorderColor,
-			hoverBorderColor: "#000000",
+			borderWidth: 1,
+			//hoverBorderColor: "#000000",
 			data: durations
 		}] 
 	}
 }
-     //,
+
 function options(className){
 	return {
         scales: {

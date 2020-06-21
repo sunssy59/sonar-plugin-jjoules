@@ -21,7 +21,8 @@
 .result {
  margin-top:5px;
  margin-bottom:5px;
- background-color:rgba(54,162,235,.5)
+ background-color:#f8ffff;
+ /*background-color:rgba(54,162,235,.5)*/
 }
 .row {
  display:flex;
@@ -57,13 +58,14 @@
  margin-top:20px
 }
 h3.classTestName>button {
- margin-left:6px;
+ margin-left:6px
 }
-.canvas{
-  background-color:ghostwhite;
-  margin-top: 20px;
-  border-radius: 20px;
+.canvas {
+ background-color:#f8f8ff;
+ margin-top:20px;
+ border-radius:20px
 }
-button>strong{
-  font-size: x-large;
+button>strong {
+ font-size:x-large
 }
+
