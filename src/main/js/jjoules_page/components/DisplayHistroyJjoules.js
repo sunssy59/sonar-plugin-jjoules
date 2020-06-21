@@ -5,7 +5,7 @@ import { Bar } from 'react-chartjs-2';
 import { randomColor, createDataGraph, options } from "../utils/utils";
 
 const dataTest = {
-	labels: [“label1”,”label2”,”label3”,”label4”,”label5”],
+	labels: ["label1","label2","label3","label4","label5"],
 	datasets: [
 	{
 		label: "Energy",
