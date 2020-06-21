@@ -67,7 +67,7 @@ function createDataGraph(label,methods){
 			hoverBackgroundColor: hoverBackgroundColorDU,
 			borderColor:durationBorderColor,
 			borderWidth: 1,
-			hoverBorderColor: energyBorderColor,
+			hoverBorderColor: durationBorderColor,
 			data: durations
 		}] 
 	}
