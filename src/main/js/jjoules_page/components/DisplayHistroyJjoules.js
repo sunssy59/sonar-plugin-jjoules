@@ -9,18 +9,18 @@ const dataTest = {
 	datasets: [
 	{
 		label: "Energy",
-		backgroundColor: 'rgba(255,99,132,0.2)',
-		hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-		borderColor: 'rgba(255,99,132,1)',
-hoverBorderColor: 'rgba(255,99,132,1)',
+		backgroundColor: 'rgba(22,212, 127,0.2)',
+		hoverBackgroundColor: 'rgba(22,212, 127,0.4)',
+		borderColor: 'rgba(22,212, 127,1)',
+hoverBorderColor: 'rgba(22,212, 127,1)',
 		borderWidth: 1,
 		data: [55,10,59,30,20]
 	},{
 		label: "Duration",
-		backgroundColor:  'rgba(255,49,132,0.2)',
-		hoverBackgroundColor: 'rgba(255,49,132,0.4)',
-		borderColor: 'rgba(255,49,132,1)',
-hoverBorderColor: 'rgba(255,49,132,1)',
+		backgroundColor:  'rgba(210,58, 53,0.2)',
+		hoverBackgroundColor: 'rgba(210,58, 53,0.4)',
+		borderColor: 'rgba(210,58, 53,1)',
+hoverBorderColor: 'rgba(210,58, 53,1)',
 		borderWidth: 1,
 		data: [20,15,10,65,12]
 	}] 
