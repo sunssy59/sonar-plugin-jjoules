@@ -22,12 +22,12 @@ function createDataGraph(label,methods){
 
 	var energyColor = randomColor();
 	var energyBackgroudColor = energyColor + " 0.2)";
-	var hoverBackgroudColorEN = energyColor + " 0.5";
+	var hoverBackgroundColorEN = energyColor + " 0.5";
 	var energyBorderColor = energyColor + " 1)";
 
 	var durationColor = randomColor();
 	var durationBackgroudColor = durationColor + " 0.2)";
-	var hoverBackgroudColorDU = durationColor + " 0.5)";
+	var hoverBackgroundColorDU = durationColor + " 0.5)";
 	var durationBorderColor = durationColor + " 1)";
 
 	// var colors = labels.map(randomColor)
