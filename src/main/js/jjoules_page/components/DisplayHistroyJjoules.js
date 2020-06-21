@@ -11,7 +11,7 @@ function Method(props) {
 		<div className="result list-inline-item">
 			<h6 className="method overview-panel-title" >
 				Test: {props.testName}
-				<Rating rating=1.0 />
+				<Rating rating={1.0} />
 			</h6>
 			<p>Energy: {props.energy} </p>
 			<p>Duration: {props.duration} </p>
