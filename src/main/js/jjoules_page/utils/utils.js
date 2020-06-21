@@ -30,8 +30,6 @@ function createDataGraph(label,methods){
 	var hoverBackgroundColorDU = durationColor + " 0.5)";
 	var durationBorderColor = durationColor + " 1)";
 
-	console.log(energyColor);
-	console.log(durationColor);
 	// var colors = labels.map(randomColor)
 	// var borderColor = colors.map((color) => 
 	// 	color+" 1)"
@@ -99,27 +97,5 @@ function options(className){
       	}
 	};	
 }
-// var options = {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 },scaleLabel: {
-// 		            display: true,
-// 		            labelString: "Energy (Joules) & Duration (ms)"
-// 		        }
-//             }]
-//         },layout: {
-//             padding: {
-//                 left: 100,
-//                 right: 100,
-//                 top: 0,
-//                 bottom: 0
-//             }
-//         },title: {
-// 	        display: true,
-// 	        text: 'Graph for class : '+currentClassName+' energy & duration'
-//       	}
-// }
 
 export { randomColor, createDataGraph, options };

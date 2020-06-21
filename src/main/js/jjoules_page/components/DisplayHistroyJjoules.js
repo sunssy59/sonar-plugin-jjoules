@@ -4,53 +4,6 @@ import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
 import { randomColor, createDataGraph, options } from "../utils/utils";
 
-const dataTest = {
-	labels: ["label1","label2","label3","label4","label5"],
-	datasets: [
-	{
-		label: "Energy",
-		backgroundColor: 'rgba(22,212, 127,0.2)',
-		hoverBackgroundColor: 'rgba(22,212, 127,0.4)',
-		borderColor: 'rgba(22,212, 127,1)',
-hoverBorderColor: 'rgba(22,212, 127,1)',
-		borderWidth: 1,
-		data: [55,10,59,30,20]
-	},{
-		label: "Duration",
-		backgroundColor:  'rgba(210,58, 53,0.2)',
-		hoverBackgroundColor: 'rgba(210,58, 53,0.4)',
-		borderColor: 'rgba(210,58, 53,1)',
-hoverBorderColor: 'rgba(210,58, 53,1)',
-		borderWidth: 1,
-		data: [20,15,10,65,12]
-	}] 
-};
-
-const optionsTest = {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },scaleLabel: {
-		            display: true,
-		            labelString: "Energy (Joules) & Duration (ms)"
-		        }
-            }]
-        },layout: {
-            padding: {
-                left: 100,
-                right: 100,
-                top: 0,
-                bottom: 0
-            }
-        },title: {
-	        display: true,
-	        text: 'Graph for energy & duration'
-      	}
-};
-
-
-
 
 function Method(props) {
 	return (
@@ -146,7 +99,6 @@ export default class AllTests extends React.Component {
 						/>
 					</div>
 				)}
-			<Bar data={dataTest} options={optionsTest} />
 			</div>
 		)
 	}

@@ -92,5 +92,3 @@ return getJSON('/api/project_analyses/search', {
   }
  });
 }
-
-//docker cp sonar-jjoules-plugin-8.1.0.jar e92f4fc896a8:/opt/sonarqube/extensions/plugins
