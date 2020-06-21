@@ -2,7 +2,6 @@ import React from "react";
 // exposes React components exposed by SonarQube.
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
-import { Rating } from "../../components/Rating";
 import { randomColor, createDataGraph, options } from "../utils/utils";
 
 
@@ -11,7 +10,6 @@ function Method(props) {
 		<div className="result list-inline-item">
 			<h6 className="method overview-panel-title" >
 				Test: {props.testName}
-				<Rating rating={1.0} />
 			</h6>
 			<p>Energy: {props.energy} </p>
 			<p>Duration: {props.duration} </p>
