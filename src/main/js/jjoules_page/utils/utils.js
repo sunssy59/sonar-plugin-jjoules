@@ -30,6 +30,8 @@ function createDataGraph(label,methods){
 	var hoverBackgroundColorDU = durationColor + " 0.5)";
 	var durationBorderColor = durationColor + " 1)";
 
+	console.log(energyColor);
+	console.log(durationColor);
 	// var colors = labels.map(randomColor)
 	// var borderColor = colors.map((color) => 
 	// 	color+" 1)"
