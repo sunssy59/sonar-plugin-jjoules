@@ -88,7 +88,7 @@ React.Component {
 					placeholder="Search a test"
 					type="search"
 					value={search}
-					onChangeText={this.updateSearch}
+					onChange={this.updateSearch}
 				/>
 			</div>
 		);
