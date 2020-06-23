@@ -45,7 +45,6 @@ React.Component{
 
 		return (
 			<div className="classTest" id={"class-"+this.state.className}>
-				<Search />
 				<h3 className="classTestName overview-panel-title">
 					{this.state.className}
 					<button className="button" 
