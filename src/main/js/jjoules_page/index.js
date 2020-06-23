@@ -1,7 +1,45 @@
 import React from "react";
 import "../style.css";
+import { SearchInput,createFilter } from 'react-search-input'
 
 import AllTests from "./components/DisplayHistroyJjoules";
+
+const classes = [
+  {"className":"test1"},{"className":"test2"},{"className":"test3"}
+] 
+const KEYS_TO_FILTERS = ['className']
+ 
+export default class App extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      searchTerm: ''
+    }
+    this.searchUpdated = this.searchUpdated.bind(this)
+  }
+ 
+  render () {
+    //const filteredClassNames = classes.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+ 
+    return (
+      <div>
+        <SearchInput className="search-input" onChange={this.setState({searchTerm: term}} />
+          {classes.map(className => {
+            return (
+              <div className="test">
+                test => {className.className}
+              </div>
+            )
+        })}
+      </div>
+    )
+  }
+ 
+  searchUpdated (term) {
+    this.setState({searchTerm: term})
+  }
+}
+
 window.registerExtension("jjoules/jjoules_page",options =>{
 	// window.SonarRequest.getJSON('/api/issues/search', {
  //        resolved: false,
@@ -10,7 +48,10 @@ window.registerExtension("jjoules/jjoules_page",options =>{
  //    	console.log(arg);
  //    });
 	//console.log(options);
-	return (<AllTests data={transformData(data1)} />);
+	return (<div>
+				<App />
+				<AllTests data={transformData(data1)} />
+			</div>);
 
 });
 
