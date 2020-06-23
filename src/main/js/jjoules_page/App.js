@@ -16,16 +16,15 @@ export default class App extends Component {
   }
  
   render () {
-    const filteredEmails = emails.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+    const filteredClassNames = emails.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
  
     return (
       <div>
         <SearchInput className="search-input" onChange={this.searchUpdated} />
-        {filteredEmails.map(email => {
+        {filteredClassNames.map(className => {
           return (
-            <div className="mail" key={email.id}>
-              <div className="from">{email.user.name}</div>
-              <div className="subject">{email.subject}</div>
+            <div class="test">
+              test => {className}
             </div>
           )
         })}
