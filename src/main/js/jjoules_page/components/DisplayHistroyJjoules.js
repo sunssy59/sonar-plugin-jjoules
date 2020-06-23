@@ -3,7 +3,7 @@ import React from "react";
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
 import { randomColor, createDataGraph, options } from "../utils/utils";
-import { Search } from "../utils/Search";
+//import { Search } from "../utils/Search";
 //import { SearcheBar } from 'react-native-elements';
 /**
  * Create random RGBA string color
@@ -94,14 +94,21 @@ export default class AllTests extends React.Component {
 		but.removeAttribute("class");
 		but.setAttribute("class","button button-active");
 	}
-	updateSearch = (search) => {
-    	this.setState({ search });
-  	};
 	render() {
 
 		return (
 			<div className="allClasses col page page-limited">
-				<Search />
+				<div className="search-box">Test
+					<input 
+						className="search-box-input"
+						aria-label="Search"
+						autocomplete="off"
+						maxlength="50"
+						placeholder="Search a test"
+						type="search"
+						value=""
+					/>
+				</div>
 				{this.state.data.map((methods,idx) => 
 					<ClassTest 
 						methods={methods}
