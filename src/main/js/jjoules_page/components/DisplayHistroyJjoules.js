@@ -3,8 +3,15 @@ import React from "react";
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
 import { randomColor, createDataGraph, options } from "../utils/utils";
+/**
+ * Create random RGBA string color
+ * @return String rgba color
+ */
 
-
+/**
+* Create a HTLM representation of one method
+* @return a HTML code of this method
+*/
 function Method(props) {
 	return (
 		<div className="result list-inline-item">
@@ -17,7 +24,10 @@ function Method(props) {
 
 	);
 }
-
+/**
+ * Create HTML representation of class test
+ * @return HTML code of one test class containt there method representation
+ */
 class ClassTest extends
 React.Component{
 
@@ -53,6 +63,10 @@ React.Component{
 
 }
 
+/**
+ * Create HTML representation of all test classes 
+ * @return HTML code of these test
+ */
 export default class AllTests extends React.Component {
 	constructor(props){
 		super(props);
@@ -92,9 +106,6 @@ export default class AllTests extends React.Component {
 				)}
 				{this.state.allClassesNames.map((className,idx) =>
 					<div class="canvas" id={"canvas-" + className} hidden={true}>
-						{/*<h4 className="overview-panel-title">
-							{"Graph for "+ className +" test"}
-						</h4>*/}
 						<Bar 
 							data={createDataGraph(className,this.state.data[idx])} 
 							options={options(className)}

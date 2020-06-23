@@ -9,6 +9,11 @@ function randomColor(){
         "" + Math.floor(Math.random() * Math.floor(256)) + ",";
 
 }
+
+/**
+ * Create the data for one test which will allow to draw the graph
+ * @return {{}} 
+ */
 function createDataGraph(label,methods){
 	var labels = methods.map((method) =>
 		method.testName
@@ -73,6 +78,10 @@ function createDataGraph(label,methods){
 	}
 }
 
+/**
+ * Create an options of the graphe
+ * @return {{}}
+ */
 function options(className){
 	return {
         scales: {
