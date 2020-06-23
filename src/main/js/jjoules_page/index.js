@@ -15,7 +15,7 @@ export default class App extends React.Component {
     this.state = {
       searchTerm: ''
     }
-    this.searchUpdated = this.searchUpdated.bind(this)
+    //this.searchUpdated = this.searchUpdated.bind(this)
   }
  
   render () {
@@ -23,7 +23,7 @@ export default class App extends React.Component {
  
     return (
       <div>
-        <SearchInput className="search-input" onChange={this.searchUpdated} />
+        <SearchInput className="search-input" onChange={this.setState({searchTerm: term})} />
           {classes.map(className => {
             return (
               <div className="test">
