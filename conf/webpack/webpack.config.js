@@ -27,6 +27,7 @@ module.exports = {
 
 
   },
+  mode: 'development',
   output: {
     // The entry point files MUST be shipped inside the final JAR's static/
     // directory.
