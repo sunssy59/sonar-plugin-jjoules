@@ -13,7 +13,7 @@ window.registerExtension("jjoules/jjoules_page",options =>{
 	//console.log(options);
 	return (<div>
 				<AllTests data={transformData(data1)} />
-				
+				<App />
 			</div>);
 
 });

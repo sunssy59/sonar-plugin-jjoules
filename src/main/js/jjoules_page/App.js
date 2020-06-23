@@ -1,12 +1,12 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { SearchInput,createFilter } from 'react-search-input'
  
-const emails = [
+const classes = [
   {"className":"test1"},{"className":"test2"},{"className":"test3"}
 ] 
 const KEYS_TO_FILTERS = ['className']
  
-export default class App extends Component {
+export default class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -16,7 +16,7 @@ export default class App extends Component {
   }
  
   render () {
-    const filteredClassNames = emails.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+    const filteredClassNames = classes.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
  
     return (
       <div>
@@ -24,7 +24,7 @@ export default class App extends Component {
           {filteredClassNames.map(className => {
             return (
               <div className="test">
-                test => {className}
+                test => {className.className}
               </div>
             )
         })}
