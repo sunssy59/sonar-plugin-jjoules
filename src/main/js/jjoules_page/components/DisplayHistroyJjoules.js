@@ -74,11 +74,11 @@ React.Component {
 	}
 
 	updateSearch = (search) =>{
-		console.log("j'entre!!" + search);
+		console.log("j'entre!!" + search.search);
 		this.setState({search});
 	}
 	render() {
-		const { search } = this.state;
+		//const { search } = this.state;
 		return (
 			<div className="search-box">
 				<input 
@@ -88,7 +88,7 @@ React.Component {
 					maxlength="50"
 					placeholder="Search a test"
 					type="search"
-					value={search}
+					value={this.state.search}
 					onChange={this.updateSearch}
 				/>
 			</div>
