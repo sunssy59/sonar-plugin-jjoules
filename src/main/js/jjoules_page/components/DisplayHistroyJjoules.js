@@ -76,6 +76,9 @@ React.Component {
 
 	updateSearch(search){
 		this.setState({search: search.target.value});
+		for(let el of document.getElementsByClassName("classTest"))
+			el.hidden = true;
+		document.getElementById("class-"+this.state.search).hidden = false;
 	}
 	render() {
 		//const { search } = this.state;
