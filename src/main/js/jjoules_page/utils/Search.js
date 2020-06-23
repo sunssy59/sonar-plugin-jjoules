@@ -2,12 +2,10 @@ import React from "react";
 
 export default class Search extends
 React.Component {
-	consructor(props){
+	constructor(props) {
 		super(props);
 		this.state = {
-
 		}
-
 	}
 
 	render() {
