@@ -64,7 +64,29 @@ React.Component{
 	}
 
 }
+class Search extends
+React.Component {
+	constructor(props) {
+		super(props);
+	}
 
+	render() {
+
+		return (
+			<div className="search-box">
+				<input 
+					className="search-box-input"
+					aria-label="Search"
+					autocomplete="off"
+					maxlength="50"
+					placeholder="Search a test"
+					type="search"
+					value=""
+				/>
+			</div>
+		);
+	}
+}
 /**
  * Create HTML representation of all test classes 
  * @return HTML code of these test
@@ -98,17 +120,18 @@ export default class AllTests extends React.Component {
 
 		return (
 			<div className="allClasses col page page-limited">
-				<div className="search-box">Test
-					<input 
-						className="search-box-input"
-						aria-label="Search"
-						autocomplete="off"
-						maxlength="50"
-						placeholder="Search a test"
-						type="search"
-						value=""
-					/>
-				</div>
+				{/*<div className="search-box">Test
+									<input 
+										className="search-box-input"
+										aria-label="Search"
+										autocomplete="off"
+										maxlength="50"
+										placeholder="Search a test"
+										type="search"
+										value=""
+									/>
+								</div>*/}
+				<Search />
 				{this.state.data.map((methods,idx) => 
 					<ClassTest 
 						methods={methods}
