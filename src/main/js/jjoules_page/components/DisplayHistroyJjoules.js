@@ -3,7 +3,7 @@ import React from "react";
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
 import { randomColor, createDataGraph, options } from "../utils/utils";
-
+import { Search } from "../utils/Search";
 //import { SearcheBar } from 'react-native-elements';
 /**
  * Create random RGBA string color
@@ -45,6 +45,7 @@ React.Component{
 
 		return (
 			<div className="classTest" id={"class-"+this.state.className}>
+				<Search />
 				<h3 className="classTestName overview-panel-title">
 					{this.state.className}
 					<button className="button" 

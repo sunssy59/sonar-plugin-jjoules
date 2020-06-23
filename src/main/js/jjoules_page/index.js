@@ -2,7 +2,6 @@ import React from "react";
 import "../style.css";
 
 import AllTests from "./components/DisplayHistroyJjoules";
-import App from "./App";
 window.registerExtension("jjoules/jjoules_page",options =>{
 	// window.SonarRequest.getJSON('/api/issues/search', {
  //        resolved: false,
@@ -11,10 +10,7 @@ window.registerExtension("jjoules/jjoules_page",options =>{
  //    	console.log(arg);
  //    });
 	//console.log(options);
-	return (<div>
-				<AllTests data={transformData(data1)} />
-				<App />
-			</div>);
+	return (<AllTests data={transformData(data1)} />);
 
 });
 
