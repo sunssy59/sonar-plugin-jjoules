@@ -23,7 +23,7 @@ export default class App extends React.Component {
  
     return (
       <div>
-        <SearchInput className="search-input" onChange={this.setState({searchTerm: term})} />
+        <SearchInput className="search-input" onChange={this.setState({searchTerm: this})} />
           {classes.map(className => {
             return (
               <div className="test">
