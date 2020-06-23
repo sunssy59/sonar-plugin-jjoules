@@ -3,6 +3,8 @@ import React from "react";
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
 import { randomColor, createDataGraph, options } from "../utils/utils";
+
+//import { SearcheBar } from 'react-native-elements';
 /**
  * Create random RGBA string color
  * @return String rgba color
@@ -74,6 +76,7 @@ export default class AllTests extends React.Component {
 			allClassesNames: props.data.classesNames,
 			data: props.data.data,
 			graphData: props.graphData,
+			search: '',
 		}
 	}
 
@@ -91,10 +94,18 @@ export default class AllTests extends React.Component {
 		but.removeAttribute("class");
 		but.setAttribute("class","button button-active");
 	}
+	updateSearch = (search) => {
+    	this.setState({ search });
+  	};
 	render() {
 
 		return (
 			<div className="allClasses col page page-limited">
+				{/*<SearcheBar class="search-box-input"
+					placeholder="Search test class"
+					onChangeText={this.updateSearch}
+					value={search}
+				/><hr/>*/}
 				{this.state.data.map((methods,idx) => 
 					<ClassTest 
 						methods={methods}
