@@ -101,11 +101,7 @@ export default class AllTests extends React.Component {
 
 		return (
 			<div className="allClasses col page page-limited">
-				{/*<SearcheBar class="search-box-input"
-					placeholder="Search test class"
-					onChangeText={this.updateSearch}
-					value={search}
-				/><hr/>*/}
+				<Search />
 				{this.state.data.map((methods,idx) => 
 					<ClassTest 
 						methods={methods}
