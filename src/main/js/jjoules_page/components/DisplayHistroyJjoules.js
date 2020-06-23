@@ -71,11 +71,11 @@ React.Component {
 		this.state = {
 			search: '',
 		}
+		this.updateSearch = this.updateSearch.bind(this);
 	}
 
-	updateSearch = (search) =>{
-		console.log(search);
-		this.setState(search);
+	updateSearch(search){
+		this.setState({search: search.target.value});
 	}
 	render() {
 		//const { search } = this.state;
