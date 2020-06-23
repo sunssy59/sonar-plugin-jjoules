@@ -16,12 +16,12 @@ export default class App extends React.Component {
   }
  
   render () {
-    const filteredClassNames = classes.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+    //const filteredClassNames = classes.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
  
     return (
       <div>
         <SearchInput className="search-input" onChange={this.searchUpdated} />
-          {filteredClassNames.map(className => {
+          {classes.map(className => {
             return (
               <div className="test">
                 test => {className.className}
