@@ -42,7 +42,7 @@ React.Component{
 	render() {
 
 		return (
-			<div className="classTest">
+			<div className="classTest" id={"class-"+this.state.className}>
 				<h3 className="classTestName overview-panel-title">
 					{this.state.className}
 					<button className="button" 
@@ -96,13 +96,11 @@ export default class AllTests extends React.Component {
 		return (
 			<div className="allClasses col page page-limited">
 				{this.state.data.map((methods,idx) => 
-					<div className="classe">
-						<ClassTest 
-							methods={methods}
-							className={this.state.allClassesNames[idx]}
-							onClick={(className) => this.handleClick(this.state.allClassesNames[idx])}
-						/>
-					</div>
+					<ClassTest 
+						methods={methods}
+						className={this.state.allClassesNames[idx]}
+						onClick={(className) => this.handleClick(this.state.allClassesNames[idx])}
+					/>
 				)}
 				{this.state.allClassesNames.map((className,idx) =>
 					<div class="canvas" id={"canvas-" + className} hidden={true}>
