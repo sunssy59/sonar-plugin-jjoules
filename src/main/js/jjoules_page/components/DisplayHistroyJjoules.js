@@ -68,10 +68,16 @@ class Search extends
 React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			search: '',
+		}
 	}
 
+	updateSearch = (search) =>{
+		this.setState({search});
+	}
 	render() {
-
+		const { search } = this.state;
 		return (
 			<div className="search-box">
 				<input 
@@ -81,18 +87,9 @@ React.Component {
 					maxlength="50"
 					placeholder="Search a test"
 					type="search"
-					value=""
+					value={search}
+					onChangeText={this.updateSearch}
 				/>
-				<svg 
-					className="search-box-magnifier"
-					style="fill-rule: evenodd; clip-rule: evenodd; strocke-linejoin: round; stroke-miterlimit:1.41421;"
-					version="1.1"
-					viewBox="0 0 16 16"
-					xmlns:xlink="http://www.w3.org/1999/xlink"
-					xml:space="preserve">
-					<path d="M10.308 7.077c0-.89-.316-1.65-.949-2.283a3.111 3.111 0 0 0-2... 4.938 0 0 1-.894 2.877l2.473 2.474a.883.883 0 0 1 .267.649z"
-							style="fill:currencolor;"></path>
-				</svg>
 			</div>
 		);
 	}
