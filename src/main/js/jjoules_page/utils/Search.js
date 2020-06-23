@@ -9,8 +9,8 @@ React.Component {
 	render() {
 
 		return (
-			<div className="search-box">
-				<input 
+			<div className="search-box">Test
+				{/*<input 
 					className="search-box-input"
 					aria-label="Search"
 					autocomplete="off"
@@ -18,7 +18,7 @@ React.Component {
 					placeholder="Search a test"
 					type="search"
 					value=""
-				/>
+				/>*/}
 			</div>
 		);
 	}
