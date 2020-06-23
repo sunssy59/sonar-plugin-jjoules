@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import SearchInput, {createFilter} from 'react-search-input'
+import { SearchInput,createFilter } from 'react-search-input'
  
 const emails = [
   {"className":"test1"},{"className":"test2"},{"className":"test3"}
