@@ -74,8 +74,8 @@ React.Component {
 	}
 
 	updateSearch = (search) =>{
-		console.log("j'entre!!" + search.search);
-		this.setState({search});
+		console.log(search);
+		this.setState(search);
 	}
 	render() {
 		//const { search } = this.state;
