@@ -114,7 +114,7 @@ export default class AllTests extends React.Component {
 					/>
 				)}
 				{this.state.allClassesNames.map((className,idx) =>
-					<div class="canvas" id={"canvas-" + className} hidden={true}>
+					<div className="canvas" id={"canvas-" + className} hidden={true}>
 						<Bar 
 							data={createDataGraph(className,this.state.data[idx])} 
 							options={options(className)}

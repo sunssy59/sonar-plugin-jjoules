@@ -21,12 +21,12 @@ export default class App extends Component {
     return (
       <div>
         <SearchInput className="search-input" onChange={this.searchUpdated} />
-        {filteredClassNames.map(className => {
-          return (
-            <div className="test">
-              test => {className}
-            </div>
-          )
+          {filteredClassNames.map(className => {
+            return (
+              <div className="test">
+                test => {className}
+              </div>
+            )
         })}
       </div>
     )
