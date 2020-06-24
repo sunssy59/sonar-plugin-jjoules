@@ -79,12 +79,17 @@ React.Component {
 		let classesNames = this.props.classesNames.map((className) => className.toLowerCase());
 		let value = search.target.value.toLowerCase();
 		if (classesNames.includes(value)) {
-			for(let el of document.getElementsByClassName("classTest"))
-				el.hidden = true;
+			for(let el of document.getElementsByClassName("classTest")){
+				console.log(el.id.toLowerCase());
+				if (el.id.toLowerCase() === "class-"+value) 
+					el.hidden = false;
+				else
+					el.hidden = true;
+			}
 			for(let el of document.getElementsByClassName("canvas"))
 				el.hidden = true;
-			console.log("class-"+search.target.value);
-			document.getElementById("class-"+search.target.value).hidden = false;
+			// console.log("class-"+search.target.value);
+			// document.getElementById("class-"+search.target.value).hidden = false;
 		}
 	}
 	render() {
