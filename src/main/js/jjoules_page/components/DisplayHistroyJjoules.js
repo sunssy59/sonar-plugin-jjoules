@@ -80,20 +80,17 @@ React.Component {
 		let value = search.target.value.toLowerCase();
 		if (classesNames.includes(value)) {
 			for(let el of document.getElementsByClassName("classTest")){
-				console.log(el.id.toLowerCase());
-				if (el.id.toLowerCase() === "class-"+value) 
+				let className = el.id.split('-')[1].toLowerCase();
+				if (el.id.toLowerCase() === "class-"+value || className.startsWith(value) ) 
 					el.hidden = false;
 				else
 					el.hidden = true;
 			}
 			for(let el of document.getElementsByClassName("canvas"))
 				el.hidden = true;
-			// console.log("class-"+search.target.value);
-			// document.getElementById("class-"+search.target.value).hidden = false;
 		}
 	}
 	render() {
-		//const { search } = this.state;
 		return (
 			<div className="search-box">
 				<input 

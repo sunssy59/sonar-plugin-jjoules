@@ -76,5 +76,15 @@ var data1 = [
 		  {testName:"test3Five",energy:20,duration:23},
 		  {testName:"test3Six",energy:30,duration:23}
 		]
+	},
+	{
+	className: "JjoulesClass",
+	methods: [{testName:"test4One",energy:12,duration:23},
+		  {testName:"test4Two",energy:18,duration:8},
+		  {testName:"test4Tree",energy:30,duration:23},
+		  {testName:"test4Four",energy:20,duration:23},
+		  {testName:"test4Five",energy:20,duration:23},
+		  {testName:"test4Six",energy:30,duration:23}
+		]
 	}
 ]
