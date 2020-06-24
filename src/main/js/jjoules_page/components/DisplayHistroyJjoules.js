@@ -119,11 +119,11 @@ export default class AllTests extends React.Component {
 
 	handleClick(className){
 		var id = "canvas-" + className;
+		let canvas = document.getElementById(id);
+		let statBefore = canvas.hidden;
 		for(let el of document.getElementsByClassName("canvas"))
 			el.hidden = true;
-		let canvas = document.getElementById(id);
-		console.log(canvas.hidden);
-		canvas.hidden = !(canvas.hidden);
+		canvas.hidden = !(statBefore);
 
 		for(let el of document.querySelectorAll(".classTestName>button")){
 			el.removeAttribute("class");
