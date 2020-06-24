@@ -83,6 +83,7 @@ React.Component {
 				el.hidden = true;
 			for(let el of document.getElementsByClassName("canvas"))
 				el.hidden = true;
+			console.log("class-"+search.target.value);
 			document.getElementById("class-"+search.target.value).hidden = false;
 		}
 	}
