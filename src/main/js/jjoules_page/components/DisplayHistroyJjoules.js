@@ -80,7 +80,6 @@ React.Component {
 		let value = search.target.value.toLowerCase();
 		for(let el of document.getElementsByClassName("classTest")){
 			let className = el.id.split('-')[1].toLowerCase();
-			console.log(className);
 			if (className.startsWith(value) ) 
 				el.hidden = false;
 			else
@@ -134,6 +133,9 @@ export default class AllTests extends React.Component {
 			el.setAttribute("class","button");
 		}
 		var but = document.getElementById("but-"+className);
+		for(let el of document.querySelectorAll("button[id^='but-']"))
+			el.innerHTML = "graph <strong>&darr;</strong>";
+
 		if (statBefore) {
 			but.removeAttribute("class");
 			but.setAttribute("class","button button-active");
