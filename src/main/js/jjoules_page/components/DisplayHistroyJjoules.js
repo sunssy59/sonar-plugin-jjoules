@@ -76,7 +76,9 @@ React.Component {
 
 	updateSearch(search){
 		this.setState({search: search.target.value});
-		if (this.props.classesNames.includes(search.target.value)) {
+		let classesNames = this.props.classesNames.map((className) => className.toLowerCase());
+		let value = search.target.value.toLowerCase();
+		if (classesNames.includes(value)) {
 			for(let el of document.getElementsByClassName("classTest"))
 				el.hidden = true;
 			for(let el of document.getElementsByClassName("canvas"))
