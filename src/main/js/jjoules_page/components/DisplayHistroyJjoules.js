@@ -76,9 +76,11 @@ React.Component {
 
 	updateSearch(search){
 		this.setState({search: search.target.value});
-		for(let el of document.getElementsByClassName("classTest"))
+		if (this.props.classesNames.includes(this.state.search)) {
+			for(let el of document.getElementsByClassName("classTest"))
 			el.hidden = true;
-		document.getElementById("class-"+this.state.search).hidden = false;
+			document.getElementById("class-"+this.state.search).hidden = false;
+		}
 	}
 	render() {
 		//const { search } = this.state;
@@ -142,7 +144,7 @@ export default class AllTests extends React.Component {
 										value=""
 									/>
 								</div>*/}
-				<Search />
+				<Search classesNames={this.state.allClassesNames}/>
 				{this.state.data.map((methods,idx) => 
 					<ClassTest 
 						methods={methods}
