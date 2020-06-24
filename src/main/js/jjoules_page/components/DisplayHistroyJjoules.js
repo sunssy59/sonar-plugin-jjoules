@@ -76,19 +76,18 @@ React.Component {
 
 	updateSearch(search){
 		this.setState({search: search.target.value});
-		let classesNames = this.props.classesNames.map((className) => className.toLowerCase());
+		//let classesNames = this.props.classesNames.map((className) => className.toLowerCase());
 		let value = search.target.value.toLowerCase();
-		if (classesNames.includes(value)) {
-			for(let el of document.getElementsByClassName("classTest")){
-				let className = el.id.split('-')[1].toLowerCase();
-				if (el.id.toLowerCase() === "class-"+value || className.startsWith(value) ) 
-					el.hidden = false;
-				else
-					el.hidden = true;
-			}
-			for(let el of document.getElementsByClassName("canvas"))
+		for(let el of document.getElementsByClassName("classTest")){
+			let className = el.id.split('-')[1].toLowerCase();
+			console.log(className);
+			if (className.startsWith(value) ) 
+				el.hidden = false;
+			else
 				el.hidden = true;
 		}
+		for(let el of document.getElementsByClassName("canvas"))
+			el.hidden = true;
 	}
 	render() {
 		return (
