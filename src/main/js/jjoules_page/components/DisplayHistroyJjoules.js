@@ -151,17 +151,6 @@ export default class AllTests extends React.Component {
 
 		return (
 			<div className="allClasses col page page-limited">
-				{/*<div className="search-box">Test
-									<input 
-										className="search-box-input"
-										aria-label="Search"
-										autocomplete="off"
-										maxlength="50"
-										placeholder="Search a test"
-										type="search"
-										value=""
-									/>
-								</div>*/}
 				<Search classesNames={this.state.allClassesNames}/>
 				{this.state.data.map((methods,idx) => 
 					<ClassTest 

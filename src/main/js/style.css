@@ -69,3 +69,10 @@ button>strong {
  font-size:x-large
 }
 
+.allClasses>.search-box{
+  margin-bottom: 10px;
+}
+.allClasses>.search-box input{
+  height: 40px;
+  border-radius: 5px;
+}
