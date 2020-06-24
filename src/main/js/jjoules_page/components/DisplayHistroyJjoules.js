@@ -76,10 +76,10 @@ React.Component {
 
 	updateSearch(search){
 		this.setState({search: search.target.value});
-		if (this.props.classesNames.includes(this.state.search)) {
+		if (this.props.classesNames.includes(search.target.value)) {
 			for(let el of document.getElementsByClassName("classTest"))
 			el.hidden = true;
-			document.getElementById("class-"+this.state.search).hidden = false;
+			document.getElementById("class-"+search.target.value).hidden = false;
 		}
 	}
 	render() {
@@ -119,7 +119,8 @@ export default class AllTests extends React.Component {
 		var id = "canvas-" + className;
 		for(let el of document.getElementsByClassName("canvas"))
 			el.hidden = true;
-		document.getElementById(id).hidden = false;
+		let canvas = document.getElementById(id);
+		canvas.hidden = !(canvas.hidden);
 
 		for(let el of document.querySelectorAll(".classTestName>button")){
 			el.removeAttribute("class");
