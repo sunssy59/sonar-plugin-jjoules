@@ -87,6 +87,8 @@ React.Component {
 		}
 		for(let el of document.getElementsByClassName("canvas"))
 			el.hidden = true;
+		for(let el of document.querySelectorAll("button[id^='but-']"))
+			el.innerHTML = "graph <strong>&darr;</strong>";
 	}
 	render() {
 		return (
