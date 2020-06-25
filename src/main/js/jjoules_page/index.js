@@ -5,13 +5,16 @@ import { SearchInput,createFilter } from 'react-search-input'
 import AllTests from "./components/DisplayHistroyJjoules";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
-	// window.SonarRequest.getJSON('/api/issues/search', {
- //        resolved: false,
- //        componentKeys: options.component.key
- //    }).then(function (arg) {
- //    	console.log(arg);
- //    });
-	//console.log(options);
+	/*window.SonarRequest.getJSON('/api/issues/search', {
+ 		resolved: false,
+ 		componentKeys: options.component.key
+ 	}).then(function (arg) {
+ 		console.log(arg);
+ 	});*/
+	console.log(options);
+	console.log(options.currentUser);
+	console.log(options.component);
+	console.log(options.banchLike);
 	return (
 				<AllTests data={transformData(data1)} />
 			);
