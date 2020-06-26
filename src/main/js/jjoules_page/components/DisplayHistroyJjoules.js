@@ -41,10 +41,10 @@ React.Component{
 		}
 	}
 
-	changeBackground(e) {
-		console.log(e.target);
+	changePathFill(e) {
+		console.log(e.target.firstChild.firstChild);
 		// console.log(e.target.querySelector(".svg-icon>path"));
-		// e.target.querySelector(".svg-icon>path").style.fill="white";
+		e.target.firstChild.firstChild.style.fill="white";
   	}
 
 	render() {
@@ -56,7 +56,7 @@ React.Component{
 					<button className="button" 
 					id={"but-"+this.state.className}
 					onClick={() => this.props.onClick(this.state.className)}
-					onMouseOver={this.changeBackground}
+					onMouseOver={this.changePathFill}
 					>  
 					<svg class="svg-icon svg-box-magnifier" 
 						viewBox="0 0 16 16" 
