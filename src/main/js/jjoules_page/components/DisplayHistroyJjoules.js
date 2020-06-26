@@ -111,8 +111,12 @@ React.Component {
 		}
 		for(let el of document.getElementsByClassName("canvas"))
 			el.hidden = true;
-		for(let el of document.querySelectorAll("button[id^='but-']"))
+		for(let el of document.querySelectorAll("button[id^='but-']")){
 			el.lastChild.innerHTML = "<strong>&darr;</strong>";
+			el.firstChild.firstChild.style.fill = "#4691f6";
+			el.removeAttribute("class");
+			el.setAttribute("class","button");
+		}
 	}
 	render() {
 		return (
@@ -171,8 +175,10 @@ export default class AllTests extends React.Component {
 			el.setAttribute("class","button");
 		}
 		var but = document.getElementById("but-"+className);
-		for(let el of document.querySelectorAll("button[id^='but-']"))
+		for(let el of document.querySelectorAll("button[id^='but-']")){
 			el.lastChild.innerHTML = "<strong>&darr;</strong>";
+			el.firstChild.firstChild.style.fill = "#4691f6";
+		}
 
 		if (statBefore) {
 			but.removeAttribute("class");
