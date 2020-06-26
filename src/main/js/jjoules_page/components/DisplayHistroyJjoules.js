@@ -42,7 +42,7 @@ React.Component{
 	}
 
 	changeBackground(e) {
-		console.log(e);
+		console.log(e.target);
 		// console.log(e.target.querySelector(".svg-icon>path"));
 		// e.target.querySelector(".svg-icon>path").style.fill="white";
   	}
