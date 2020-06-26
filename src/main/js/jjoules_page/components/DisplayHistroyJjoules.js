@@ -42,12 +42,10 @@ React.Component{
 	}
 
 	changePathFillToWhite(e) {
-		console.log(e);
-		e.target.firstChild.firstChild.style.fill="white";
+		e.currentTarget.firstChild.firstChild.style.fill="white";
   	}
   	changePathFillToBlue(e){
-  		console.log(e);
-  		e.target.firstChild.firstChild.style.fill="#4691f6";
+  		e.currentTarget.firstChild.firstChild.style.fill="#4691f6";
   	}
 	render() {
 
@@ -58,8 +56,8 @@ React.Component{
 					<button className="button" 
 						id={"but-"+this.state.className}
 						onClick={() => this.props.onClick(this.state.className)}
-						onMouseOver={this.changePathFillToWhite}
-						onMouseOut={this.changePathFillToBlue}
+						onMouseEnter={this.changePathFillToWhite}
+						onMouseLeave={this.changePathFillToBlue}
 						>  
 						<svg class="svg-icon svg-box-magnifier" 
 							viewBox="0 0 16 16" 
