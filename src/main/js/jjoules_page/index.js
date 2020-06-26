@@ -14,7 +14,7 @@ window.registerExtension("jjoules/jjoules_page",options =>{
 	console.log(options);
 	console.log(options.currentUser);
 	console.log(options.component);
-	console.log(options.banchLike);
+	console.log(options.branchLike);
 	return (
 				<AllTests data={transformData(data1)} />
 			);
