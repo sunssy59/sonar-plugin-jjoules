@@ -54,10 +54,10 @@ React.Component{
   	}
   	changePathFillToBlue(e){
   		let el = e.currentTarget.firstChild.firstChild;
-  		if(el.className.includes("button-active"))
-  			el.style.fill = "white";
-  		else
-  			el.style.fill="#4691f6";
+  		// if(el.className.includes("button-active"))
+  		// 	el.style.fill = "white";
+  		// else
+  		el.style.fill="#4691f6";
   	}
 	render() {
 
