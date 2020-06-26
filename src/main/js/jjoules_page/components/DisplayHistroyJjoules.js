@@ -56,7 +56,7 @@ React.Component{
 					<button className="button" 
 					id={"but-"+this.state.className}
 					onClick={() => this.props.onClick(this.state.className)}
-					onMouseOver={this.changePathFill}
+					onMouseEnter={this.changePathFill}
 					>  
 					<svg class="svg-icon svg-box-magnifier" 
 						viewBox="0 0 16 16" 
