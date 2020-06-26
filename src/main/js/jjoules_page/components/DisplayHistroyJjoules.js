@@ -3,12 +3,7 @@ import React from "react";
 import { DeferredSpinner } from "sonar-components";
 import { Bar } from 'react-chartjs-2';
 import { randomColor, createDataGraph, options } from "../utils/utils";
-//import { Search } from "../utils/Search";
-//import { SearcheBar } from 'react-native-elements';
-/**
- * Create random RGBA string color
- * @return String rgba color
- */
+
 
 /**
 * Create a HTLM representation of one method
@@ -58,7 +53,11 @@ React.Component{
 		e.currentTarget.firstChild.firstChild.style.fill="white";
   	}
   	changePathFillToBlue(e){
-  		e.currentTarget.firstChild.firstChild.style.fill="#4691f6";
+  		let el = e.currentTarget.firstChild.firstChild;
+  		if(el.className.includes("button-active"))
+  			el.style.fill = "white";
+  		else
+  			el.style.fill="#4691f6";
   	}
 	render() {
 
