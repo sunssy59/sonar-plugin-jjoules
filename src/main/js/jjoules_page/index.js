@@ -11,10 +11,10 @@ window.registerExtension("jjoules/jjoules_page",options =>{
  	}).then(function (arg) {
  		console.log(arg);
  	});*/
-	console.log(options);
-	console.log(options.currentUser);
-	console.log(options.component);
-	console.log(options.branchLike);
+	// console.log(options);
+	// console.log(options.currentUser);
+	// console.log(options.component);
+	// console.log(options.branchLike);
 	return (
 				<AllTests data={transformData(data1)} />
 			);

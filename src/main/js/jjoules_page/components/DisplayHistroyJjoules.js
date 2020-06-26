@@ -41,6 +41,12 @@ React.Component{
 		}
 	}
 
+	changeBackground(e) {
+    	e.target.style.background = 'red';
+    	console.log(e);
+    	console.log(e.target);
+  	}
+
 	render() {
 
 		return (
@@ -50,6 +56,7 @@ React.Component{
 					<button className="button" 
 					id={"but-"+this.state.className}
 					onClick={() => this.props.onClick(this.state.className)}
+					onMouseOver={this.changeBackground}
 					>  
 					<svg class="svg-icon svg-box-magnifier" 
 						viewBox="0 0 16 16" 
@@ -101,7 +108,7 @@ React.Component {
 	render() {
 		return (
 			<div className="search-box">
-				<svg class="svg-box-magnifier" 
+				<svg class="svg-box-magnifier svg-icon" 
 					viewBox="0 0 16 16" 
 					height="16" 
 					width="16"
