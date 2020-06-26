@@ -42,11 +42,11 @@ React.Component{
 	}
 
 	changePathFillToWhite(e) {
+		console.log(e);
 		console.log(e.target);
 		e.target.firstChild.firstChild.style.fill="white";
   	}
   	changePathFillToBlue(e){
-  		console.log(e.target);
   		e.target.firstChild.firstChild.style.fill="#4691f6";
   	}
 	render() {
@@ -56,19 +56,20 @@ React.Component{
 				<h3 className="classTestName overview-panel-title">
 					{this.state.className}
 					<button className="button" 
-					id={"but-"+this.state.className}
-					onClick={() => this.props.onClick(this.state.className)}
-					onMouseEnter={this.changePathFillToWhite}
-					onMouseLeave={this.changePathFillToBlue}
-					>  
-					<svg class="svg-icon svg-box-magnifier" 
-						viewBox="0 0 16 16" 
-						height="16" 
-						width="16">
-						<path d="M17.431,2.156h-3.715c-0.228,0-0.413,0.186-0.413,0.413v6.973h-2.89V6.687c0-0.229-0.186-0.413-0.413-0.413H6.285c-0.228,0-0.413,0.184-0.413,0.413v6.388H2.569c-0.227,0-0.413,0.187-0.413,0.413v3.942c0,0.228,0.186,0.413,0.413,0.413h14.862c0.228,0,0.413-0.186,0.413-0.413V2.569C17.844,2.342,17.658,2.156,17.431,2.156 M5.872,17.019h-2.89v-3.117h2.89V17.019zM9.587,17.019h-2.89V7.1h2.89V17.019z M13.303,17.019h-2.89v-6.651h2.89V17.019z M17.019,17.019h-2.891V2.982h2.891V17.019z"></path>
-					</svg>
+						id={"but-"+this.state.className}
+						onClick={() => this.props.onClick(this.state.className)}
+						onMouseEnter={this.changePathFillToWhite}
+						onMouseLeave={this.changePathFillToBlue}
+						>  
+						<svg class="svg-icon svg-box-magnifier" 
+							viewBox="0 0 16 16" 
+							height="16" 
+							width="16">
+							<path d="M17.431,2.156h-3.715c-0.228,0-0.413,0.186-0.413,0.413v6.973h-2.89V6.687c0-0.229-0.186-0.413-0.413-0.413H6.285c-0.228,0-0.413,0.184-0.413,0.413v6.388H2.569c-0.227,0-0.413,0.187-0.413,0.413v3.942c0,0.228,0.186,0.413,0.413,0.413h14.862c0.228,0,0.413-0.186,0.413-0.413V2.569C17.844,2.342,17.658,2.156,17.431,2.156 M5.872,17.019h-2.89v-3.117h2.89V17.019zM9.587,17.019h-2.89V7.1h2.89V17.019z M13.303,17.019h-2.89v-6.651h2.89V17.019z M17.019,17.019h-2.891V2.982h2.891V17.019z"></path>
+						</svg>
 
-					<strong>&darr;</strong></button>
+						<strong>&darr;</strong>
+					</button>
 				</h3>
 				{this.state.methods.map((method,idx) =>
 					<Method 
