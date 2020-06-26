@@ -179,10 +179,12 @@ export default class AllTests extends React.Component {
 			but.removeAttribute("class");
 			but.setAttribute("class","button button-active");
 			but.lastChild.innerHTML = "<strong>&uarr;</strong>";
+			but.firstChild.firstChild.style.fill = "white";
 		}else{
 			but.removeAttribute("class");
 			but.setAttribute("class","button");
 			but.lastChild.innerHTML = "<strong>&darr;</strong>";
+			but.firstChild.firstChild.style.fill = "#4691f6";
 		}
 		
 	}
