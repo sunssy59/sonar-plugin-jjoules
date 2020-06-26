@@ -42,9 +42,11 @@ React.Component{
 	}
 
 	changePathFillToWhite(e) {
+		console.log(e.target);
 		e.target.firstChild.firstChild.style.fill="white";
   	}
   	changePathFillToBlue(e){
+  		console.log(e.target);
   		e.target.firstChild.firstChild.style.fill="#4691f6";
   	}
 	render() {
