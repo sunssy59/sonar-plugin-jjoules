@@ -79,20 +79,12 @@ button>strong {
 
 /* -----
 SVG Icons - svgicons.sparkk.fr
------ 
-
-.svg-icon {
-  width: 1em;
-  height: 1em;
-}
-
-.svg-icon path,
-.svg-icon polygon,
-.svg-icon rect {
+-----*/
+.allClasses>.search-box>svg{
+  position: relative;
+  left: 6%;
+  top:10px;
+} 
+.allClasses>.search-box>svg>path{
   fill: #4691f6;
 }
-
-.svg-icon circle {
-  stroke: #4691f6;
-  stroke-width: 1;
-}*/
