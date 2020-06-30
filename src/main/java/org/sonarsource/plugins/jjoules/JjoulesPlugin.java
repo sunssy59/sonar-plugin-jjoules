@@ -32,6 +32,7 @@ public class JjoulesPlugin implements Plugin {
 
 	@Override
 	  public void define(Context context) {
+		
 	    // tutorial on hooks
 	    // http://docs.sonarqube.org/display/DEV/Adding+Hooks
 	    context.addExtensions(PostJobInScanner.class, DisplayQualityGateStatus.class);
@@ -63,6 +64,14 @@ public class JjoulesPlugin implements Plugin {
 	        .category("FooLint")
 	        .defaultValue("")
 	        .build()));
+	    
+	    context.addExtension(JjoulesSensor.class);
+//	    context.addExtension(PropertyDefinition.builder(ReportPathsProvider.REPORT_PATHS_PROPERTY_KEY)
+//	    		.onQualifiers(Qualifiers.PROJECT)
+//	    		.multiValues(true)
+//	    		.category("Jjoules")
+//	    		.description("Paths to Jjoules Json report")
+//	    		.build());
 	  }
 
 }

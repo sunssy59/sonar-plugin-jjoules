@@ -24,6 +24,9 @@
  background-color:#f8ffff;
  /*background-color:rgba(54,162,235,.5)*/
 }
+.result:hover{
+  background-color:rgba(54,162,235,.5);
+}
 .row {
  display:flex;
  flex-wrap:wrap;
