@@ -84,10 +84,10 @@ var data1 = [
 	className: "JjoulesClass",
 	methods: [{testName:"test4One",energy:12,duration:23},
 		  {testName:"test4Two",energy:18,duration:8},
-		  {testName:"test4Tree",energy:30,duration:23},
-		  {testName:"test4Four",energy:20,duration:23},
-		  {testName:"test4Five",energy:20,duration:23},
-		  {testName:"test4Six",energy:30,duration:23}
+		  {testName:"test4Tree",energy:10,duration:25},
+		  {testName:"test4Four",energy:24,duration:32},
+		  {testName:"test4Five",energy:30,duration:23},
+		  {testName:"test4Six",energy:43,duration:27}
 		]
 	}
 ]
