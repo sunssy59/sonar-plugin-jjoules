@@ -14,18 +14,27 @@
  border-radius:3px
 }
 .method {
- color:green;
+ color:#4691f6;
  border:1px solid rgba(255,99,132,.2);
  padding:2px
+}
+.method>svg>.goodTest {
+ fill:green
+}
+.method>svg>.badTest {
+ fill:red
+}
+.method>svg{
+  margin-left: 3px;
+  margin-right: 3px;
 }
 .result {
  margin-top:5px;
  margin-bottom:5px;
- background-color:#f8ffff;
- /*background-color:rgba(54,162,235,.5)*/
+ background-color:#f8ffff
 }
-.result:hover{
-  background-color:rgba(54,162,235,.5);
+.result:hover {
+ background-color:#d4f2f0
 }
 .row {
  display:flex;
@@ -71,23 +80,18 @@ h3.classTestName>button {
 button>strong {
  font-size:x-large
 }
-
-.allClasses>.search-box{
-  margin-bottom: 10px;
+.allClasses>.search-box {
+ margin-bottom:10px
 }
-.allClasses>.search-box input{
-  height: 40px;
-  border-radius: 5px;
+.allClasses>.search-box input {
+ height:40px;
+ border-radius:5px
 }
-
-/* -----
-SVG Icons - svgicons.sparkk.fr
------*/
-.allClasses>.search-box>svg{
-  position: relative;
-  left: 6%;
-  top:10px;
-} 
-.svg-icon path{
+.allClasses>.search-box>svg {
+ position:relative;
+ left:6%;
+ top:10px
+}
+.svg-icon path {
  fill:#4691f6;
 }

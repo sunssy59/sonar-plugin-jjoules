@@ -4,17 +4,26 @@ import { SearchInput,createFilter } from 'react-search-input'
 
 import AllTests from "./components/DisplayHistroyJjoules";
 
+
+
 window.registerExtension("jjoules/jjoules_page",options =>{
-	/*window.SonarRequest.getJSON('/api/issues/search', {
- 		resolved: false,
- 		componentKeys: options.component.key
- 	}).then(function (arg) {
- 		console.log(arg);
- 	});*/
-	// console.log(options);
+//	window.SonarRequest.getJSON('/api/issues/search', {
+// 		resolved: false,
+// 		componentKeys: options.component.key
+// 	}).then(function (arg) {
+// 		console.log(arg);
+// 	});
+//	console.log(test);
+//	console.log("test 1 => " + test1);
 	// console.log(options.currentUser);
 	// console.log(options.component);
 	// console.log(options.branchLike);
+//	window.SonarRequest
+//		.getJSON(`../../resources/static/report.json`)
+//		.then(function (response){
+//			console.log(response);
+//		}, function (error) {console.log("error");console.log(error);});
+
 	return (
 				<AllTests data={transformData(data1)} />
 			);
@@ -55,9 +64,9 @@ var data1 = [
 	{
 	className: "ClassOne",
 	methods: [{testName:"test1OneTest",energy:10,duration:13},
-		  {testName:"test1Two",energy:15,duration:10},
-		  {testName:"test1Tree",energy:20,duration:23},
-		  {testName:"test1Four",energy:30,duration:23},
+		  {testName:"test1Two",energy:25,duration:10},
+		  {testName:"test1Tree",energy:18,duration:23},
+		  {testName:"test1Four",energy:15,duration:23},
 		  {testName:"test1Five",energy:20,duration:23}
 		]
 
@@ -75,7 +84,7 @@ var data1 = [
 	methods: [{testName:"test3One",energy:12,duration:23},
 		  {testName:"test3Two",energy:18,duration:8},
 		  {testName:"test3Tree",energy:30,duration:23},
-		  {testName:"test3Four",energy:20,duration:23},
+		  {testName:"test3Four",energy:10,duration:23},
 		  {testName:"test3Five",energy:20,duration:23},
 		  {testName:"test3Six",energy:30,duration:23}
 		]
@@ -83,11 +92,11 @@ var data1 = [
 	{
 	className: "JjoulesClass",
 	methods: [{testName:"test4One",energy:12,duration:23},
-		  {testName:"test4Two",energy:18,duration:8},
+		  {testName:"test4Two",energy:23,duration:8},
 		  {testName:"test4Tree",energy:10,duration:25},
 		  {testName:"test4Four",energy:24,duration:32},
 		  {testName:"test4Five",energy:30,duration:23},
-		  {testName:"test4Six",energy:43,duration:27}
+		  {testName:"test4Six",energy:13,duration:27}
 		]
 	}
 ]
