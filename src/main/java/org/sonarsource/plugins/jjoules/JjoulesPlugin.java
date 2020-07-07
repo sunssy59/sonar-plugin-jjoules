@@ -66,6 +66,8 @@ public class JjoulesPlugin implements Plugin {
 	        .build()));
 	    
 	    context.addExtension(JjoulesSensor.class);
+	    //context.addExtension(JjoulesCoverageSensor.class);
+	    //context.addExtension(JjoulesSensor.JSON_ARRAY);
 //	    context.addExtension(PropertyDefinition.builder(ReportPathsProvider.REPORT_PATHS_PROPERTY_KEY)
 //	    		.onQualifiers(Qualifiers.PROJECT)
 //	    		.multiValues(true)
