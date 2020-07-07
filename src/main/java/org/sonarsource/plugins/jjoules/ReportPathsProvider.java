@@ -21,9 +21,6 @@ import org.sonar.api.utils.log.Loggers;
 public class ReportPathsProvider {
 	
 	private static final Logger LOGGER = Loggers.get(ReportPathsProvider.class);
-
-	private static final String[] DEFAULT_PATHS = {"target/jjoules-reports/report.json"};
-	static final String REPORT_PATHS_PROPERTY_KEY = "sonar.coverage.jjoules.jsonReportPaths";
 	
 	private final SensorContext context;
 	/**
@@ -33,20 +30,20 @@ public class ReportPathsProvider {
 		this.context = context;
 	}
 	
-	Collection<Path> getPaths(){
-		Set<Path> reportPaths = Stream.of(context.config().getStringArray(REPORT_PATHS_PROPERTY_KEY))
+	Collection<Path> getPaths(String[] defaultPaths, String reportPathsPropertyKey){
+		Set<Path> reportPaths = Stream.of(context.config().getStringArray(reportPathsPropertyKey))
 			.map(this::toAbsolutePath)
 			.collect(Collectors.toSet());
 		if(!reportPaths.isEmpty())
 			return reportPaths;
 		
-		String defaultPaths = "" ;
-		for(String s : DEFAULT_PATHS) {
-			defaultPaths += s + " " ;
+		String pathsString = "" ;
+		for(String s : defaultPaths) {
+			pathsString += s + " " ;
 		}
-		LOGGER.info("'{}' is not defined. Using default locations: [ {} ]", REPORT_PATHS_PROPERTY_KEY,defaultPaths.replace(" ", ","));
+		LOGGER.info("'{}' is not defined. Using default locations: [ {} ]", reportPathsPropertyKey,pathsString.replace(" ", ","));
 		
-		return Arrays.stream(DEFAULT_PATHS)
+		return Arrays.stream(defaultPaths)
 				.map(this::toAbsolutePath)
 				.filter(ReportPathsProvider::reportExists)
 				.collect(Collectors.toSet());
