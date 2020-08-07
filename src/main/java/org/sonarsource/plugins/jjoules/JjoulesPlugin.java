@@ -7,6 +7,12 @@ import static java.util.Arrays.asList;
 
 import org.sonar.api.Plugin;
 import org.sonar.api.config.PropertyDefinition;
+import org.sonarsource.plugins.jjoules.energymeasures.ComputeDuration;
+import org.sonarsource.plugins.jjoules.energymeasures.ComputeEnergyMertics;
+import org.sonarsource.plugins.jjoules.energymeasures.ComputeEnergyMetricsInCPU;
+import org.sonarsource.plugins.jjoules.energymeasures.ComputeEnergyMetricsInDRAM;
+import org.sonarsource.plugins.jjoules.energymeasures.EnergyMetrics;
+import org.sonarsource.plugins.jjoules.energymeasures.SetEnergyOnFilesSensor;
 import org.sonarsource.plugins.jjoules.hooks.DisplayQualityGateStatus;
 import org.sonarsource.plugins.jjoules.hooks.PostJobInScanner;
 import org.sonarsource.plugins.jjoules.languages.FooLanguage;
@@ -24,6 +30,7 @@ import org.sonarsource.plugins.jjoules.settings.HelloWorldProperties;
 import org.sonarsource.plugins.jjoules.settings.SayHelloFromScanner;
 import org.sonarsource.plugins.jjoules.web.MyPluginPageDefinition;
 
+
 /**
  * @author sanoussy
  *
@@ -32,6 +39,8 @@ public class JjoulesPlugin implements Plugin {
 
 	@Override
 	  public void define(Context context) {
+		
+		context.addExtension(JjoulesSensor.class);
 		
 	    // tutorial on hooks
 	    // http://docs.sonarqube.org/display/DEV/Adding+Hooks
@@ -42,8 +51,17 @@ public class JjoulesPlugin implements Plugin {
 	    context.addExtension(FooLanguageProperties.getProperties());
 
 	    // tutorial on measures
+//	    context
+//	      .addExtensions(ExampleMetrics.class, SetSizeOnFilesSensor.class, ComputeSizeAverage.class, ComputeSizeRating.class);
+	    
+	    // Energy measures
 	    context
-	      .addExtensions(ExampleMetrics.class, SetSizeOnFilesSensor.class, ComputeSizeAverage.class, ComputeSizeRating.class);
+	    	.addExtensions(EnergyMetrics.class,
+	    			SetEnergyOnFilesSensor.class,
+	    			ComputeEnergyMertics.class,
+	    			ComputeEnergyMetricsInDRAM.class,
+	    			ComputeEnergyMetricsInCPU.class,
+	    			ComputeDuration.class);
 
 	    // tutorial on rules
 	    context.addExtensions(JavaRulesDefinition.class, CreateIssuesOnJavaFilesSensor.class);
@@ -65,7 +83,6 @@ public class JjoulesPlugin implements Plugin {
 	        .defaultValue("")
 	        .build()));
 	    
-	    context.addExtension(JjoulesSensor.class);
 	    //context.addExtension(JjoulesCoverageSensor.class);
 	    //context.addExtension(JjoulesSensor.JSON_ARRAY);
 //	    context.addExtension(PropertyDefinition.builder(ReportPathsProvider.REPORT_PATHS_PROPERTY_KEY)
