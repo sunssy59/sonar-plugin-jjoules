@@ -5,7 +5,8 @@ import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
-import org.sonarsource.plugins.jjoules.JjoulesSensor;
+import org.sonar.api.utils.log.Logger;
+import org.sonar.api.utils.log.Loggers;
 import static org.sonarsource.plugins.jjoules.energymeasures.EnergyMetrics.ENERGY_PACKAGE;
 import static org.sonarsource.plugins.jjoules.energymeasures.EnergyMetrics.ENERGY_DRAM;
 import static org.sonarsource.plugins.jjoules.energymeasures.EnergyMetrics.ENERGY_DEVICE;
@@ -21,6 +22,7 @@ import java.io.IOException;
 
 
 public class SetEnergyOnFilesSensor implements Sensor {
+	private static final Logger LOGGER = Loggers.get(SetEnergyOnFilesSensor.class);
 	@Override
 	public void describe(SensorDescriptor descriptor) {
 		descriptor.name("Compute energy of file");
@@ -28,17 +30,18 @@ public class SetEnergyOnFilesSensor implements Sensor {
 
 	@Override
 	public void execute(SensorContext context) {
+		
 		FileSystem fs = context.fileSystem();
-		// only "main" files, but not "tests"
+		// only "tests" files, but not "main"
 		Iterable<InputFile> files = fs.inputFiles(fs.predicates().hasType(InputFile.Type.TEST));
 		for (InputFile file : files) {
 			if(isEnergyClassTest(file)) {
 				String className = file.filename().split("\\.")[0];
+				
 				context.<Integer>newMeasure()
 				.forMetric(ENERGY_PACKAGE)
 				.on(file)
-				.withValue(getDomainEnergy(className,"package")
-						/*+"Power = " + getDomainPower(className,"package") + "mw"*/)
+				.withValue(getDomainEnergy(className,"package"))
 				.save();
 				
 				context.<Integer>newMeasure()
@@ -56,7 +59,7 @@ public class SetEnergyOnFilesSensor implements Sensor {
 				context.<Integer>newMeasure()
 				.forMetric(DURATION)
 				.on(file)
-				.withValue(JjoulesSensor.REPORTS.get(className).getInt("duration|ns"))
+				.withValue(ReadJjoulesReportsSensor.REPORTS.get(className).getInt("duration|ns"))
 				.save();
 			}
 		}
@@ -64,12 +67,8 @@ public class SetEnergyOnFilesSensor implements Sensor {
 
 	
 	private int getDomainEnergy(String classeName, String domainName) {
-		return JjoulesSensor.REPORTS.get(classeName).getInt(domainName+"|uJ");
+		return ReadJjoulesReportsSensor.REPORTS.get(classeName).getInt(domainName+"|uJ",0);
 	}
-	private int getDomainPower(String classeName, String domainName) {
-		return  JjoulesSensor.REPORTS.get(classeName).getInt(domainName+"|mW");
-	}
-	
 	
 	private boolean isEnergyClassTest(InputFile file) {
 		FileReader fr;

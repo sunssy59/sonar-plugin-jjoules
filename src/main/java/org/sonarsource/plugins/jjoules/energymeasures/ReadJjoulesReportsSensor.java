@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.sonarsource.plugins.jjoules;
+package org.sonarsource.plugins.jjoules.energymeasures;
 
 
 import java.io.File;
@@ -22,43 +22,42 @@ import org.sonar.api.utils.log.Loggers;
 
 
 /**
- * @author sanoussy
+ *
  *
  */
-public class JjoulesSensor implements Sensor {
+public class ReadJjoulesReportsSensor implements Sensor {
 
-	private static final Logger LOGGER = Loggers.get(JjoulesSensor.class);
+	private static final Logger LOGGER = Loggers.get(ReadJjoulesReportsSensor.class);
 
 	private static final String DEFAULT_DIR = "target/jjoules-reports/";
-	static final String REPORT_PATHS_PROPERTY_KEY = "sonar.coverage.jjoules.jsonReportPaths";
+	static final String REPORT_PATHS_PROPERTY_KEY = "sonar.jjoules.jsonReportPaths";
 
 	public static Map<String,JsonObject> REPORTS = new HashMap<String,JsonObject>();
 
 	@Override
 	public void describe(SensorDescriptor descriptor) {
-		descriptor.name("Jjoules JSON Report Importer");
+		descriptor.name("j-joules JSON reports reader");
 
 	}
 
 	@Override
 	public void execute(SensorContext context) {
-		ReportPathsProvider reportPathsProvider = new ReportPathsProvider(context);
-		//Iterable<InputFile> inputFiles = context.fileSystem().inputFiles(context.fileSystem().predicates().all());
 
-
-		importReports(reportPathsProvider);
+		importReports();
 	}
 
-	void importReports(ReportPathsProvider reportPathsProvider) {
-		File[] files = reportPathsProvider.getPaths(DEFAULT_DIR,REPORT_PATHS_PROPERTY_KEY);
+	private void importReports() {
+		File[] files = getPaths(DEFAULT_DIR,REPORT_PATHS_PROPERTY_KEY);
 
 		JsonObject jsonObject;
 		if(files != null) {
-			LOGGER.info("Importing {} report(s). ", files.length);
+			LOGGER.info("Reading {} report(s). ", files.length);
 
 			for(File file : files) {
 				try {
-					// Create JsonReader from Json.
+					LOGGER.info("Reading file {} ...",file.getName());
+
+					// Create JsonReader from json report file.
 					JsonReader reader = Json.createReader(new FileInputStream(file));
 					// Get the JsonObject structure from JsonReader.
 					jsonObject = reader.readObject();
@@ -67,13 +66,22 @@ public class JjoulesSensor implements Sensor {
 					REPORTS.put(filenameSplited[filenameSplited.length-2], jsonObject);
 
 					reader.close();
-					LOGGER.info("FILE '{}' content  ==> \n '{}'",file.getAbsolutePath(), jsonObject.toString());
-
+					LOGGER.info("End reading file {}",file.getName());
 
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				}
 			}
 		}
+	}
+
+	private File[] getPaths(String defaultDir, String reportPathsPropertyKey){
+
+
+		File testsDir = new File(defaultDir);
+
+		if(! testsDir.isDirectory())
+			return null;
+		return testsDir.listFiles();
 	}
 }

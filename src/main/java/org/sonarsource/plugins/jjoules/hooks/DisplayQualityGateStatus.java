@@ -29,11 +29,11 @@ import org.sonar.api.utils.log.Loggers;
  * A real use-case would be to send an email or to notify an IRC channel.
  */
 public class DisplayQualityGateStatus implements PostProjectAnalysisTask {
-  @Override
-  public void finished(ProjectAnalysis analysis) {
-    QualityGate gate = analysis.getQualityGate();
-    if (gate != null) {
-      Loggers.get(getClass()).info("Quality gate is " + gate.getStatus());
-    }
-  }
+	@Override
+	public void finished(ProjectAnalysis analysis) {
+		QualityGate gate = analysis.getQualityGate();
+		if (gate != null) {
+			Loggers.get(getClass()).info("Quality gate is " + gate.getStatus());
+		}
+	}
 }

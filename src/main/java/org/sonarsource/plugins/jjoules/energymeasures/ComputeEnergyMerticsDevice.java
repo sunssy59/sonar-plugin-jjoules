@@ -6,7 +6,7 @@ import org.sonar.api.ce.measure.Component;
 import org.sonar.api.ce.measure.Measure;
 import org.sonar.api.ce.measure.MeasureComputer;
 
-public class ComputeEnergyMertics implements MeasureComputer {
+public class ComputeEnergyMerticsDevice implements MeasureComputer {
 
 	@Override
 	public MeasureComputerDefinition define(MeasureComputerDefinitionContext defContext) {
@@ -17,15 +17,15 @@ public class ComputeEnergyMertics implements MeasureComputer {
 
 	@Override
 	public void compute(MeasureComputerContext context) {
-		// measure is already defined on files by {@link SetSizeOnFilesSensor}
-	    // in scanner stack
-	    if (context.getComponent().getType() != Component.Type.FILE) {
-	      int sum = 0;
-	      for (Measure child : context.getChildrenMeasures(ENERGY_DEVICE.key())) {
-	        sum += child.getIntValue();
-	      }
-	      context.addMeasure(ENERGY_DEVICE.key(), sum);
-	    }
+		// measure is already defined on files by {@link SetEnergyOnFilesSensor}
+		// in scanner stack
+		if (context.getComponent().getType() != Component.Type.FILE) {
+			int sum = 0;
+			for (Measure child : context.getChildrenMeasures(ENERGY_DEVICE.key())) {
+				sum += child.getIntValue();
+			}
+			context.addMeasure(ENERGY_DEVICE.key(), sum);
+		}
 	}
 
 }
