@@ -43,10 +43,10 @@ public class ReadJjoulesReportsSensor implements Sensor {
 	@Override
 	public void execute(SensorContext context) {
 
-		importReports();
+		readReports();
 	}
 
-	private void importReports() {
+	private void readReports() {
 		File[] files = getPaths(DEFAULT_DIR,REPORT_PATHS_PROPERTY_KEY);
 
 		JsonObject jsonObject;

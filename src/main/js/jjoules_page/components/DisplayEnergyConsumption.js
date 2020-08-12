@@ -171,11 +171,8 @@ class ButtonGraph extends React.Component{
 					el.setAttribute("class", "button button-active");
 					el.firstChild.innerHTML = "<strong>&uarr;</strong>";
 				}
-				
 			}
-				
 		}
-
 	}
 
 	changePathFillToWhite(e) {
@@ -243,4 +240,3 @@ export default class AllEnergyTests extends React.Component {
 		)
 	}
 }
-

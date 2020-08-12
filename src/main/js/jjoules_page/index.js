@@ -6,8 +6,6 @@ import { keys } from "underscore";
 
 
 window.registerExtension("jjoules/jjoules_page",options =>{
-	
-	var data;
 
 	window.SonarRequest.getJSON('/api/measures/component_tree',{
 		additionalField:"metrics",
@@ -15,8 +13,7 @@ window.registerExtension("jjoules/jjoules_page",options =>{
 		qualifiers:"UTS", //For getting only tests
 		metricKeys:"duration,energy_consumption_cpu,energy_consumption_dram,energy_consumption_device"
 	}).then(function (result){
-		data = transformResult(result);
-		return data;
+		return transformResult(result);
 	}).then(function (data){
 		
 		ReactDOM.render(

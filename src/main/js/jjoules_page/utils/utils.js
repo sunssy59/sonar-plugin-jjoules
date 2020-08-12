@@ -1,5 +1,8 @@
 import { Doughnut } from 'react-chartjs-2';
 
+const ENERGY_UNIT = "μJ";
+const DURATION_UNIT = "nS";
+
 /**
  * Create random RGBA string color
  * @return String rgba color
@@ -46,11 +49,11 @@ function createDataGraph(energyTests,domaineName){
     };
 }
 
-function options(type){
+function options(type,unit){
     return {
         title: {
             display: true,
-            text: "Graph for energy consummed in "+type, 
+            text: "Graph for energy consummed in "+type+" ("+unit+")", 
         }
     };
 }
@@ -61,25 +64,25 @@ function createGraph(energyTests){
             <div className="graph" id="graph-cpu" hidden="true">
                 <Doughnut
                     data={createDataGraph(energyTests,"cpu")}
-                    options={options("CPU")}
+                    options={options("CPU",ENERGY_UNIT)}
                 />
             </div>
             <div className="graph" id="graph-dram" hidden="true">
                 <Doughnut
                     data={createDataGraph(energyTests,"dram")}
-                    options={options("DRAM")}
+                    options={options("DRAM",ENERGY_UNIT)}
                 />
             </div>
             <div className="graph" id="graph-device" hidden="true">
                 <Doughnut
                     data={createDataGraph(energyTests,"device")}
-                    options={options("DEVICE")}
+                    options={options("DEVICE",ENERGY_UNIT)}
                 />
             </div>
             <div className="graph" id="graph-duration" hidden="true">
                 <Doughnut
                     data={createDataGraph(energyTests,"duration")}
-                    options={options("DURATION")}
+                    options={options("DURATION",DURATION_UNIT)}
                 />
             </div>
         </div>
