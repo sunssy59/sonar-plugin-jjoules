@@ -1,3 +1,4 @@
+import { Doughnut } from 'react-chartjs-2';
 
 /**
  * Create random RGBA string color
@@ -6,105 +7,83 @@
 function randomColor(){
 	return "rgba(" + Math.floor(Math.random() * Math.floor(256)) + "," +
         "" + Math.floor(Math.random() * Math.floor(256)) + ", " +
-        "" + Math.floor(Math.random() * Math.floor(256)) + ",";
+        "" + Math.floor(Math.random() * Math.floor(256)) + ",1)";
 
 }
 
-/**
- * Create the data for one test which will allow to draw the graph
- * @return {{}} 
- */
-function createDataGraph(label,methods){
-	var labels = methods.map((method) =>
-		method.testName
-	);
-	var energies = methods.map((method) =>
-		method.energy
-	);
-	var durations = methods.map((method) =>
-		method.duration
-	);
+function createDataGraph(energyTests,domaineName){
+    var labels = energyTests.map((energyTest) => 
+        energyTest.name
+    );
+    var data;
+    if(domaineName == "cpu"){
+        data = energyTests.map((energyTest) =>
+            energyTest.energycpu
+        );
+    }else if(domaineName == "dram"){
+        data = energyTests.map((energyTest) =>
+            energyTest.energydram
+        );
+    }else if(domaineName == "device"){
+        data = energyTests.map((energyTest) =>
+            energyTest.energydevice
+        );
+    }else{
+        data = energyTests.map((energyTest) =>
+            energyTest.duration
+        );
+    }
 
-	var energyColor = randomColor();
-	var energyBackgroudColor = energyColor + " 0.2)";
-	var hoverBackgroundColorEN = energyColor + " 0.5";
-	var energyBorderColor = energyColor + " 1)";
-
-	var durationColor = randomColor();
-	var durationBackgroudColor = durationColor + " 0.2)";
-	var hoverBackgroundColorDU = durationColor + " 0.5)";
-	var durationBorderColor = durationColor + " 1)";
-
-	// var colors = labels.map(randomColor)
-	// var borderColor = colors.map((color) => 
-	// 	color+" 1)"
-	// );
-	// var backgroundColor = colors.map((color) => 
-	// 	color+" 0.2)"
-	// );
-	// return {
-	// 	labels: labels,
-	// 	datasets: [{
-	// 		label:label,
-	// 		data: energies,
-	// 		borderColor: borderColor,
-	// 		backgroundColor: backgroundColor,
-	// 		borderWidth: 1,
- //            barPercentage: 0.2,
-	// 	}]
-
-	// }
-
-	return {
-		labels: labels,
-		datasets: [
-		{
-			label: "Energy",
-			backgroundColor: energyBackgroudColor,
-			hoverBackgroundColor: hoverBackgroundColorEN,
-			borderColor: energyBorderColor,
-			borderWidth: 1,
-			hoverBorderColor: energyBorderColor,
-			data: energies
-		},{
-			label: "Duration",
-			backgroundColor: durationBackgroudColor,
-			hoverBackgroundColor: hoverBackgroundColorDU,
-			borderColor:durationBorderColor,
-			borderWidth: 1,
-			hoverBorderColor: durationBorderColor,
-			data: durations
-		}] 
-	}
-}
-
-/**
- * Create an options of the graphe
- * @return {{}}
- */
-function options(className){
-	return {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },scaleLabel: {
-		            display: true,
-		            labelString: "Energy (Joules) & Duration (ms)"
-		        }
-            }]
-        },layout: {
-            padding: {
-                left: 100,
-                right: 100,
-                top: 0,
-                bottom: 0
+    let colors = labels.map(() => randomColor());
+    return {
+        labels: labels,
+        datasets: [
+            {
+                data: data,
+                backgroundColor: colors,
             }
-        },title: {
-	        display: true,
-	        text: 'Graph for class : '+className+' energy & duration'
-      	}
-	};	
+        ]
+    };
 }
 
-export { randomColor, createDataGraph, options };
+function options(type){
+    return {
+        title: {
+            display: true,
+            text: "Graph for energy consummed in "+type, 
+        }
+    };
+}
+
+function createGraph(energyTests){
+    return (
+        <div >
+            <div className="graph" id="graph-cpu" hidden="true">
+                <Doughnut
+                    data={createDataGraph(energyTests,"cpu")}
+                    options={options("CPU")}
+                />
+            </div>
+            <div className="graph" id="graph-dram" hidden="true">
+                <Doughnut
+                    data={createDataGraph(energyTests,"dram")}
+                    options={options("DRAM")}
+                />
+            </div>
+            <div className="graph" id="graph-device" hidden="true">
+                <Doughnut
+                    data={createDataGraph(energyTests,"device")}
+                    options={options("DEVICE")}
+                />
+            </div>
+            <div className="graph" id="graph-duration" hidden="true">
+                <Doughnut
+                    data={createDataGraph(energyTests,"duration")}
+                    options={options("DURATION")}
+                />
+            </div>
+        </div>
+    )
+}
+
+export { createGraph };

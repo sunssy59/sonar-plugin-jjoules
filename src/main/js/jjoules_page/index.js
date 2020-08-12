@@ -1,102 +1,61 @@
 import React from "react";
 import "../style.css";
-import { SearchInput,createFilter } from 'react-search-input'
 
-import AllTests from "./components/DisplayHistroyJjoules";
-
+import AllEnergyTests from "./components/DisplayEnergyConsumption";
+import { keys } from "underscore";
 
 
 window.registerExtension("jjoules/jjoules_page",options =>{
-//	window.SonarRequest.getJSON('/api/issues/search', {
-// 		resolved: false,
-// 		componentKeys: options.component.key
-// 	}).then(function (arg) {
-// 		console.log(arg);
-// 	});
-//	console.log(test);
-//	console.log("test 1 => " + test1);
-	// console.log(options.currentUser);
-	// console.log(options.component);
-	// console.log(options.branchLike);
-//	window.SonarRequest
-//		.getJSON(`../../resources/static/report.json`)
-//		.then(function (response){
-//			console.log(response);
-//		}, function (error) {console.log("error");console.log(error);});
+	
+	var data;
 
-	return (
-				<AllTests data={transformData(data1)} />
-			);
+	window.SonarRequest.getJSON('/api/measures/component_tree',{
+		additionalField:"metrics",
+		component: options.component.key,
+		qualifiers:"UTS", //For getting only tests
+		metricKeys:"duration,energy_consumption_cpu,energy_consumption_dram,energy_consumption_device"
+	}).then(function (result){
+		data = transformResult(result);
+		return data;
+	}).then(function (data){
+		
+		ReactDOM.render(
+			<AllEnergyTests data={data}/>,
+			options.el
+		);
+	});
+	
+	return function() {
+		options.el.textContente = "";
+	};
 
 });
 
-var data = {
-	classesNames: ["ClassOne","ClassTwo","ClassTree"],
-	data: [
-		[{testName:"test1One",energy:10,duration:13},
-		  {testName:"test1Two",energy:15,duration:10},
-		  {testName:"test1Tree",energy:20,duration:23},
-		  {testName:"test1Four",energy:30,duration:23},
-		  {testName:"test1Five",energy:20,duration:23}
-		],
-		[{testName:"test2One",energy:12,duration:23},
-		  {testName:"test2Two",energy:18,duration:8},
-		  {testName:"test2Tree",energy:30,duration:23},
-		  {testName:"test2Four",energy:20,duration:23}
-		],
-		[{testName:"test3One",energy:12,duration:23},
-		  {testName:"test3Two",energy:18,duration:8},
-		  {testName:"test3Tree",energy:30,duration:23},
-		  {testName:"test3Four",energy:20,duration:23},
-		  {testName:"test3Five",energy:20,duration:23},
-		  {testName:"test3Six",energy:30,duration:23}
-		]
-	]
-};
 
-function transformData(data){
-	var returnData = {};
-	returnData.classesNames = data.map((clazz) => clazz.className);
-	returnData.data = data.map((clazz) => clazz.methods);
-	return returnData;
+function transformResult(result){
+	var data = {};
+	data.projectName = result.baseComponent.name;
+	data.projectKey = result.baseComponent.key;
+	data.energyTests = result.components.map(function (component) {
+		let energyTest = {};
+		if(component.name.endsWith("EnergyTest.java")){
+			energyTest.name = component.name.split(".")[0];
+			let i;
+			let measure;
+			for(i = 0 ;i< component.measures.length ;i++){
+				measure = component.measures[i];
+				if (measure.metric == "duration")
+					energyTest.duration = measure.value;
+				else if(measure.metric == "energy_consumption_cpu")
+					energyTest.energycpu = measure.value;
+				else if(measure.metric == "energy_consumption_dram")
+					energyTest.energydram = measure.value;
+				else
+					energyTest.energydevice = measure.value;
+			}
+		}
+		return energyTest;
+	});
+	data.energyTests = data.energyTests.filter(energyTest => keys(energyTest).length > 0);
+	return data;
 }
-var data1 = [
-	{
-	className: "ClassOne",
-	methods: [{testName:"test1OneTest",energy:10,duration:13},
-		  {testName:"test1Two",energy:25,duration:10},
-		  {testName:"test1Tree",energy:18,duration:23},
-		  {testName:"test1Four",energy:15,duration:23},
-		  {testName:"test1Five",energy:20,duration:23}
-		]
-
-	},
-	{
-	className: "ClassTwo",
-	methods: [{testName:"test2One",energy:12,duration:23},
-		  {testName:"test2Two",energy:18,duration:8},
-		  {testName:"test2Four",energy:30,duration:23},
-		  {testName:"test2Five",energy:20,duration:23}
-		]
-	},
-	{
-	className: "ClassTree",
-	methods: [{testName:"test3One",energy:12,duration:23},
-		  {testName:"test3Two",energy:18,duration:8},
-		  {testName:"test3Tree",energy:30,duration:23},
-		  {testName:"test3Four",energy:10,duration:23},
-		  {testName:"test3Five",energy:20,duration:23},
-		  {testName:"test3Six",energy:30,duration:23}
-		]
-	},
-	{
-	className: "JjoulesClass",
-	methods: [{testName:"test4One",energy:12,duration:23},
-		  {testName:"test4Two",energy:23,duration:8},
-		  {testName:"test4Tree",energy:10,duration:25},
-		  {testName:"test4Four",energy:24,duration:32},
-		  {testName:"test4Five",energy:30,duration:23},
-		  {testName:"test4Six",energy:13,duration:27}
-		]
-	}
-]
