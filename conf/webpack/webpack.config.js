@@ -12,15 +12,6 @@ module.exports = {
   entry: {
     'measures_history': ['./src/main/js/app-measures_history.js'],
     'sanity_check': ['./src/main/js/app-sanity_check.js'],
-    // Using Vanilla JS:
-    //global_page: ["./src/main/js/global_page/index.js"],
-
-    // Using Backbone JS:
-    //project_page: ["./src/main/js/project_page/index.js"],
-
-    // Using React:
-    //portfolio_page: ["./src/main/js/portfolio_page/index.js"],
-    //admin_page: ["./src/main/js/admin_page/index.js"]
 
     // Jjoules page using React:
     jjoules_page: ["./src/main/js/jjoules_page/index.js"],

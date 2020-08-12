@@ -25,7 +25,6 @@ window.registerExtension("jjoules/jjoules_page",options =>{
 	return function() {
 		options.el.textContente = "";
 	};
-
 });
 
 

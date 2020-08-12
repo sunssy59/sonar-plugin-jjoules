@@ -61,7 +61,6 @@ return getJSON('/api/project_analyses/search', {
             for (let k = 0; k < numberOfMeasuresRetrieved; k++) {
               for(let d = 0; d < responseMetrics.measures[k].history.length; d++) {
                 if ( responseMetrics.measures[k].history[d].date === responseAnalyses.analyses[i].date ) {
-                  //console.log(responseMetrics.measures[k].metric);
                   if (responseMetrics.measures[k].metric === "bugs") {
                     result.bugs = responseMetrics.measures[k].history[d].value;
                   } else if (responseMetrics.measures[k].metric === "vulnerabilities") {
@@ -86,7 +85,6 @@ return getJSON('/api/project_analyses/search', {
           }
         }
       }
-      //console.table(data);
       return data;
     });
   }
