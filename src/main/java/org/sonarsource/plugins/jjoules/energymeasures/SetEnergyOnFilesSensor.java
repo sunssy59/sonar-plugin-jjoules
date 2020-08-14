@@ -76,7 +76,7 @@ public class SetEnergyOnFilesSensor implements Sensor {
 		String line = "";
 		if(file.filename().endsWith("EnergyTest.java")) {
 
-			// Verify if test is annoted with @EnergyTest
+			// Verify if test is annotated by @EnergyTest
 			try {
 				fr = new FileReader(file.file());
 				br = new BufferedReader(fr);
@@ -85,7 +85,7 @@ public class SetEnergyOnFilesSensor implements Sensor {
 						return true;
 				}
 			} catch (IOException e) {
-				e.printStackTrace();
+				return false;
 			}
 		} return false;
 	}

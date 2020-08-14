@@ -46,7 +46,11 @@ public class ReadJjoulesReportsSensor implements Sensor {
 		readReports();
 	}
 
+	/**
+	 * Read all energy reports and put them in Map structure
+	 */
 	private void readReports() {
+		
 		File[] files = getPaths(DEFAULT_DIR,REPORT_PATHS_PROPERTY_KEY);
 
 		JsonObject jsonObject;
@@ -75,6 +79,12 @@ public class ReadJjoulesReportsSensor implements Sensor {
 		}
 	}
 
+	/**
+	 * 
+	 * @param defaultDir a default directory for consumption reports 
+	 * @param reportPathsPropertyKey if user changed a default  path 
+	 * @return a tab of contains files in this directory
+	 */
 	private File[] getPaths(String defaultDir, String reportPathsPropertyKey){
 
 

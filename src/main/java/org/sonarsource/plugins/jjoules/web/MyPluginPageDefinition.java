@@ -32,7 +32,7 @@ public class MyPluginPageDefinition implements PageDefinition {
     
     context
       .addPage(Page.builder("jjoules/jjoules_page")
-        .setName("Jjoules stat")
+        .setName("Jjoules stats")
         .setScope(Scope.COMPONENT)
         .build());	
   }

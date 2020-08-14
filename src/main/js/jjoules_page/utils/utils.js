@@ -89,4 +89,8 @@ function createGraph(energyTests){
     )
 }
 
-export { createGraph };
+function convertToPower(energy,duration) {
+    return Math.trunc(energy * 1000000 / duration);
+}
+
+export { createGraph,convertToPower };
