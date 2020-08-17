@@ -29,3 +29,10 @@ The standard way to install the plugin in SonarQube is to copy the JAR file from
 	docker restart CONTAINER_ID
 	
 Don't forget to replace `CONTAINER_ID` by docker container ID.
+
+
+## ANALYSE A PROJECT 
+
+With these maven goals you can analyse your project in SonarQube
+
+	mvn clean test sonar:sonar
