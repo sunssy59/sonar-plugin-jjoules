@@ -7,11 +7,11 @@ import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
+
 import static org.sonarsource.plugins.jjoules.energymeasures.EnergyMetrics.ENERGY_PACKAGE;
 import static org.sonarsource.plugins.jjoules.energymeasures.EnergyMetrics.ENERGY_DRAM;
 import static org.sonarsource.plugins.jjoules.energymeasures.EnergyMetrics.ENERGY_DEVICE;
 import static org.sonarsource.plugins.jjoules.energymeasures.EnergyMetrics.DURATION;
-
 
 
 

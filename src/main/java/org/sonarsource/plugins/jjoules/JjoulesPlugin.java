@@ -5,6 +5,7 @@ package org.sonarsource.plugins.jjoules;
 
 
 import org.sonar.api.Plugin;
+import org.sonarsource.plugins.jjoules.energymeasures.JSONFileReaderSensor;
 import org.sonarsource.plugins.jjoules.energymeasures.ComputeDuration;
 import org.sonarsource.plugins.jjoules.energymeasures.ComputeEnergyMerticsDevice;
 import org.sonarsource.plugins.jjoules.energymeasures.ComputeEnergyMetricsInCPU;
@@ -34,6 +35,7 @@ public class JjoulesPlugin implements Plugin {
 		// Energy measures
 		context
 		.addExtensions(ReadJjoulesReportsSensor.class,
+				JSONFileReaderSensor.class,
 				EnergyMetrics.class,
 				SetEnergyOnFilesSensor.class,
 				ComputeEnergyMerticsDevice.class,

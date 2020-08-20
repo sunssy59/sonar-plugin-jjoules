@@ -7,6 +7,7 @@ package org.sonarsource.plugins.jjoules.energymeasures;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +20,7 @@ import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
+import org.sonarsource.plugins.jjoules.database.DatabaseManager;
 
 
 /**
@@ -73,10 +75,27 @@ public class ReadJjoulesReportsSensor implements Sensor {
 					LOGGER.info("End reading file {}",file.getName());
 
 				} catch (FileNotFoundException e) {
-					e.printStackTrace();
+					return;
 				}
 			}
 		}
+		
+		registreData();
+	}
+	
+	private void registreData() {
+	
+		LOGGER.info("Start registring energy consumption data in database {} ...",DatabaseManager.URL );
+		for(String key : REPORTS.keySet()) {
+			
+			String[] values = { key,"" + REPORTS.get(key).getInt("package|uJ",0),"" + REPORTS.get(key).getInt("dram|uJ",0),
+					"" + REPORTS.get(key).getInt("device|uJ",0),"" + REPORTS.get(key).getInt("duration|ns")};
+			DatabaseManager.insertLineInTable(values);
+			
+		}
+		
+		LOGGER.info("Registring data in base {} (done) ",DatabaseManager.URL );
+		//DatabaseManager.listeTestsTable("SELECT * from tests"); 
 	}
 
 	/**
@@ -92,6 +111,14 @@ public class ReadJjoulesReportsSensor implements Sensor {
 
 		if(! testsDir.isDirectory())
 			return null;
-		return testsDir.listFiles();
+		return testsDir.listFiles(new FilenameFilter() {
+
+			@Override
+			public boolean accept(File dir, String filename) {
+				
+				return filename.endsWith("EnergyTest.json");
+			}
+			
+		});
 	}
 }
