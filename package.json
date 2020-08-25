@@ -16,7 +16,7 @@
     "enzyme": "2.6.0",
     "enzyme-to-json": "1.4.5",
     "expose-loader": "0.7.1",
-    "express": "4.13.4",
+    "express": "^4.17.1",
     "express-http-proxy": "0.6.0",
     "filesize": "3.3.0",
     "find-cache-dir": "0.1.1",
@@ -84,7 +84,6 @@
     "chart.js": "^2.9.3",
     "jquery": "^1.11.0",
     "react-chartjs-2": "^2.9.0",
-    "react-search-input": "^0.11.3",
     "underscore": "^1.9.1"
   }
 }

@@ -16,6 +16,9 @@ module.exports = {
     // Jjoules page using React:
     jjoules_page: ["./src/main/js/jjoules_page/index.js"],
 
+    // j-joules stats page using React
+    jjoules_stats: ["./src/main/js/jjoules_stats/index.js"]
+
 
   },
   mode: 'development',

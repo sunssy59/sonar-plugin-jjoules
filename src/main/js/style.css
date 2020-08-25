@@ -4,18 +4,17 @@
   margin-top:5px;
   margin-bottom:5px;
   background-color:#c6eeee;
-  border:2px solid rgba(255,99,132,.2);
+  border:2px solid rgba(255,99,132,.2)
  }
  .result:hover {
-  background-color:#d2e0e0;
+  background-color:#d2e0e0
  }
- 
  .col {
   flex-basis:0;
   -ms-flex-positive:1;
   flex-grow:1;
   min-width:0;
-  max-width:100%;
+  max-width:100%
  }
  .page-container:last-child {
   max-width:1280px;
@@ -25,51 +24,63 @@
   padding-bottom:20px;
   position:relative;
   z-index:2;
-  padding:10px 20px;
+  padding:10px 20px
  }
  .graph {
   background-color:#f8f8ff;
   margin-top:2%;
-  border-radius:20px;
+  border-radius:20px
  }
  button>strong {
-  font-size:x-large;
+  font-size:x-large
  }
  .ene-search-box {
   margin-bottom:2%;
   margin-top:3%;
-  left:-23%;
+  left:-23%
  }
  .ene-search-box input {
   height:35px;
-  border-radius:3px;
+  border-radius:3px
  }
  .ene-search-box>svg {
   position:relative;
   left:8%;
-  top:10px;
+  top:10px
  }
  .svg-icon {
-  margin:0px 5px 5px 5px;
+  margin:0 5px 5px
  }
  .svg-icon path {
-  fill:#4691f6;
+  fill:#4691f6
  }
  thead>tr {
-  background-color:#f8f8ff;
+  background-color:#f8f8ff
  }
- .energyTest {
-  margin-bottom:10px;
+ .stats .energyTest:nth-of-type(2) {
+  margin-top:30pt;
+  margin-bottom:10px
  }
  .energyTest img {
-  width:20pt;
+  width:20pt
  }
  #but-graph>button {
-  margin:20px 10px 10px 0px;
+  margin:20px 10px 10px 0
  }
- #but-graph{
-   background-color: #f8f8ff;
-   border-radius: 5px;
-   padding-left: 10px;
-   margin-bottom: 10px;
+ #but-graph {
+  background-color:#f8f8ff;
+  border-radius:5px;
+  padding-left:10px;
+  margin-bottom:10px
  }
+ .tab-stats tr {
+  border:1px solid
+ }
+ .tab-stats td:first-of-type,
+ .tab-stats th:first-of-type {
+  border-right:1px solid
+ }
+ 
+ .allEnergyTests .result-stats{
+   background-color:#8ff5bd;
+ } 

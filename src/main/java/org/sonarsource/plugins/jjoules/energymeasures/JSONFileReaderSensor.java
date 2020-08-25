@@ -88,6 +88,7 @@ public class JSONFileReaderSensor implements Sensor {
 		
 		LOGGER.info("End reading file {}",file.getName());
 		
+		LOGGER.info("Start registring new callgraph data in database {} ...",DatabaseManager.URL );
 		for (String key : CALLGRAPH.keySet()) {
 			JsonArray jsonArray = CALLGRAPH.getJsonArray(key);
 			for(JsonValue value : jsonArray) {
@@ -95,7 +96,7 @@ public class JSONFileReaderSensor implements Sensor {
 				DatabaseManager.insertLineInCallgraphTable(values);
 			}
 		}
-
+		LOGGER.info("Registring data in base {} (done) ",DatabaseManager.URL );
 	}
 
 }

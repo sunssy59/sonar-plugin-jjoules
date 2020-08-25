@@ -20,14 +20,16 @@ public class DatabaseManager {
 	
 	private static final Logger LOGGER = Loggers.get(DatabaseManager.class);
 	
-	public static final String URL = "jdbc:postgresql://localhost:54321/sonar";
+	public static final String URL = "jdbc:postgresql://localhost:5432/sonar";
 	public static final String USER = "sonar";
 	public static final String PASSWORD = "sonar";
 	
-	private static final String CREATE_TESTS_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS tests(id SERIAL NOT NULL ,test varchar(225) NOT NULL ,e_cpu INTEGER,e_dram INTEGER,e_device INTEGER,duration INTEGER, analysed_at varchar(225) NOT NULL, PRIMARY KEY(id,analysed_at), UNIQUE(test,analysed_at)) ";
+	private static final String CREATE_TESTS_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS tests(id SERIAL NOT NULL ,test varchar(225) NOT NULL ,e_cpu INTEGER,"
+			+ "e_dram INTEGER,e_device INTEGER,duration INTEGER, analysed_at varchar(225) NOT NULL, PRIMARY KEY(id,analysed_at), UNIQUE(test,analysed_at)),"
+			+ "project_key  varchar(225) NOT NULL";
 	private static final String CREATE_TESTS_CALLGRAPH_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS callgraph(source varchar(225) NOT NULL,target varchar(225) NOT NULL,UNIQUE(source,target))";
 	
-	private static final String INSERT_QUERY = "INSERT INTO tests (test,e_cpu,e_dram,e_device,duration,analysed_at) VALUES (?,?,?,?,?,?)";
+	private static final String INSERT_QUERY = "INSERT INTO tests (test,e_cpu,e_dram,e_device,duration,analysed_at,project_key) VALUES (?,?,?,?,?,?,?)";
 	private static final String INSERT_CALLGRAPH_QUERY = "INSERT INTO callgraph (source,target) VALUES (?,?)";
 	
 //	select (component_uuid,status,created_at,updated_at) from ce_activity;
@@ -39,7 +41,6 @@ public class DatabaseManager {
 		try {
 			Class.forName("org.postgresql.Driver");
 		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		try {
@@ -47,7 +48,7 @@ public class DatabaseManager {
 		} catch (SQLException e) {	
 			e.printStackTrace();
 		}
-		return null;	
+		return null;
 	}
 	
 	public static void createTable() {
@@ -55,24 +56,34 @@ public class DatabaseManager {
 			
 			PreparedStatement pst = CONNECTION.prepareStatement(CREATE_TESTS_TABLE_QUERY);
 			pst.execute();	
-			//pst.executeUpdate();
-			pst.close();
-			
+			pst.close();	
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
 	}
 	
+	public static String getLastSnapshot() {
+		PreparedStatement pst;
+		try {
+			pst = CONNECTION.prepareStatement("SELECT created_at FROM snapshots ORDER BY created_at DESC");
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			String res = rs.getString(1);
+			pst.close();
+			return res;
+		} catch (SQLException e) {
+			return null;
+		}
+		
+		
+	}
+	
 	public static boolean insertLineInTable(String[] values) {
 		
-		PreparedStatement pst,pst1;
+		PreparedStatement pst;
 		boolean res = false;
 		try {
-			
-			pst1 = CONNECTION.prepareStatement("select created_at from snapshots ORDER BY created_at DESC");
-			ResultSet rs = pst1.executeQuery();
-			rs.next();
 			
 			pst = CONNECTION.prepareStatement(INSERT_QUERY);
 			pst.setString(1, values[0]);
@@ -80,13 +91,13 @@ public class DatabaseManager {
 			pst.setLong(3, Long.parseLong(values[2]));
 			pst.setLong(4, Long.parseLong(values[3]));
 			pst.setLong(5, Integer.parseInt(values[4]));
-			pst.setString(6,rs.getString(1));
+			pst.setString(6,values[5]);
+			pst.setString(7,values[6]);
 			
 			res = pst.executeUpdate() >= 1 ? true : false;
 			pst.close();
-			pst1.close();
 		} catch (SQLException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 			return false;
 		}
 		return res; 
@@ -99,7 +110,7 @@ public class DatabaseManager {
 		try {
 			pst = CONNECTION.prepareStatement(INSERT_CALLGRAPH_QUERY);
 			pst.setString(1, values[0]);
-			pst.setString(2, values[1]);
+			pst.setString(2, values[1].substring(1, values[1].length()-1));
 			
 			res = pst.executeUpdate() >= 1 ? true : false;
 			pst.close();
@@ -146,13 +157,13 @@ public class DatabaseManager {
 	}
 	public static void main(String[] args){
 //		createTable();
-		String[] values = {"testTwo","2","10","22"};
-		insertLineInTable(values);
+		String[] values = {"testTwo","2","10","22","15","10","test"};
+		//insertLineInTable(values);
 		// select component_uuid,created_at,islast,period1_mode from snapshots ORDER BY created_at ASC;
 		String qr = "SELECT * from tests";
 		String qr1 = "select * from snapshots";
 		String qr2 = "select component_uuid,status,created_at,updated_at from ce_activity";
-		listeTestsTable(qr);
-		
+		//listeTestsTable(qr);
+		System.out.println(getLastSnapshot());
 	}
 }

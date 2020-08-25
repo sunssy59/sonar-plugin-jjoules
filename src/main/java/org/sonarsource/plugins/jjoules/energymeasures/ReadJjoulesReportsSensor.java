@@ -22,7 +22,6 @@ import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 import org.sonarsource.plugins.jjoules.database.DatabaseManager;
 
-
 /**
  *
  *
@@ -35,6 +34,7 @@ public class ReadJjoulesReportsSensor implements Sensor {
 	static final String REPORT_PATHS_PROPERTY_KEY = "sonar.jjoules.jsonReportPaths";
 
 	public static Map<String,JsonObject> REPORTS = new HashMap<String,JsonObject>();
+	
 
 	@Override
 	public void describe(SensorDescriptor descriptor) {
@@ -44,8 +44,11 @@ public class ReadJjoulesReportsSensor implements Sensor {
 
 	@Override
 	public void execute(SensorContext context) {
-
+		
+		
 		readReports();
+		
+		registreData(context.project().key());
 	}
 
 	/**
@@ -79,22 +82,25 @@ public class ReadJjoulesReportsSensor implements Sensor {
 				}
 			}
 		}
-		
-		registreData();
 	}
 	
-	private void registreData() {
+	private void registreData(String project_key) {
 	
 		LOGGER.info("Start registring energy consumption data in database {} ...",DatabaseManager.URL );
+		String createdAt = DatabaseManager.getLastSnapshot();
 		for(String key : REPORTS.keySet()) {
 			
-			String[] values = { key,"" + REPORTS.get(key).getInt("package|uJ",0),"" + REPORTS.get(key).getInt("dram|uJ",0),
-					"" + REPORTS.get(key).getInt("device|uJ",0),"" + REPORTS.get(key).getInt("duration|ns")};
+			String[] values = { key,"" + REPORTS.get(key).getInt("package|uJ",0),
+					"" + REPORTS.get(key).getInt("dram|uJ",0),
+					"" + REPORTS.get(key).getInt("device|uJ",0),
+					"" + REPORTS.get(key).getInt("duration|ns"),
+					createdAt, project_key};
 			DatabaseManager.insertLineInTable(values);
 			
 		}
-		
-		LOGGER.info("Registring data in base {} (done) ",DatabaseManager.URL );
+		if (REPORTS.keySet().size() == 0)
+			LOGGER.info("There is any data to registre!");
+		LOGGER.info("Registring data in base {} (done) ",DatabaseManager.URL);
 		//DatabaseManager.listeTestsTable("SELECT * from tests"); 
 	}
 

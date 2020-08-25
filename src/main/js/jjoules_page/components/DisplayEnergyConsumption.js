@@ -231,7 +231,7 @@ export default class AllEnergyTests extends React.Component {
 		return (
 			<div className="allEnergyTests col page page-limited" >
 
-				<h1 className="page-title">Jjoules stats for energy consumption</h1>
+				<h1 className="page-title">Jjoules page for energy consumption</h1>
 				
 				<Search />
 				
