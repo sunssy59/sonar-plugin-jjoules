@@ -3,11 +3,12 @@
   border-radius:3px;
   margin-top:5px;
   margin-bottom:5px;
-  background-color:#c6eeee;
+  background-color:#8ff5bd;
   border:2px solid rgba(255,99,132,.2)
  }
- .result:hover {
-  background-color:#d2e0e0
+ .result:hover,
+ div>.tab-stats:hover {
+  background-color:#bfe2e2
  }
  .col {
   flex-basis:0;
@@ -80,7 +81,48 @@
  .tab-stats th:first-of-type {
   border-right:1px solid
  }
+ .allEnergyTests .result-stats {
+  background-color:#c6eeee
+ }
+ .tab-stats svg>.good {
+  fill:green
+ }
+ .tab-stats svg>.minor {
+  fill:#b0e64d
+ }
+ .tab-stats svg>.major {
+  fill:#dbbc0a
+ }
+ .tab-stats svg>.critical {
+  fill:#ff7300
+ }
+ .tab-stats svg>.blocked {
+  fill:red
+ }
+ .icon-deleted {
+  fill:#ff7300
+ }
+ .tab-stats svg,
+ th>img {
+  margin-left:20px
+ }
+ .stats-rating {
+  border:1px solid;
+  margin-bottom:3px;
+  padding:2px 0
+ }
+ .reviews {
+  background-color:#a03b3b;
+  color:#fff
+ }
+ .reviews li, .reviews>p {
+  background-color:#000;
+  margin:2px 20%
+ }
+ .graph-stats {
+  margin-bottom:5%
+ }
+ .stats .button {
+  margin-left:10px
+ }
  
- .allEnergyTests .result-stats{
-   background-color:#8ff5bd;
- } 

@@ -20,7 +20,7 @@ public class DatabaseManager {
 	
 	private static final Logger LOGGER = Loggers.get(DatabaseManager.class);
 	
-	public static final String URL = "jdbc:postgresql://localhost:5432/sonar";
+	public static final String URL = "jdbc:postgresql://localhost:54321/sonar";
 	public static final String USER = "sonar";
 	public static final String PASSWORD = "sonar";
 	
