@@ -7,6 +7,8 @@ import { keys } from "underscore";
 
 window.registerExtension("jjoules/jjoules_page",options =>{
 
+	console.log(options);
+
 	window.SonarRequest.getJSON('/api/measures/component_tree',{
 		additionalField:"metrics",
 		component: options.component.key,
@@ -21,14 +23,7 @@ window.registerExtension("jjoules/jjoules_page",options =>{
 			options.el
 		);
 	});
-	
-	//Trying to get energie measures history but it gives only global analyses
-	window.SonarRequest.getJSON("/api/measures/search_history",{
-		component: options.component.key,
-		metrics:"duration,energy_consumption_cpu,energy_consumption_dram,energy_consumption_device",
-	}).then((result) => {
-		console.log(result);
-	})
+
 	
 	return function() {
 		options.el.textContente = "";

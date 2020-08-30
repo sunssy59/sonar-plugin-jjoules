@@ -1,4 +1,6 @@
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut,Line } from 'react-chartjs-2';
+import { data } from 'jquery';
+import { result } from 'underscore';
 
 const ENERGY_UNIT = "μJ";
 const DURATION_UNIT = "nS";
@@ -89,8 +91,56 @@ function createGraph(energyTests){
     )
 }
 
+function graphStat(energyTests,testName){
+    return parseResultToData(energyTests,testName);
+}
+
+function parseResultToData(energyTests,testName){
+    var data = {};
+    data.labels = energyTests.map(test => new Date(+test.analysed_at).toLocaleString());
+    let datas =  energyTests.map((test) => new Date(test.e_device))
+    // let datas =  energyTests.map(function(test){
+    //     return {t: new Date(+test.analysed_at), y:test.e_device}});
+    let color = data.labels.map(label => randomColor());
+
+    data.datasets = [{
+        label: "Energy consumed in device in (μJ) ",
+        data: datas,
+        fill: false,
+		lineTension: 0.1,
+		backgroundColor: color,
+		borderColor: 'rgba(75,192,192,1)',
+		borderCapStyle: 'butt',
+		borderDash: [],
+		borderDashOffset: 0.0,
+		borderJoinStyle: "round",
+		pointBorderColor: '#fff',
+		pointBackgroundColor: color,
+		pointBorderWidth: 5,
+		pointHoverRadius: 5,
+		pointHoverBackgroundColor: color,
+		pointHoverBorderColor: 'rgba(220,220,220,1)',
+		pointHoverBorderWidth: 2,
+		pointRadius: 1,
+        pointHitRadius: 10,
+        clip: {left: 5, top: false, right: -2, bottom: 0}
+    }]
+    return createStatGraph(data,testName);
+
+}
+
+function createStatGraph(data,testName){
+    return (
+        <div className="graph graph-stats" id = {"stats-"+testName} hidden={true}>
+            <Line data={data} 
+            />
+        </div>
+    )
+}
+
 function convertToPower(energy,duration) {
     return Math.trunc(energy * 1000000 / duration);
 }
 
-export { createGraph,convertToPower };
+
+export { createGraph, convertToPower, graphStat };

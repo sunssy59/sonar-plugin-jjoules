@@ -32,8 +32,15 @@ public class MyPluginPageDefinition implements PageDefinition {
     
     context
       .addPage(Page.builder("jjoules/jjoules_page")
-        .setName("Jjoules stats")
+        .setName("Jjoules energy data")
         .setScope(Scope.COMPONENT)
         .build());	
+
+    context
+      .addPage(Page.builder("jjoules/jjoules_stats")
+        .setName("Jjoules stats")
+        .setScope(Scope.COMPONENT)
+        .build());
+
   }
 }
