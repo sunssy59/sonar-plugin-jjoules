@@ -12,9 +12,7 @@ The plugin JAR file will be generated in the project's target/ directory.
 
 ### RUNNING SONARQUBE ON DOCKER
 
-To run sonarqube on docker container you can use this command 
-
-	CONTAINER_ID=`docker run --rm -it -p 9000:9000 -d sonarqube`
+To run sonarqube on docker container you can use this docker-compose file which is in the repository `src/main/ressources
 	
 
 ## DEPLOY
@@ -25,10 +23,12 @@ The standard way to install the plugin in SonarQube is to copy the JAR file from
 	
 	cd sonar-plugin-jjoules
 	chmod u+x ./target/sonar-jjoules-plugin-8.1.0.jar
-	docker cp ./target/sonar-jjoules-plugin-8.1.0.jar ${CONTAINER_ID}:/opt/sonarqube/extensions/plugins
+	docker ps
+	
+	docker cp ./target/sonar-jjoules-plugin-8.1.0.jar SONAR_CONTAINER_ID:/opt/sonarqube/extensions/plugins
 	docker restart ${CONTAINER_ID}
 	
-Don't forget to replace `CONTAINER_ID` by docker container ID.
+Don't forget to replace `SONAR_CONTAINER_ID` by sonar docker container ID.
 
 
 ## ANALYSE A PROJECT 

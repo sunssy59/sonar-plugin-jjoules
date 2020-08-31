@@ -5,8 +5,8 @@ function displayStats(el,lastTests,actualTests,callgraph){
 	let energyTests = [];
 	
 	let deletedTests = [];
-	if(lastTests.length > actualTests){
-		deletedTests = lastTests.filter(test => !(actualTests.includes(test)));
+	if(lastTests.length > actualTests.length){
+		deletedTests = lastTests.filter(test => !(testIsIn(test,actualTests)));
 	}
 
 	//deletedTests.push(lastTests[0]);
@@ -24,10 +24,9 @@ function displayStats(el,lastTests,actualTests,callgraph){
 	}
 
 	let newTests = [];
-	if(lastTests.length < actualTests){
-		newTests = actualTests.filter(test => !(lastTests.includes(test)));
+	if(lastTests.length < actualTests.length){
+		newTests = actualTests.filter(test => !(testIsIn(test,lastTests)));
 	}
-
 	//newTests.push(actualTests[2]);
 	for(let test of newTests){
 		energyTests.push({

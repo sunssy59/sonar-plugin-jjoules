@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -90,22 +91,22 @@ public class ReadJjoulesReportsSensor implements Sensor {
 		DatabaseManager.createTable(DatabaseManager.CREATE_TESTS_TABLE_QUERY);
 		DatabaseManager.createTable(DatabaseManager.CREATE_TESTS_CALLGRAPH_TABLE_QUERY);
 	
+		
 		LOGGER.info("Start registring energy consumption data in database {} ...",DatabaseManager.URL );
-		String createdAt = DatabaseManager.getLastSnapshot();
+		String analysedAt = new Timestamp(System.currentTimeMillis()).getTime()+"";
 		for(String key : REPORTS.keySet()) {
 			
 			String[] values = { key,"" + REPORTS.get(key).getInt("package|uJ",0),
 					"" + REPORTS.get(key).getInt("dram|uJ",0),
 					"" + REPORTS.get(key).getInt("device|uJ",0),
 					"" + REPORTS.get(key).getInt("duration|ns"),
-					createdAt, project_key};
+					analysedAt, project_key};
 			DatabaseManager.insertLineInTable(values);
 			
 		}
 		if (REPORTS.keySet().size() == 0)
 			LOGGER.info("There is any data to registre!");
 		LOGGER.info("Registring data in base {} (done) ",DatabaseManager.URL);
-		//DatabaseManager.listeTestsTable("SELECT * from tests"); 
 	}
 
 	/**
