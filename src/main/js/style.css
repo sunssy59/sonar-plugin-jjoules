@@ -38,7 +38,8 @@
  .ene-search-box {
   margin-bottom:2%;
   margin-top:3%;
-  left:-23%
+   position:relative;
+  right: 40%;
  }
  .ene-search-box input {
   height:35px;
@@ -115,7 +116,8 @@
   background-color:#a03b3b;
   color:#fff
  }
- .reviews li, .reviews>p {
+ .reviews>p,
+ .reviews li {
   background-color:#000;
   margin:2px 20%
  }
