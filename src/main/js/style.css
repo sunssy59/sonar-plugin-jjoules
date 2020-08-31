@@ -38,8 +38,8 @@
  .ene-search-box {
   margin-bottom:2%;
   margin-top:3%;
-   position:relative;
-  right: 40%;
+  position:relative;
+  right:23%
  }
  .ene-search-box input {
   height:35px;
@@ -126,5 +126,12 @@
  }
  .stats .button {
   margin-left:10px
+ }
+ 
+ .no-analysis{
+   margin: 2% 55% 0px 5%;
+   background-color: #bfe2e2;
+   
+   
  }
  

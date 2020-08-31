@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -25,10 +26,11 @@ public class DatabaseManager {
 	public static final String PASSWORD = "sonar";
 	
 	public static final String CREATE_TESTS_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS tests(id SERIAL NOT NULL ,test varchar(225) NOT NULL ,e_cpu INTEGER,"
-			+ "e_dram INTEGER,e_device INTEGER,duration INTEGER, analysed_at varchar(225) NOT NULL, project_key  varchar(225) NOT NULL, PRIMARY KEY(id,analysed_at), UNIQUE(test,analysed_at))";
+			+ "e_dram INTEGER,e_device INTEGER,duration INTEGER, analysed_at BIGINT NOT NULL, project_key  varchar(225) NOT NULL, PRIMARY KEY(id,analysed_at), UNIQUE(test,analysed_at))";
 	public static final String CREATE_TESTS_CALLGRAPH_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS callgraph(source varchar(225) NOT NULL,target varchar(225) NOT NULL,UNIQUE(source,target))";
 	
 	private static final String INSERT_QUERY = "INSERT INTO tests (test,e_cpu,e_dram,e_device,duration,analysed_at,project_key) VALUES (?,?,?,?,?,?,?)";
+	private static final String INSERT_QUERY1 = "INSERT INTO tests_bis1 (test,e_cpu,e_dram,e_device,duration,analysed_at,project_key) VALUES (?,?,?,?,?,?,?)";
 	private static final String INSERT_CALLGRAPH_QUERY = "INSERT INTO callgraph (source,target) VALUES (?,?)";
 	
 	
@@ -89,7 +91,7 @@ public class DatabaseManager {
 			pst.setLong(3, Long.parseLong(values[2]));
 			pst.setLong(4, Long.parseLong(values[3]));
 			pst.setLong(5, Integer.parseInt(values[4]));
-			pst.setString(6,values[5]);
+			pst.setLong(6,Long.parseLong(values[5]));
 			pst.setString(7,values[6]);
 			
 			res = pst.executeUpdate() >= 1 ? true : false;
@@ -100,6 +102,7 @@ public class DatabaseManager {
 		}
 		return res; 
 	}
+
 	
 	public static boolean insertLineInCallgraphTable(String[] values) {
 		PreparedStatement pst;
