@@ -62,15 +62,7 @@ function displayStats(el,lastTests,actualTests,callgraph){
 					e_device: lastTest.e_device
 				}
 				energyTest.history = lastTest.history
-			}else{
-				energyTest.status = "new"
-				energyTest.actual = {
-					e_device:test.e_device,
-					e_cpu:test.e_cpu,
-					e_dram:test.e_dram,
-				}
 			}
-			
 			energyTests.push(energyTest);
 		}
 		
@@ -95,6 +87,12 @@ function testIsIn(test,tabTest){
 	}return false;
 }
 
+
+/**
+ * Compute methods to review 
+ * @param {*} energyTests energy tests
+ * @param {*} callgraph all tests call graph
+ */
 function computeReviews(energyTests,callgraph){
 	let tab_copie = energyTests.slice();
 	for(let energyTest of tab_copie){
@@ -103,7 +101,7 @@ function computeReviews(energyTests,callgraph){
 		if(energyTest.status == "old" && energyTest.actual.e_deviceTendency[0] != "A"){
 			if (methodCalledInTest(energyTest.name,callgraph)){
 				for(let method of methodsCalled){
-					let testMethodCalls = getTestCallingMethod(method,callgraph);
+					let testMethodCalls = getTestsCallingMethod(method,callgraph);
 					for(let test of testMethodCalls){
 						let e_test = getEnergyTestByName(test,energyTests);
 						if (e_test.status == "old" && e_test.actual.e_deviceTendency[0] != "A"){
@@ -124,7 +122,7 @@ function getEnergyTestByName(name,energyTests){
 	return energyTests.filter(energyTest => energyTest.name == name)[0];
 }
 
-function getTestCallingMethod(name,callgraph){
+function getTestsCallingMethod(name,callgraph){
 	let filtredCallgraph = callgraph.filter(call => call.target.includes(name));
 	return filtredCallgraph.map(function(call){
 		let tab = call.source.split(":")[0].split(".");
@@ -173,5 +171,13 @@ function getTestByName(name, tests){
 	return tests.filter(test => test.test == name)[0];
 }
 
+function anyAnalysisToDisplay(DOMel) {
+	ReactDOM.render(
+		<div className="no-analysis">
+			There is no analysis to display, please you must do some analysis before! 
+		</div>,
+		DOMel
+	);
+}
 
-export { displayStats }
+export { displayStats,anyAnalysisToDisplay }

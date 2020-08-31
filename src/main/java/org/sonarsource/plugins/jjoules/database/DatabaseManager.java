@@ -24,15 +24,13 @@ public class DatabaseManager {
 	public static final String USER = "sonar";
 	public static final String PASSWORD = "sonar";
 	
-	private static final String CREATE_TESTS_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS tests(id SERIAL NOT NULL ,test varchar(225) NOT NULL ,e_cpu INTEGER,"
-			+ "e_dram INTEGER,e_device INTEGER,duration INTEGER, analysed_at varchar(225) NOT NULL, PRIMARY KEY(id,analysed_at), UNIQUE(test,analysed_at)),"
-			+ "project_key  varchar(225) NOT NULL";
-	private static final String CREATE_TESTS_CALLGRAPH_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS callgraph(source varchar(225) NOT NULL,target varchar(225) NOT NULL,UNIQUE(source,target))";
+	public static final String CREATE_TESTS_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS tests(id SERIAL NOT NULL ,test varchar(225) NOT NULL ,e_cpu INTEGER,"
+			+ "e_dram INTEGER,e_device INTEGER,duration INTEGER, analysed_at varchar(225) NOT NULL, project_key  varchar(225) NOT NULL, PRIMARY KEY(id,analysed_at), UNIQUE(test,analysed_at))";
+	public static final String CREATE_TESTS_CALLGRAPH_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS callgraph(source varchar(225) NOT NULL,target varchar(225) NOT NULL,UNIQUE(source,target))";
 	
 	private static final String INSERT_QUERY = "INSERT INTO tests (test,e_cpu,e_dram,e_device,duration,analysed_at,project_key) VALUES (?,?,?,?,?,?,?)";
 	private static final String INSERT_CALLGRAPH_QUERY = "INSERT INTO callgraph (source,target) VALUES (?,?)";
 	
-//	select (component_uuid,status,created_at,updated_at) from ce_activity;
 	
 	
 	private static Connection CONNECTION = init();
@@ -51,10 +49,10 @@ public class DatabaseManager {
 		return null;
 	}
 	
-	public static void createTable() {
+	public static void createTable(String request) {
 		try {
 			
-			PreparedStatement pst = CONNECTION.prepareStatement(CREATE_TESTS_TABLE_QUERY);
+			PreparedStatement pst = CONNECTION.prepareStatement(request);
 			pst.execute();	
 			pst.close();	
 		} catch (SQLException e) {
@@ -121,49 +119,4 @@ public class DatabaseManager {
 		return res;
 	}
 	
-	public static void listeTestsTable(String query) {
-		try {
-			PreparedStatement pst = CONNECTION.prepareStatement(query);
-			
-			ResultSet res = pst.executeQuery();
-
-			while(res.next()) {
-								
-				System.out.print(res.getString(1));
-				System.out.print(" , "+res.getString(2));
-				System.out.print(" , "+res.getLong(3));
-				System.out.print(" , "+res.getLong(4));
-				System.out.print(" , "+res.getLong(5));
-				System.out.print(" , "+res.getInt(6));
-				System.out.println(" , "+res.getString(7));
-				
-//				System.out.print(res.getString(1));
-//				System.out.print(" , "+res.getString(2));
-//				System.out.print(" , "+res.getString(3));
-//				System.out.print(" , "+res.getString(4));
-//				System.out.print(" , "+res.getString(5));
-//				System.out.print(" , "+res.getString(6));
-//				System.out.print(" , "+res.getString(7));
-//				System.out.print(" , "+res.getString(8));
-//				System.out.print(" , "+res.getString(9));
-//				System.out.println(" , "+res.getString(10));
-
-			}
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	public static void main(String[] args){
-//		createTable();
-		String[] values = {"testTwo","2","10","22","15","10","test"};
-		//insertLineInTable(values);
-		// select component_uuid,created_at,islast,period1_mode from snapshots ORDER BY created_at ASC;
-		String qr = "SELECT * from tests";
-		String qr1 = "select * from snapshots";
-		String qr2 = "select component_uuid,status,created_at,updated_at from ce_activity";
-		//listeTestsTable(qr);
-		System.out.println(getLastSnapshot());
-	}
 }

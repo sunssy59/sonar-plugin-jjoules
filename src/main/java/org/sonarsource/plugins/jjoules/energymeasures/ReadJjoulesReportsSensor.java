@@ -85,6 +85,10 @@ public class ReadJjoulesReportsSensor implements Sensor {
 	}
 	
 	private void registreData(String project_key) {
+		
+		// Create tables if they do not exist
+		DatabaseManager.createTable(DatabaseManager.CREATE_TESTS_TABLE_QUERY);
+		DatabaseManager.createTable(DatabaseManager.CREATE_TESTS_CALLGRAPH_TABLE_QUERY);
 	
 		LOGGER.info("Start registring energy consumption data in database {} ...",DatabaseManager.URL );
 		String createdAt = DatabaseManager.getLastSnapshot();

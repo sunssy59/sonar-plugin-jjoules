@@ -1,4 +1,4 @@
-import {displayStats} from './utils';
+import {displayStats , anyAnalysisToDisplay} from './utils';
 
 function displayPageStats(projectKey,DOMel){
 	let url = "http://localhost:3000/snapshots_ids?limit=3";
@@ -10,6 +10,8 @@ function displayPageStats(projectKey,DOMel){
 		}).then((result) => {
 			if(result.length > 2)
 				getTestsForProject(projectKey,result[2].id,result[1].id,DOMel);
+			else
+				anyAnalysisToDisplay(DOMel);
 		},(err) => {
 			console.log(err);
 		});

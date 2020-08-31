@@ -20,7 +20,6 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
-
 public class SetEnergyOnFilesSensor implements Sensor {
 	private static final Logger LOGGER = Loggers.get(SetEnergyOnFilesSensor.class);
 	@Override

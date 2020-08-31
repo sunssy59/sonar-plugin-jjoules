@@ -8,6 +8,11 @@ const ENERGY_UNIT = "μJ";
 // const DURATION_UNIT = "nS";
 // const POWER_UNIT = "mW";
 
+
+/**
+ * Representation for only one energy test
+ * @param {status,last,actual,reviews} props 
+ */
 function EnergyTest(props) {
 	return (
 		<div className="result list-inline-item result-stats">
@@ -55,7 +60,7 @@ function DisplayLastAnalysis(props){
     let className = "last-test " + props.status;
     return props.status == "new" 
         ? <div className={className}> 
-            This test is new you must make two analyzes to have the history
+            This test is new you must make two analysis to have the history
         </div> 
         : <div className={className}>
             <div><strong>Energy_cpu: </strong> {props.last.e_cpu} {ENERGY_UNIT} </div>
@@ -107,6 +112,7 @@ function DisplayActualAnalysis(props){
                             <span className={'rating rating-'+props.actual.e_deviceTendency[0]} aria-label={'metric.has_rating_X.'+props.actual.e_deviceTendency[0]}>{props.actual.e_deviceTendency[0]}</span>
                         </div> 
                     </div>
+                    {/* display reviews if test rating is greater than A (+5%) */}
                     {(props.actual.e_deviceTendency[0] != "A" )? <Reviews reviews={props.reviews}/> : null}
                 </div>)
 }
@@ -180,6 +186,7 @@ function SVGStatus(props){
     )
 }
 
+
 class EnergyClassTest extends React.Component{
 
     constructor(props){
@@ -198,6 +205,7 @@ class EnergyClassTest extends React.Component{
                     <img src="https://img.icons8.com/ios-filled/50/000000/power-over-ethernet.png"/> {this.state.energyTest.name}
                     { (this.state.energyTest.status == "old" || this.state.energyTest.status == "deleted") ? <ButtonStat test={this.state.energyTest.name}/> : null}
                 </h3>
+                {/* display graph if test is old or deleted */}
                 { (this.state.energyTest.status == "old" || this.state.energyTest.status == "deleted") ? graphStat(this.state.energyTest.history,this.state.energyTest.name) : null}
                 
                 <EnergyTest
