@@ -1,5 +1,8 @@
 # sonar-plugin-jjoules
 
+First of all you must follow the instruction to install this project [juint-jjoules](https://github.com/Mamadou59/junit-jjoules) which depends on [j-joules](https://github.com/Mamadou59/j-joules)
+
+
 ## BUILD
 
 To build the project, use this command from the project root directory:
