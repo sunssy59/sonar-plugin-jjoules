@@ -81,7 +81,7 @@
   },
   "dependencies": {
     "backbone": "^1.4.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "jquery": "^1.11.0",
     "react-chartjs-2": "^2.9.0",
     "underscore": "^1.9.1"
